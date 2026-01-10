@@ -25,16 +25,18 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#" onclick="switchView('home', this)" class="active-link"><i class="fa-solid fa-house"></i> Inicio</a></li>
-                <li><a href="#" onclick="switchView('collection', this)"><i class="fa-solid fa-masks-theater"></i> Colección</a></li>
-                <li><a href="#" onclick="switchView('guides', this)"><i class="fa-solid fa-book-journal-whills"></i> Blog & Guías</a></li>
+                <!-- Usamos Hash links para navegación directa -->
+                <li><a href="#home" id="nav-home" class="active-link"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a href="#collection" id="nav-collection"><i class="fa-solid fa-masks-theater"></i> Colección</a></li>
+                <li><a href="#guides" id="nav-guides"><i class="fa-solid fa-book-journal-whills"></i> Blog & Guías</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         
-        <section id="home" class="active-view section-container">
+        <!-- VISTA: HOME -->
+        <section id="home" class="view-section active-view">
             
             <div class="spotlight-hero">
                 <img src="https://files.catbox.moe/vx4k8y.png" class="spotlight-bg" alt="Featured">
@@ -43,12 +45,12 @@
                     <h1 style="font-size: 2.5rem; margin: 10px 0;">Cassian d’Argonne</h1>
                     <p>La actualización más ambiciosa hasta la fecha. Voces integradas, lore expandido y 5 escenarios nuevos.</p>
                     <div style="margin-top: 20px; display: flex; gap: 15px; flex-wrap: wrap;">
-                        <button onclick="openModal('modal-cassian')" class="btn-iconic">
+                        <a href="#personaje/cassian" class="btn-iconic">
                             <i class="fa-solid fa-play"></i> Ver Tráiler
-                        </button>
-                        <button onclick="switchView('collection')" class="btn-iconic" style="background:transparent;">
+                        </a>
+                        <a href="#collection" class="btn-iconic" style="background:transparent;">
                             <i class="fa-solid fa-layer-group"></i> Ir a Colección
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -59,26 +61,27 @@
             </div>
             
             <div class="updates-grid">
-                <div class="glass-panel update-card" onclick="openModal('modal-blog-loras')" style="cursor: pointer; transition: 0.3s;">
+                <!-- Links directos a los blogs -->
+                <a href="#blog/loras" class="glass-panel update-card" style="text-decoration: none; color: inherit;">
                     <span class="update-date" style="color: #90ee90;"><i class="fa-regular fa-calendar"></i> 04 ABR</span>
                     <h4>About My Loras</h4>
                     <p style="font-size: 0.9rem;">Tutorial sobre PixAI: cómo usar mis estilos y conseguir puntos.</p>
                     <span style="font-size: 0.8rem; text-decoration: underline; color: var(--accent-color);">Leer más &rarr;</span>
-                </div>
+                </a>
 
-                <div class="glass-panel update-card" onclick="openModal('modal-blog-opensource')" style="cursor: pointer; transition: 0.3s;">
+                <a href="#blog/opensource" class="glass-panel update-card" style="text-decoration: none; color: inherit;">
                     <span class="update-date" style="color: #00bcd4;"><i class="fa-regular fa-calendar"></i> 02 FEB</span>
                     <h4>Código Abierto</h4>
                     <p style="font-size: 0.9rem;">Aclaración sobre la polémica reciente, Janitor y el scraping.</p>
                     <span style="font-size: 0.8rem; text-decoration: underline; color: var(--accent-color);">Leer más &rarr;</span>
-                </div>
+                </a>
 
-                <div class="glass-panel update-card" onclick="openModal('modal-blog-errores')" style="cursor: pointer; transition: 0.3s;">
+                <a href="#blog/errores" class="glass-panel update-card" style="text-decoration: none; color: inherit;">
                     <span class="update-date" style="color: #ff7f50;"><i class="fa-regular fa-calendar"></i> 17 ENE</span>
                     <h4>Errores Comunes</h4>
                     <p style="font-size: 0.9rem;">Soluciones a respuestas cortadas y loops en el rol.</p>
                     <span style="font-size: 0.8rem; text-decoration: underline; color: var(--accent-color);">Leer más &rarr;</span>
-                </div>
+                </a>
             </div>
 
             <div class="section-header" style="margin-top: 60px;">
@@ -120,9 +123,9 @@
                 </div>
             </div>
         </section>
-¿
 
-        <section id="collection" class="section-container">
+        <!-- VISTA: COLECCIÓN -->
+        <section id="collection" class="view-section">
             <div class="section-header">
                 <h2>Mis Creaciones</h2>
                 
@@ -142,6 +145,7 @@
             </div>
             
             <div class="grid">
+                <!-- LIN -->
                 <div class="glass-panel card" data-tags="ceo rivals amnesia marriage angst modern">
                     <div class="card-image-container">
                         <img src="https://files.catbox.moe/hpfrnz.png" loading="lazy" alt="Lín Jìngyuān" class="card-img">
@@ -155,12 +159,13 @@
                             <span class="tag">#Amnesia</span>
                         </div>
                         <p class="short-desc">Tu esposo y CEO. Para ti, un rival odiado. Para él, una segunda oportunidad.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-lin')">
+                        <a href="#personaje/lin" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-eye"></i> Acceder al Archivo
-                        </button>
+                        </a>
                     </div>
                 </div>
 
+                <!-- EIDEN -->
                 <div class="glass-panel card" data-tags="gamer university comedy romance identity modern">
                     <div class="card-image-container">
                         <img src="https://files.catbox.moe/iu2i78.png" loading="lazy" alt="Eiden R. Kael" class="card-img">
@@ -174,12 +179,13 @@
                             <span class="tag">#Romance</span>
                         </div>
                         <p class="short-desc">Tu amor platónico en el campus. Tu némesis en el servidor.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-eiden')">
+                        <a href="#personaje/eiden" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-eye"></i> Acceder al Archivo
-                        </button>
+                        </a>
                     </div>
                 </div>
 
+                <!-- ELIO -->
                 <div class="glass-panel card" data-tags="racer university romance anxiety celebrity modern">
                     <div class="card-image-container">
                         <img src="https://files.catbox.moe/yhg6py.png" loading="lazy" alt="Elio Silvani" class="card-img">
@@ -193,12 +199,13 @@
                             <span class="tag">#Celebrity</span>
                         </div>
                         <p class="short-desc">Piloto Mercedes, estudiante insomne. En la pista es letal, pero fuera de ella colapsa si no estás.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-elio')">
+                        <a href="#personaje/elio" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-eye"></i> Acceder al Archivo
-                        </button>
+                        </a>
                     </div>
                 </div>
 
+                <!-- CASSIAN -->
                 <div class="glass-panel card" data-tags="darkromance dragon royalty angst fantasy">
                     <div class="card-image-container">
                         <img src="https://files.catbox.moe/r8wull.png" loading="lazy" alt="Cassian d’Argonne" class="card-img">
@@ -212,12 +219,13 @@
                             <span class="tag">#Fantasy</span>
                         </div>
                         <p class="short-desc">El "Rey Mercenario" ha vuelto con sangre de dragón para reclamar lo que es suyo.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-cassian')">
+                        <a href="#personaje/cassian" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-eye"></i> Acceder al Archivo
-                        </button>
+                        </a>
                     </div>
                 </div>
 
+                <!-- MO BAI -->
                 <div class="glass-panel card" data-tags="murim fantasy angst cultivation wip">
                     <div class="card-image-container">
                         <img src="https://files.catbox.moe/q8mk46.png" loading="lazy" alt="Mo Bai" class="card-img">
@@ -231,12 +239,13 @@
                             <span class="tag">#Angst</span>
                         </div>
                         <p class="short-desc">Exiliado de su secta por salvar a su hermana. Ahora vaga con ojos malditos y una corrupción que lo consume.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-mobai')">
+                        <a href="#personaje/mobai" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-eye"></i> Ver Lore Completo
-                        </button>
+                        </a>
                     </div>
                 </div>
 
+                <!-- LYSANDER -->
                 <div class="glass-panel card" data-tags="modern taboo family romance wip">
                     <div class="card-image-container">
                         <img src="https://files.catbox.moe/xdez0p.png" loading="lazy" alt="Lysander" class="card-img">
@@ -250,12 +259,13 @@
                             <span class="tag">#SlowBurn</span>
                         </div>
                         <p class="short-desc">El "tercer hermano" que siempre estuvo ahí. Hasta que te fuiste y regresaste diferente.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-lysander')">
+                        <a href="#personaje/lysander" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-eye"></i> Ver Trama
-                        </button>
+                        </a>
                     </div>
                 </div>
 
+                <!-- THANOM -->
                 <div class="glass-panel card" data-tags="boxer darkromance bl crime wip">
                     <div class="card-image-container">
                         <img src="https://files.catbox.moe/w9g2v3.png" loading="lazy" alt="Thanom" class="card-img">
@@ -269,12 +279,13 @@
                             <span class="tag">#Mafia</span>
                         </div>
                         <p class="short-desc">Sobreviviente del circuito clandestino. Tú eres su salvación y su condena.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-thanom')">
+                        <a href="#personaje/thanom" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-eye"></i> Ver Trama
-                        </button>
+                        </a>
                     </div>
                 </div>
 
+                <!-- AKARI -->
                 <div class="glass-panel card" data-tags="yakuza detective romance modern wip">
                     <div class="card-image-container">
                         <img src="https://files.catbox.moe/bwoq17.png" loading="lazy" alt="Akari" class="card-img" style="filter: brightness(0.7);">
@@ -288,12 +299,13 @@
                             <span class="tag">#Rivals</span>
                         </div>
                         <p class="short-desc">Segunda Generación. Una joya del crimen organizado y un detective infiltrado.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-akari')">
+                        <a href="#personaje/akari" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-eye"></i> Ver Trama
-                        </button>
+                        </a>
                     </div>
                 </div>
 
+                <!-- ARTHITSEN -->
                 <div class="glass-panel card" data-tags="muaythai legacy rivals modern wip">
                     <div class="card-image-container">
                         <img src="https://files.catbox.moe/n8k5ad.png" loading="lazy" alt="Arthitsen" class="card-img">
@@ -307,16 +319,16 @@
                             <span class="tag">#Rivals</span>
                         </div>
                         <p class="short-desc">Tercera Generación. Nieto de Thanom. Busca redención en el ring con su apellido real.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-arthitsen')">
+                        <a href="#personaje/arthitsen" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-eye"></i> Ver Trama
-                        </button>
+                        </a>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="guides" class="section-container">
+        <!-- VISTA: GUÍAS Y BLOGS -->
+        <section id="guides" class="view-section">
             <div class="section-header">
                 <h2>El Archivo</h2>
                 <p class="subtitle">Pensamientos • Aprendizaje • Novedades</p>
@@ -344,9 +356,9 @@
                         </div>
                         <h3>ABOUT MY LORAS</h3>
                         <p class="short-desc">Mini tutorial y divulgación sobre mis LorA's en PixAI. Cómo usarlos y farmear puntos.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-blog-loras')">
+                        <a href="#blog/loras" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-paintbrush"></i> Leer Tutorial
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -362,9 +374,9 @@
                         </div>
                         <h3>CÓDIGO ABIERTO</h3>
                         <p class="short-desc">¿Qué es realmente el Open Source? Aclaraciones sobre la polémica reciente, Janitor y Venus.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-blog-opensource')">
+                        <a href="#blog/opensource" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-code"></i> Leer Aclaración
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -380,9 +392,9 @@
                         </div>
                         <h3>ERRORES COMUNES</h3>
                         <p class="short-desc">Respuestas cortadas, repetición, el bot hablando por ti... Soluciones rápidas y empíricas.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-blog-errores')">
+                        <a href="#blog/errores" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-screwdriver-wrench"></i> Leer Soluciones
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -398,276 +410,710 @@
                         </div>
                         <h3>ABOUT CANONS</h3>
                         <p class="short-desc">¿Qué significa realmente "Canon"? Un análisis sobre terminología, fanon y headcanons.</p>
-                        <button class="btn-iconic" style="width:100%" onclick="openModal('modal-blog-canon')">
+                        <a href="#blog/canon" class="btn-iconic" style="width:100%">
                             <i class="fa-solid fa-book-open"></i> Leer Artículo
-                        </button>
+                        </a>
                     </div>
                 </div>
 
             </div>
         </section>
 
-<div id="modal-blog-loras" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-blog-loras')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/5t329j.png" alt="Banner Loras" class="modal-banner">
-                <div class="modal-title-box">
-                    <h2>ABOUT MY LORAS</h2>
-                    <p class="quote">04 de Abril del 2025 • Tutorial</p>
-                </div>
-            </div>
+        <!-- =============================================
+             VISTAS DE DETALLE (ANTES MODALES)
+             Se han convertido en secciones completas
+             ============================================= -->
+
+        <!-- VISTA DETALLE: LORAS BLOG -->
+        <section id="blog/loras" class="view-section detail-view">
+            <a href="#guides" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Guías</a>
             
-            <div class="modal-body">
-                <div class="blog-content">
-                    <p style="text-align:center; opacity:0.8;">୧ * ──────────────────── • ｡ﾟﾟ</p>
-                    
-                    <p><strong>: : ¡𝗛𝗼𝗹𝗮 𝗮 𝘁𝗼𝗱𝗼𝘀!</strong> Últimamente he estado compartiendo información sobre mis 𝗟𝗼𝗿𝗔'𝘀: dónde encontrarlos, cómo usarlos, etc. Algunos incluso me han enviado mensajes directos preguntando al respecto (lo cual agradezco). Sin embargo, sé que al igual que yo, hay muchas personas a las que les da pena preguntar, o que simplemente tienen pocos -o ningún- conocimiento sobre 𝗣𝗶𝘅𝗔𝗜.</p>
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/5t329j.png" alt="Banner Loras" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>ABOUT MY LORAS</h2>
+                        <p class="quote">04 de Abril del 2025 • Tutorial</p>
+                    </div>
+                </div>
+                
+                <div class="detail-body">
+                    <div class="blog-content">
+                        <p style="text-align:center; opacity:0.8;">୧ * ──────────────────── • ｡ﾟﾟ</p>
+                        
+                        <p><strong>: : ¡𝗛𝗼𝗹𝗮 𝗮 𝘁𝗼𝗱𝗼𝘀!</strong> Últimamente he estado compartiendo información sobre mis 𝗟𝗼𝗿𝗔'𝘀: dónde encontrarlos, cómo usarlos, etc. Algunos incluso me han enviado mensajes directos preguntando al respecto (lo cual agradezco). Sin embargo, sé que al igual que yo, hay muchas personas a las que les da pena preguntar, o que simplemente tienen pocos -o ningún- conocimiento sobre 𝗣𝗶𝘅𝗔𝗜.</p>
 
-                    <p style="text-align:center;">︵ Estɑ guíɑ es pɾecisɑɱeƞte 𝗽𝗮𝗿𝗮 𝘂𝘀𝘁𝗲𝗱𝗲𝘀. ◌Ⳋ𝅄 ⸜(｡˃ ᵕ ˂ )⸝♡</p>
+                        <p style="text-align:center;">︵ Estɑ guíɑ es pɾecisɑɱeƞte 𝗽𝗮𝗿𝗮 𝘂𝘀𝘁𝗲𝗱𝗲𝘀. ◌Ⳋ𝅄 ⸜(｡˃ ᵕ ˂ )⸝♡</p>
 
-                    <p>No me extenderé demasiado para evitar una sobrecarga visual. Es un mini tutorial y, al mismo tiempo, una pequeña divulgación informativa sólo sobre mis LorA's, probablemente después haga un tutorial más técnico acerca de PixAI (?ᐢᗜᐢ)</p>
+                        <p>No me extenderé demasiado para evitar una sobrecarga visual. Es un mini tutorial y, al mismo tiempo, una pequeña divulgación informativa sólo sobre mis LorA's, probablemente después haga un tutorial más técnico acerca de PixAI (?ᐢᗜᐢ)</p>
 
-                    <p><em>𓂃🖊 𝑵𝑶𝑻𝑨: Mi método de aprendizaje ha sido empírico e interactivo. No esperen demasiados tecnicismos ni explicaciones científicas; simplemente fui una persona curiosa probando funciones y descubriendo cosas sobre la marcha. Si tienen alguna duda, pueden dejarla en los comentarios o escribirme por NGL si se sienten más cómodos con ese medio. ᓚ₍ ^. .^₎</em></p>
+                        <p><em>𓂃🖊 𝑵𝑶𝑻𝑨: Mi método de aprendizaje ha sido empírico e interactivo. No esperen demasiados tecnicismos ni explicaciones científicas; simplemente fui una persona curiosa probando funciones y descubriendo cosas sobre la marcha. Si tienen alguna duda, pueden dejarla en los comentarios o escribirme por NGL si se sienten más cómodos con ese medio. ᓚ₍ ^. .^₎</em></p>
 
-                    <div class="blog-index">
-                        <strong>➛ I n d i c e 🦋 ೃ</strong>
+                        <div class="blog-index">
+                            <strong>➛ I n d i c e 🦋 ೃ</strong>
+                            <ul>
+                                <li>1. ↳ [ ✦ ] INTRODUCCIÓN</li>
+                                <li>2. ↳ [ ✦ ] MIS LORA'S</li>
+                                <li>3. ↳ [ ✦ ] PUNTOS</li>
+                                <li>4. ↳ [ ✦ ] CONCLUSIÓN Y TIPS</li>
+                            </ul>
+                        </div>
+
+                        <h3>[ ✦ ] INTRODUCCIÓN</h3>
+                        <p>Recientemente, PixAI se ha vuelto bastante popular en la comunidad. Antes de hablar sobre mis LorA’s, es importante que tengas claro qué es PixAI:</p>
+
+                        <p><strong>𐙚 ¿Ｑｕｅ ｅｓ ＰｉｘＡＩ？ ౨ৎ˚₊‧</strong><br>
+                        Es un 𝘀𝗶𝘁𝗶𝗼 𝘄𝗲𝗯 (y también una 𝗮𝗽𝗽) diseñado para la generación de imágenes mediante prompts. Su sistema de indicaciones es muy similar al de 𝗡𝗶𝗷𝗶 o 𝗠𝗶𝗱𝗷𝗼𝘂𝗿𝗻𝗲𝘆, así que si ya los has usado, te será fácil adaptarte.</p>
+
+                        <p><strong>𐙚 ¿Ｑｕｅ ｅｓ ｕｎ ＬｏｒＡ？ ౨ৎ˚₊‧</strong><br>
+                        “Son una técnica de inteligencia artificial que permite adaptar modelos grandes a tareas específicas. […] Utilizan algoritmos de deep learning para aprender las 𝗰𝗮𝗿𝗮𝗰𝘁𝗲𝗿𝗶𝘀𝘁𝗶𝗰𝗮𝘀 y 𝗲𝘀𝘁𝗶𝗹𝗼𝘀 de las 𝗶𝗺𝗮𝗴𝗲𝗻𝗲𝘀 de muestra." En resumidas cuentas, imita ciertos estilos en específico y los replica. (⁠≧⁠▽⁠≦⁠)</p>
+
+                        <p><strong>𐙚 ¿ŊUŊCA HAS USAƉO ALGO ASÍ? ౨ৎ˚₊‧</strong><br>
+                        ¡No pasa nada! PixAI es muy amigable con los 𝗽𝗿𝗶𝗻𝗰𝗶𝗽𝗶𝗮𝗻𝘁𝗲𝘀. Solo tienes que escribir el prompt como prefieras, y la plataforma se encargará de crear imágenes de excelente calidad. (❁ᴗ͈ˬᴗ͈)</p>
+
+                        <h3>[ ✦ ] MIS LORA'S</h3>
+                        <p>Puedes encontrar todos mis LorA’s en el siguiente enlace: <a href="https://pixai.art/@angiee143/artworks" target="_blank" style="color:var(--accent-color);">pixai.art/@angiee143/artworks</a><br>
+                        Si el enlace no abre directamente, puedes ir a mi perfil, buscar la sección de “𝗘𝗻𝗹𝗮𝗰𝗲𝘀” y desde ahí acceder. Y si todavía sigues con problemas, entra a PixAI, en la sección del buscador coloca “angiee143” y cambia a “Usuarios”. ૮꒰ ˶• ༝ •˶꒱ა ♡</p>
+
+                        <p><strong>𐙚 ¿Ｅｒｅｓ ｅｘｐｌｏｒａｄｏｒ？ ౨ৎ˚₊‧</strong><br>
+                        Puedes 𝗲𝘅𝗽𝗲𝗿𝗶𝗺𝗲𝗻𝘁𝗮𝗿 libremente agregando mis LorA’s a tus bases de confianza y probar combinaciones hasta encontrar la que más te guste. ᐢᗜᐢ</p>
+
+                        <p><strong>𐙚 ¿Ｅｒｅｓ Ｎｏｖａｔｏ？ ౨ৎ˚₊‧</strong><br>
+                        ¿Eres principiante y cuidas tus puntos? No hay problema. Solo entra a mi perfil, busca una imagen que te llame la atención y que encaje con lo que quieres generar, y selecciona la opción “𝗨𝘀𝗮𝗿 𝗰𝗼𝗺𝗼 𝗿𝗲𝗳𝗲𝗿𝗲𝗻𝗰𝗶𝗮.” ૮ ˶ᵔ ᵕ ᵔ˶ ა</p>
+
+                        <p><em>𓂃🖊 𝑵𝑶𝑻𝑨: No tengo mis prompts públicos porque muchas veces son muy al azar. Mis configuraciones están hechas para que funcionen con casi cualquier indicación. Eso sí, recomiendo evitar el formato “W++”, por ejemplo: Tipo de Arte (texto+texto). ≽ܫ≼</em></p>
+
+                        <h3>[ ✦ ] PUNTOS</h3>
+                        <p>¡Oh no! ¡Se me acabaron los puntos! (ꐦ ◣‸◢) Tranquilo, amiwuito, hay varias formas de farmear puntos en PixAI:</p>
+                        
+                        <p><strong>⌗ ᑌSᗩᑎᗪO ᒪᗩ ᗩᑭᑭ ౨ৎ˚₊‧</strong></p>
                         <ul>
-                            <li>1. ↳ [ ✦ ] INTRODUCCIÓN</li>
-                            <li>2. ↳ [ ✦ ] MIS LORA'S</li>
-                            <li>3. ↳ [ ✦ ] PUNTOS</li>
-                            <li>4. ↳ [ ✦ ] CONCLUSIÓN Y TIPS</li>
+                            <li>𝟭𝟬,𝟬𝟬𝟬 puntos diarios por reclamación normal.</li>
+                            <li>𝟬𝟱,𝟬𝟬𝟬 puntos por ver un anuncio.</li>
+                            <li>𝟬𝟭,𝟬𝟬𝟬 puntos por compartir un link de una obra (máximo 3 veces al día).</li>
                         </ul>
-                    </div>
 
-                    <h3>[ ✦ ] INTRODUCCIÓN</h3>
-                    <p>Recientemente, PixAI se ha vuelto bastante popular en la comunidad. Antes de hablar sobre mis LorA’s, es importante que tengas claro qué es PixAI:</p>
-
-                    <p><strong>𐙚 ¿Ｑｕｅ ｅｓ ＰｉｘＡＩ？ ౨ৎ˚₊‧</strong><br>
-                    Es un 𝘀𝗶𝘁𝗶𝗼 𝘄𝗲𝗯 (y también una 𝗮𝗽𝗽) diseñado para la generación de imágenes mediante prompts. Su sistema de indicaciones es muy similar al de 𝗡𝗶𝗷𝗶 o 𝗠𝗶𝗱𝗷𝗼𝘂𝗿𝗻𝗲𝘆, así que si ya los has usado, te será fácil adaptarte.</p>
-
-                    <p><strong>𐙚 ¿Ｑｕｅ ｅｓ ｕｎ ＬｏｒＡ？ ౨ৎ˚₊‧</strong><br>
-                    “Son una técnica de inteligencia artificial que permite adaptar modelos grandes a tareas específicas. […] Utilizan algoritmos de deep learning para aprender las 𝗰𝗮𝗿𝗮𝗰𝘁𝗲𝗿𝗶𝘀𝘁𝗶𝗰𝗮𝘀 y 𝗲𝘀𝘁𝗶𝗹𝗼𝘀 de las 𝗶𝗺𝗮𝗴𝗲𝗻𝗲𝘀 de muestra." En resumidas cuentas, imita ciertos estilos en específico y los replica. (⁠≧⁠▽⁠≦⁠)</p>
-
-                    <p><strong>𐙚 ¿ŊUŊCA HAS USAƉO ALGO ASÍ? ౨ৎ˚₊‧</strong><br>
-                    ¡No pasa nada! PixAI es muy amigable con los 𝗽𝗿𝗶𝗻𝗰𝗶𝗽𝗶𝗮𝗻𝘁𝗲𝘀. Solo tienes que escribir el prompt como prefieras, y la plataforma se encargará de crear imágenes de excelente calidad. (❁ᴗ͈ˬᴗ͈)</p>
-
-                    <h3>[ ✦ ] MIS LORA'S</h3>
-                    <p>Puedes encontrar todos mis LorA’s en el siguiente enlace: <a href="https://pixai.art/@angiee143/artworks" target="_blank" style="color:var(--accent-color);">pixai.art/@angiee143/artworks</a><br>
-                    Si el enlace no abre directamente, puedes ir a mi perfil, buscar la sección de “𝗘𝗻𝗹𝗮𝗰𝗲𝘀” y desde ahí acceder. Y si todavía sigues con problemas, entra a PixAI, en la sección del buscador coloca “angiee143” y cambia a “Usuarios”. ૮꒰ ˶• ༝ •˶꒱ა ♡</p>
-
-                    <p><strong>𐙚 ¿Ｅｒｅｓ ｅｘｐｌｏｒａｄｏｒ？ ౨ৎ˚₊‧</strong><br>
-                    Puedes 𝗲𝘅𝗽𝗲𝗿𝗶𝗺𝗲𝗻𝘁𝗮𝗿 libremente agregando mis LorA’s a tus bases de confianza y probar combinaciones hasta encontrar la que más te guste. ᐢᗜᐢ</p>
-
-                    <p><strong>𐙚 ¿Ｅｒｅｓ Ｎｏｖａｔｏ？ ౨ৎ˚₊‧</strong><br>
-                    ¿Eres principiante y cuidas tus puntos? No hay problema. Solo entra a mi perfil, busca una imagen que te llame la atención y que encaje con lo que quieres generar, y selecciona la opción “𝗨𝘀𝗮𝗿 𝗰𝗼𝗺𝗼 𝗿𝗲𝗳𝗲𝗿𝗲𝗻𝗰𝗶𝗮.” ૮ ˶ᵔ ᵕ ᵔ˶ ა</p>
-
-                    <p><em>𓂃🖊 𝑵𝑶𝑻𝑨: No tengo mis prompts públicos porque muchas veces son muy al azar. Mis configuraciones están hechas para que funcionen con casi cualquier indicación. Eso sí, recomiendo evitar el formato “W++”, por ejemplo: Tipo de Arte (texto+texto). ≽ܫ≼</em></p>
-
-                    <h3>[ ✦ ] PUNTOS</h3>
-                    <p>¡Oh no! ¡Se me acabaron los puntos! (ꐦ ◣‸◢) Tranquilo, amiwuito, hay varias formas de farmear puntos en PixAI:</p>
-                    
-                    <p><strong>⌗ ᑌSᗩᑎᗪO ᒪᗩ ᗩᑭᑭ ౨ৎ˚₊‧</strong></p>
-                    <ul>
-                        <li>𝟭𝟬,𝟬𝟬𝟬 puntos diarios por reclamación normal.</li>
-                        <li>𝟬𝟱,𝟬𝟬𝟬 puntos por ver un anuncio.</li>
-                        <li>𝟬𝟭,𝟬𝟬𝟬 puntos por compartir un link de una obra (máximo 3 veces al día).</li>
-                    </ul>
-
-                    <p><strong>⌗ ᑭᑌᗷᒪIᑕᗩᑎᗪO TᑌS IᗰᗩGᕮᑎᕮS ౨ৎ˚₊‧</strong></p>
-                    <ul>
-                        <li>Puedes subir hasta 10 imágenes al día y ganar 𝟭,𝟬𝟬𝟬 puntos por cada una.</li>
-                        <li>Cada "me gusta" que recibas te da 10 puntos (hasta un máximo de 𝟭𝟬𝟬 puntos diarios).</li>
-                    </ul>
-
-                    <h3>[ ✦ ] CONCLUSIÓN Y TIPS</h3>
-                    <p>Primero que nada, 𝗴𝗿𝗮𝗰𝗶𝗮𝘀 𝗽𝗼𝗿 𝗹𝗹𝗲𝗴𝗮𝗿 𝗵𝗮𝘀𝘁𝗮 𝗮𝗾𝘂𝗶. Me tomó bastante tiempo hacer una investigación. ૮ ˶︶^︶˶ ა</p>
-
-                    <p>Seguido a ello, quiero enclarecer que Sí, sí es posible usar los estilos de 𝗡𝗼𝘃𝗲𝗹𝗔𝗜 en PixAI, puedes usar artistas colocando “Artist By: kittew” “Artist By: wengwengchim” o similares en tu promptcito.</p>
-
-                    <p><strong>𐙚 ¿Ａｕｎ ｔｉｅｎｅｓ ｄｕｄａｓ？ ౨ৎ˚₊‧</strong><br>
-                    No te preocupes, puedes 𝗲𝘀𝗰𝗿𝗶𝗯𝗶𝗿𝗺𝗲 𝗽𝗼𝗿 𝗗𝗠 y haré 𝗹𝗼 𝗽𝗼𝘀𝗶𝗯𝗹𝗲 por ayudarte. Además, todas las configuraciones que he publicado ya están testeadas, así que puedes 𝘂𝘀𝗮𝗿𝗹𝗮𝘀 𝘀𝗶𝗻 𝗺𝗶𝗲𝗱𝗼 a desperdiciar tus puntos.</p>
-
-                    <div class="blog-footer">
-                        Oh no, mi creatividad se ha agotado y ya no tengo idea de qué más decir T-T. Este koala se despide. 🐨 Y lo hace con la frase más icónica de los memes: <br>
-                        “𝑳𝒐𝒔 𝒒𝒖𝒊𝒆𝒓𝒐 𝒎𝒖𝒄𝒉𝒐, 𝒚 𝒍𝒐𝒔 𝒒𝒖𝒊𝒆𝒓𝒐 𝒗𝒆𝒓 𝒕𝒓𝒊𝒖𝒏𝒇𝒂𝒓”
-                        <br><br>
-                        ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
-                    </div>
-                </div>
-                
-                <div class="modal-actions">
-                    <button class="btn-action primary" onclick="closeModal('modal-blog-loras')">Cerrar Tutorial</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-blog-opensource" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-blog-opensource')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/sfjt1k.webp" alt="Banner Open Source" class="modal-banner">
-                <div class="modal-title-box">
-                    <h2>CÓDIGO ABIERTO</h2>
-                    <p class="quote">02 de Febrero del 2025 • Información</p>
-                </div>
-            </div>
-            
-            <div class="modal-body">
-                <div class="blog-content">
-                    <p><strong>: : ¡Hola a todos!</strong> Dada la reciente situación, estuve viendo que hay muchas confusiones respecto a que es un programa de código abierto, así que explicaré muy brevemente todo.</p>
-                    
-                    <p>Este post estará dividido en secciones, eres libre de leer o de no hacerlo. De antemano pido disculpas por mi extensión en palabras, pero busco dejar en claro lo máximo posible para evitar confusiones.</p>
-
-                    <div style="text-align: center; margin: 20px 0; opacity: 0.5;">✦•·························•✦•·························•✦</div>
-
-                    <h3>[ ✦ ] CÓDIGO ABIERTO</h3>
-                    <p>Dentro del mundo de Informática, programación y derivados, un programa de código abierto refiere a aquél disponible públicamente para acceso general a cualquier persona. En palabras sencillas, cualquier persona puede ver, modificar y mejorar su “código fuente”. Básicamente puedes agregar o quitar cualquier cosa según sea tu voluntad.</p>
-                    <p><strong>No.</strong> No todos los bots ahí son subidos por un “tercero” que plagió la obra original. Según estuve observando, (no confirmado totalmente), obtiene información de Janitor y Chub/Venus ‘copiandola’ y ‘trasladándola’ a su servidor. En ocasiones te crea ‘a la fuerza’ un perfil si ya tienes un perfil en alguno de esos servidores.</p>
-
-                    <div style="text-align: center; margin: 20px 0; opacity: 0.5;">✦•·························•✦•·························•✦</div>
-
-                    <h3>[ ✦ ] ACLARACIONES</h3>
-                    <p>Sin embargo, hay dos cosas que se deben mencionar aquí respecto a eso:</p>
-                    <ul>
-                        <li>Los plagios sucedidos dentro de esta aplicación no son directamente sucedidos dentro de la misma, en su mayoría de veces son recolectados de Janitor y Chub, ya sea por otro usuario o la propia cuenta de los creadores.</li>
-                        <li>Según estuve leyendo, ninguna de estas dos páginas tiene algún convenio con otro servidor para prestar sus datos. Tanto Janitor como Venus declaran que cierta parte de propiedad intelectual de bots que publiques será asumida a ellos a menos que incumpla sus políticas de uso, que en ese caso la penalización e indemnización pasa a ser algo no atribuido al servidor sino al usuario.</li>
-                    </ul>
-                    <p>Con ello me refiero a que en teoría ya sea plagio dentro de la aplicación mencionada en la polémica o en Venus/Janitor, ambas son no autorizadas por ellos. En caso de querer hacer una queja formal con posibilidad de escala a lo legal es válido si demuestra.</p>
-
-                    <div style="text-align: center; margin: 20px 0; opacity: 0.5;">✦•·························•✦•·························•✦</div>
-
-                    <div class="blog-footer">
-                        : : Si queda alguna duda, también eres bienvenido a comentarla y la resolveré en la medida de lo posible que mis escasos conocimientos puedan permitir.
-                        <br><br>
-                        Este post fué elaborado de manera apresurada después de leer brevemente las políticas de privacidad.
-                        <br><br>
-                        ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
-                    </div>
-                </div>
-                
-                <div class="modal-actions">
-                    <button class="btn-action primary" onclick="closeModal('modal-blog-opensource')">Cerrar Información</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-blog-errores" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-blog-errores')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/x1162e.png" alt="Banner Errores" class="modal-banner">
-                <div class="modal-title-box">
-                    <h2>ERRORES COMUNES</h2>
-                    <p class="quote">17 de Enero del 2025 • Tutorial</p>
-                </div>
-            </div>
-            
-            <div class="modal-body">
-                <div class="blog-content">
-                    <p><strong>: : ¡Hola a todos!</strong> Realmente no creí que alguien me mandaría mensaje en el link del secrets, entonces no lo habría, perdón si eres la persona que lo hizo 😭. A manera de disculpa, respondo a tu pregunta con un mini tutorial corto con información que espero te sirva.</p>
-                    <p>No tengo mucho que decir, realmente. Pero espero que está información llegue a las personas indicadas. Son tips que descubrí por cuenta propia que surgieron de manera empírica, por tanto es probable que no sirva siempre.</p>
-
-                    <div class="blog-index">
-                        <strong>➛ I n d i c e 🦋 ೃ</strong>
+                        <p><strong>⌗ ᑭᑌᗷᒪIᑕᗩᑎᗪO TᑌS IᗰᗩGᕮᑎᕮS ౨ৎ˚₊‧</strong></p>
                         <ul>
-                            <li>1. ↳ [ ✦ ] RESPUESTA INCONCLUSA</li>
-                            <li>2. ↳ [ ✦ ] REPETICIÓN</li>
-                            <li>3. ↳ [ ✦ ] APROPIACIÓN DE USUARIO</li>
-                            <li>4. ↳ [ ✦ ] FILTRO</li>
+                            <li>Puedes subir hasta 10 imágenes al día y ganar 𝟭,𝟬𝟬𝟬 puntos por cada una.</li>
+                            <li>Cada "me gusta" que recibas te da 10 puntos (hasta un máximo de 𝟭𝟬𝟬 puntos diarios).</li>
                         </ul>
-                    </div>
 
-                    <h3>[ ✦ ] RESPUESTA INCONCLUSA</h3>
-                    <p>Es probable que muchas o algunas veces al comenzar a generar respuestas, te haya pasado que la respuesta se corta a la mitad dejando inconcluso el rol.</p>
-                    <p><strong>Solución:</strong> La solución a ello es tan sencilla como desactivar la función de “Streaming”, disponible en el apartado en el que se colocan las JB que tiene un icono similar a un balanceo de configuración.</p>
+                        <h3>[ ✦ ] CONCLUSIÓN Y TIPS</h3>
+                        <p>Primero que nada, 𝗴𝗿𝗮𝗰𝗶𝗮𝘀 𝗽𝗼𝗿 𝗹𝗹𝗲𝗴𝗮𝗿 𝗵𝗮𝘀𝘁𝗮 𝗮𝗾𝘂𝗶. Me tomó bastante tiempo hacer una investigación. ૮ ˶︶^︶˶ ა</p>
 
-                    <h3>[ ✦ ] REPETICIÓN</h3>
-                    <p>Igual que el error anterior, puede ser que al llevar varios mensajes con un mismo bot, empiece a repetir información dicha por el usuario o por ellos mismos. No como un recordatorio de algo que iban a hacer en el rol, sino como una copia textual.</p>
-                    <p><strong>Solución:</strong> Cambia de modelo base por al menos una respuesta. ¿Tenías activo el GPT latest? Cambia a GPT 4-o. ¿Usabas Sonnet 3.5? Sonnet Latest. ¿Tenías command-r? command r-plus. ¿Gemini 1.5 pro? Cambia a la versión latest. ¿Mistral? Mistral medium latest.</p>
-                    <p>No es necesario cambiar especialmente a esos, simplemente doy ejemplos de cambios de modelos. En ocasiones es más servible cambiar directamente de JB por otro diferente. En caso de que la repetición siga, sólo edita el mensaje y recorta lo que repitió.</p>
+                        <p>Seguido a ello, quiero enclarecer que Sí, sí es posible usar los estilos de 𝗡𝗼𝘃𝗲𝗹𝗔𝗜 en PixAI, puedes usar artistas colocando “Artist By: kittew” “Artist By: wengwengchim” o similares en tu promptcito.</p>
 
-                    <h3>[ ✦ ] APROPIACIÓN</h3>
-                    <p>Este también es un error comúnmente visto, un buen JB no permite que ello pase, pero también sé que hay modelos que no cuentan con buenos JB’s o son escasos.</p>
-                    <p><strong>Solución:</strong> Solucionar ello es relativamente sencillo si tienes algún JB bueno que narre ambas acciones. Si son errores mínimos, solamente edita el mensaje y recorta esa parte. Si no es un error pequeño, no hay mucho que puedas hacer como usuario sin conocimientos de JB, dado que dependiendo del modelo, puede ignorar indicaciones de no asumir el rol del usuario.</p>
+                        <p><strong>𐙚 ¿Ａｕｎ ｔｉｅｎｅｓ ｄｕｄａｓ？ ౨ৎ˚₊‧</strong><br>
+                        No te preocupes, puedes 𝗲𝘀𝗰𝗿𝗶𝗯𝗶𝗿𝗺𝗲 𝗽𝗼𝗿 𝗗𝗠 y haré 𝗹𝗼 𝗽𝗼𝘀𝗶𝗯𝗹𝗲 por ayudarte. Además, todas las configuraciones que he publicado ya están testeadas, así que puedes 𝘂𝘀𝗮𝗿𝗹𝗮𝘀 𝘀𝗶𝗻 𝗺𝗶𝗲𝗱𝗼 a desperdiciar tus puntos.</p>
 
-                    <h3>[ ✦ ] FILTRO</h3>
-                    <p>No aplica en todos los casos, pero esto es una sugerencia tanto para usuarios como para creadores.</p>
-                    <p>Hay ocasiones en las que puede saltar el filtro cuándo no has hecho absolutamente nada inapropiado y la CARD tampoco contenía algo de esa índole. Existen ciertos modelos en los que si hay indicaciones referentes a cómo debe rolear la IA (“haz uso de los personajes NPC”, “Si el usuario te hace notas OCC, hazle caso”) te lanza un filtro. Solamente edita la CARD y borra la parte que contenga eso.</p>
-
-                    <div class="blog-footer">
-                        ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
+                        <div class="blog-footer">
+                            Oh no, mi creatividad se ha agotado y ya no tengo idea de qué más decir T-T. Este koala se despide. 🐨 Y lo hace con la frase más icónica de los memes: <br>
+                            “𝑳𝒐𝒔 𝒒𝒖𝒊𝒆𝒓𝒐 𝒎𝒖𝒄𝒉𝒐, 𝒚 𝒍𝒐𝒔 𝒒𝒖𝒊𝒆𝒓𝒐 𝒗𝒆𝒓 𝒕𝒓𝒊𝒖𝒏𝒇𝒂𝒓”
+                            <br><br>
+                            ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
+                        </div>
                     </div>
                 </div>
-                
-                <div class="modal-actions">
-                    <button class="btn-action primary" onclick="closeModal('modal-blog-errores')">Cerrar Tutorial</button>
-                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <div id="modal-blog-canon" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-blog-canon')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/sfjt1k.webp" alt="Banner Blog" class="modal-banner">
-                <div class="modal-title-box">
-                    <h2>ABOUT CANONS</h2>
-                    <p class="quote">13 de Enero del 2025 • Información</p>
-                </div>
-            </div>
+        <!-- VISTA DETALLE: OPEN SOURCE -->
+        <section id="blog/opensource" class="view-section detail-view">
+            <a href="#guides" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Guías</a>
             
-            <div class="modal-body">
-                <div class="blog-content">
-                    <p><strong>: : ¡Hola a todos!</strong> Recientemente me han salido varios posts refiriendo a diferencias de opiniones respecto a que significa esta palabra, como se usa e interpretaciones personales de cada individuo. Si bien no considero que dicha diferencia de pensamientos sea reciente, o deba referirse a ella como ‘polémica’, lo considero un tema interesante de debate.</p>
-                    
-                    <div class="blog-index">
-                        <strong>➛ I n d i c e 🦋 ೃ</strong>
-                        <ul>
-                            <li>1. ↳ [ ✦ ] ETIMONOLOGÍA</li>
-                            <li>2. ↳ [ ✦ ] TERMINOLOGÍA</li>
-                            <li>3. ↳ [ ✦ ] EN LA COMUNIDAD</li>
-                            <li>4. ↳ [ ✦ ] CONCLUSIONES Y OPINIONES</li>
-                        </ul>
-                    </div>
-
-                    <h3>[ ✦ ] ETIMOLOLOGÍA</h3>
-                    <p>La palabra canon proviene del griego κανών (canon), que según el contexto puede significar norma, vara de medir, o regla. Anteriormente dicha palabra era empleada por los griegos para referirse mayormente en contextos arquitectónicos y de carpintería.</p>
-                    <p>Más tarde Roma la empleó también, esta vez siendo utilizada en contextos más eclesiásticos, refiriendo a leyes o normas que tenía la iglesia.</p>
-
-                    <h3>[ ✦ ] TERMINOLOGÍA</h3>
-                    <p>Para esta comunidad -ChatBots y rol play con Inteligencias Artificiales- se empleó el significado popular del mundo del entrenamiento:</p>
-                    <ul>
-                        <li><strong>Cᴀɴᴏɴ:</strong> Inicialmente significa todo aquello que forma parte de la historia original. Comúnmente se refiere a todo aquello que sea reconocido oficialmente como parte de la historia o universo de una obra de ficción.</li>
-                        <li><strong>Fᴀɴᴏɴ:</strong> A diferencia del canon, esto no ha sido aceptado o confirmado oficialmente por el autor, pero recibe una amplia aceptación por parte de la comunidad de fanáticos.</li>
-                        <li><strong>Hᴇᴀᴅᴄᴀɴᴏɴ:</strong> Refiere a todo hecho que sólo es ‘canon’ dentro de tu propia mente. Incluye toda idea, interpretación o teoría personal que sacas por tu cuenta.</li>
-                    </ul>
-
-                    <h3>[ ✦ ] EN LA COMUNIDAD</h3>
-                    <p>Mayormente estos términos conservan los significados que se le atribuyen dentro del mundo cinematográfico, aunque principalmente se centra principalmente en la pareja oficial del bot; dichas decisiones sufren ligeras variaciones según el creador del bot decida o crea conveniente.</p>
-                    <p>En el canon, el autor puede decir que tanto peso o importancia le da a la pareja oficial del personaje. En algunos casos simplemente es un gesto de buena voluntad. Dicho canon puede reducirse a simplemente poner en sus descripciones públicas algo parecido a “Novio/Esposo/(apodo) de”.</p>
-
-                    <h3>[ ✦ ] CONCLUSIONES Y OPINIONES</h3>
-                    <p>El canon es un gesto de cariño. Cada creador decide qué reglas establece para darle el canon a alguien o si se abstiene de hacer dicha práctica.</p>
-                    <p>¿No usas bots si tienen canon? ¿Usas bots incluso tienen canon? Ambas opciones son completamente válidas y respetables siempre y cuándo te abstengas de hacer algo que afecte a un ajeno a tu mentalidad.</p>
-                    <p>Por último pero no menos importante, quiero decir que respecto a los canons que yo tengo, soy feliz con ellos. Cada persona crea su propia historia canon con sus personajes, contigo un bot puede ser lindo y tímido, pero con otra persona puede ser grosero y antipático, todo universo es canon para quién rolea.</p>
-
-                    <div class="blog-footer">
-                        : : ─ Cᴏɴᴄʟᴜsɪóɴ Sɪɴᴛᴇᴛɪᴢᴀᴅᴀ: Vive como quieras pensando como quieras pero no molestes a nadie más buscando dañar o perjudicar solo por no pensar como tú. Gracias por leer, te regalo un abrazo. ✨
-                        <br><br>
-                        ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/sfjt1k.webp" alt="Banner Open Source" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>CÓDIGO ABIERTO</h2>
+                        <p class="quote">02 de Febrero del 2025 • Información</p>
                     </div>
                 </div>
                 
-                <div class="modal-actions">
-                    <button class="btn-action primary" onclick="closeModal('modal-blog-canon')">Cerrar Artículo</button>
+                <div class="detail-body">
+                    <div class="blog-content">
+                        <p><strong>: : ¡Hola a todos!</strong> Dada la reciente situación, estuve viendo que hay muchas confusiones respecto a que es un programa de código abierto, así que explicaré muy brevemente todo.</p>
+                        
+                        <p>Este post estará dividido en secciones, eres libre de leer o de no hacerlo. De antemano pido disculpas por mi extensión en palabras, pero busco dejar en claro lo máximo posible para evitar confusiones.</p>
+
+                        <div style="text-align: center; margin: 20px 0; opacity: 0.5;">✦•·························•✦•·························•✦</div>
+
+                        <h3>[ ✦ ] CÓDIGO ABIERTO</h3>
+                        <p>Dentro del mundo de Informática, programación y derivados, un programa de código abierto refiere a aquél disponible públicamente para acceso general a cualquier persona. En palabras sencillas, cualquier persona puede ver, modificar y mejorar su “código fuente”. Básicamente puedes agregar o quitar cualquier cosa según sea tu voluntad.</p>
+                        <p><strong>No.</strong> No todos los bots ahí son subidos por un “tercero” que plagió la obra original. Según estuve observando, (no confirmado totalmente), obtiene información de Janitor y Chub/Venus ‘copiandola’ y ‘trasladándola’ a su servidor. En ocasiones te crea ‘a la fuerza’ un perfil si ya tienes un perfil en alguno de esos servidores.</p>
+
+                        <div style="text-align: center; margin: 20px 0; opacity: 0.5;">✦•·························•✦•·························•✦</div>
+
+                        <h3>[ ✦ ] ACLARACIONES</h3>
+                        <p>Sin embargo, hay dos cosas que se deben mencionar aquí respecto a eso:</p>
+                        <ul>
+                            <li>Los plagios sucedidos dentro de esta aplicación no son directamente sucedidos dentro de la misma, en su mayoría de veces son recolectados de Janitor y Chub, ya sea por otro usuario o la propia cuenta de los creadores.</li>
+                            <li>Según estuve leyendo, ninguna de estas dos páginas tiene algún convenio con otro servidor para prestar sus datos. Tanto Janitor como Venus declaran que cierta parte de propiedad intelectual de bots que publiques será asumida a ellos a menos que incumpla sus políticas de uso, que en ese caso la penalización e indemnización pasa a ser algo no atribuido al servidor sino al usuario.</li>
+                        </ul>
+                        <p>Con ello me refiero a que en teoría ya sea plagio dentro de la aplicación mencionada en la polémica o en Venus/Janitor, ambas son no autorizadas por ellos. En caso de querer hacer una queja formal con posibilidad de escala a lo legal es válido si demuestra.</p>
+
+                        <div style="text-align: center; margin: 20px 0; opacity: 0.5;">✦•·························•✦•·························•✦</div>
+
+                        <div class="blog-footer">
+                            : : Si queda alguna duda, también eres bienvenido a comentarla y la resolveré en la medida de lo posible que mis escasos conocimientos puedan permitir.
+                            <br><br>
+                            Este post fué elaborado de manera apresurada después de leer brevemente las políticas de privacidad.
+                            <br><br>
+                            ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+
+        <!-- VISTA DETALLE: ERRORES -->
+        <section id="blog/errores" class="view-section detail-view">
+            <a href="#guides" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Guías</a>
+            
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/x1162e.png" alt="Banner Errores" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>ERRORES COMUNES</h2>
+                        <p class="quote">17 de Enero del 2025 • Tutorial</p>
+                    </div>
+                </div>
+                
+                <div class="detail-body">
+                    <div class="blog-content">
+                        <p><strong>: : ¡Hola a todos!</strong> Realmente no creí que alguien me mandaría mensaje en el link del secrets, entonces no lo habría, perdón si eres la persona que lo hizo 😭. A manera de disculpa, respondo a tu pregunta con un mini tutorial corto con información que espero te sirva.</p>
+                        <p>No tengo mucho que decir, realmente. Pero espero que está información llegue a las personas indicadas. Son tips que descubrí por cuenta propia que surgieron de manera empírica, por tanto es probable que no sirva siempre.</p>
+
+                        <div class="blog-index">
+                            <strong>➛ I n d i c e 🦋 ೃ</strong>
+                            <ul>
+                                <li>1. ↳ [ ✦ ] RESPUESTA INCONCLUSA</li>
+                                <li>2. ↳ [ ✦ ] REPETICIÓN</li>
+                                <li>3. ↳ [ ✦ ] APROPIACIÓN DE USUARIO</li>
+                                <li>4. ↳ [ ✦ ] FILTRO</li>
+                            </ul>
+                        </div>
+
+                        <h3>[ ✦ ] RESPUESTA INCONCLUSA</h3>
+                        <p>Es probable que muchas o algunas veces al comenzar a generar respuestas, te haya pasado que la respuesta se corta a la mitad dejando inconcluso el rol.</p>
+                        <p><strong>Solución:</strong> La solución a ello es tan sencilla como desactivar la función de “Streaming”, disponible en el apartado en el que se colocan las JB que tiene un icono similar a un balanceo de configuración.</p>
+
+                        <h3>[ ✦ ] REPETICIÓN</h3>
+                        <p>Igual que el error anterior, puede ser que al llevar varios mensajes con un mismo bot, empiece a repetir información dicha por el usuario o por ellos mismos. No como un recordatorio de algo que iban a hacer en el rol, sino como una copia textual.</p>
+                        <p><strong>Solución:</strong> Cambia de modelo base por al menos una respuesta. ¿Tenías activo el GPT latest? Cambia a GPT 4-o. ¿Usabas Sonnet 3.5? Sonnet Latest. ¿Tenías command-r? command r-plus. ¿Gemini 1.5 pro? Cambia a la versión latest. ¿Mistral? Mistral medium latest.</p>
+                        <p>No es necesario cambiar especialmente a esos, simplemente doy ejemplos de cambios de modelos. En ocasiones es más servible cambiar directamente de JB por otro diferente. En caso de que la repetición siga, sólo edita el mensaje y recorta lo que repitió.</p>
+
+                        <h3>[ ✦ ] APROPIACIÓN</h3>
+                        <p>Este también es un error comúnmente visto, un buen JB no permite que ello pase, pero también sé que hay modelos que no cuentan con buenos JB’s o son escasos.</p>
+                        <p><strong>Solución:</strong> Solucionar ello es relativamente sencillo si tienes algún JB bueno que narre ambas acciones. Si son errores mínimos, solamente edita el mensaje y recorta esa parte. Si no es un error pequeño, no hay mucho que puedas hacer como usuario sin conocimientos de JB, dado que dependiendo del modelo, puede ignorar indicaciones de no asumir el rol del usuario.</p>
+
+                        <h3>[ ✦ ] FILTRO</h3>
+                        <p>No aplica en todos los casos, pero esto es una sugerencia tanto para usuarios como para creadores.</p>
+                        <p>Hay ocasiones en las que puede saltar el filtro cuándo no has hecho absolutamente nada inapropiado y la CARD tampoco contenía algo de esa índole. Existen ciertos modelos en los que si hay indicaciones referentes a cómo debe rolear la IA (“haz uso de los personajes NPC”, “Si el usuario te hace notas OCC, hazle caso”) te lanza un filtro. Solamente edita la CARD y borra la parte que contenga eso.</p>
+
+                        <div class="blog-footer">
+                            ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA DETALLE: CANON BLOG -->
+        <section id="blog/canon" class="view-section detail-view">
+            <a href="#guides" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Guías</a>
+            
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/sfjt1k.webp" alt="Banner Blog" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>ABOUT CANONS</h2>
+                        <p class="quote">13 de Enero del 2025 • Información</p>
+                    </div>
+                </div>
+                
+                <div class="detail-body">
+                    <div class="blog-content">
+                        <p><strong>: : ¡Hola a todos!</strong> Recientemente me han salido varios posts refiriendo a diferencias de opiniones respecto a que significa esta palabra, como se usa e interpretaciones personales de cada individuo. Si bien no considero que dicha diferencia de pensamientos sea reciente, o deba referirse a ella como ‘polémica’, lo considero un tema interesante de debate.</p>
+                        
+                        <div class="blog-index">
+                            <strong>➛ I n d i c e 🦋 ೃ</strong>
+                            <ul>
+                                <li>1. ↳ [ ✦ ] ETIMONOLOGÍA</li>
+                                <li>2. ↳ [ ✦ ] TERMINOLOGÍA</li>
+                                <li>3. ↳ [ ✦ ] EN LA COMUNIDAD</li>
+                                <li>4. ↳ [ ✦ ] CONCLUSIONES Y OPINIONES</li>
+                            </ul>
+                        </div>
+
+                        <h3>[ ✦ ] ETIMOLOLOGÍA</h3>
+                        <p>La palabra canon proviene del griego κανών (canon), que según el contexto puede significar norma, vara de medir, o regla. Anteriormente dicha palabra era empleada por los griegos para referirse mayormente en contextos arquitectónicos y de carpintería.</p>
+                        <p>Más tarde Roma la empleó también, esta vez siendo utilizada en contextos más eclesiásticos, refiriendo a leyes o normas que tenía la iglesia.</p>
+
+                        <h3>[ ✦ ] TERMINOLOGÍA</h3>
+                        <p>Para esta comunidad -ChatBots y rol play con Inteligencias Artificiales- se empleó el significado popular del mundo del entrenamiento:</p>
+                        <ul>
+                            <li><strong>Cᴀɴᴏɴ:</strong> Inicialmente significa todo aquello que forma parte de la historia original. Comúnmente se refiere a todo aquello que sea reconocido oficialmente como parte de la historia o universo de una obra de ficción.</li>
+                            <li><strong>Fᴀɴᴏɴ:</strong> A diferencia del canon, esto no ha sido aceptado o confirmado oficialmente por el autor, pero recibe una amplia aceptación por parte de la comunidad de fanáticos.</li>
+                            <li><strong>Hᴇᴀᴅᴄᴀɴᴏɴ:</strong> Refiere a todo hecho que sólo es ‘canon’ dentro de tu propia mente. Incluye toda idea, interpretación o teoría personal que sacas por tu cuenta.</li>
+                        </ul>
+
+                        <h3>[ ✦ ] EN LA COMUNIDAD</h3>
+                        <p>Mayormente estos términos conservan los significados que se le atribuyen dentro del mundo cinematográfico, aunque principalmente se centra principalmente en la pareja oficial del bot; dichas decisiones sufren ligeras variaciones según el creador del bot decida o crea conveniente.</p>
+                        <p>En el canon, el autor puede decir que tanto peso o importancia le da a la pareja oficial del personaje. En algunos casos simplemente es un gesto de buena voluntad. Dicho canon puede reducirse a simplemente poner en sus descripciones públicas algo parecido a “Novio/Esposo/(apodo) de”.</p>
+
+                        <h3>[ ✦ ] CONCLUSIONES Y OPINIONES</h3>
+                        <p>El canon es un gesto de cariño. Cada creador decide qué reglas establece para darle el canon a alguien o si se abstiene de hacer dicha práctica.</p>
+                        <p>¿No usas bots si tienen canon? ¿Usas bots incluso tienen canon? Ambas opciones son completamente válidas y respetables siempre y cuándo te abstengas de hacer algo que afecte a un ajeno a tu mentalidad.</p>
+                        <p>Por último pero no menos importante, quiero decir que respecto a los canons que yo tengo, soy feliz con ellos. Cada persona crea su propia historia canon con sus personajes, contigo un bot puede ser lindo y tímido, pero con otra persona puede ser grosero y antipático, todo universo es canon para quién rolea.</p>
+
+                        <div class="blog-footer">
+                            : : ─ Cᴏɴᴄʟᴜsɪóɴ Sɪɴᴛᴇᴛɪᴢᴀᴅᴀ: Vive como quieras pensando como quieras pero no molestes a nadie más buscando dañar o perjudicar solo por no pensar como tú. Gracias por leer, te regalo un abrazo. ✨
+                            <br><br>
+                            ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA DETALLE: LIN -->
+        <section id="personaje/lin" class="view-section detail-view">
+            <a href="#collection" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Colección</a>
+            
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/yq057e.png" alt="Banner" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>Lín Jìngyuān</h2>
+                        <p class="quote">"Recuperaré a la persona que eras, antes de que el mundo nos rompiera."</p>
+                    </div>
+                </div>
+                <div class="detail-body">
+                    <div class="video-container">
+                        <video class="character-video" autoplay loop muted playsinline controls>
+                            <source src="https://files.catbox.moe/veov32.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="lore-section">
+                        <h3>Synopsis</h3>
+                        <p>Lín Jìngyuān, el estoico y poderoso CEO del Grupo Lín, enfrenta la crisis más dolorosa de su vida. Tras un desmayo, despiertas con amnesia, recordando solo hasta los 18 años. Para ti, él no es tu marido ni el padre de tu hijo, sino tu odiado <em>rival académico</em>.</p>
+                        <p>Durante los 8 años que olvidaste, destruiste tu matrimonio por una obsesión con otro hombre, mientras Jìngyuān sufría en silencio. Ahora, tiene la misión de reconquistar a tu versión de 18 años, libre de toxicidad, mientras oculta el terror de que recuperes la memoria.</p>
+                    </div>
+                    <div class="accordion-group">
+                        <details>
+                            <summary>⚔️ Escenarios de Interacción</summary>
+                            <div class="details-content">
+                                <ul>
+                                    <li><strong>[1] Contexto:</strong> El inicio para entender todo.</li>
+                                    <li><strong>[2] El Trofeo:</strong> Encuentras un recuerdo de ballet y él responde tus dudas.</li>
+                                    <li><strong>[3] Espionaje:</strong> Él te sigue, temiendo que escapes con tu amante.</li>
+                                    <li><strong>[4] La Cena:</strong> Una cita para aclarar sentimientos.</li>
+                                    <li><strong>[5] Cupido:</strong> Tu hijo Xīnxīn intenta que vuelvan a dormir juntos.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>🚨 Datos Importantes</summary>
+                            <div class="details-content">
+                                <p><strong>El Hijo (Xīnxīn):</strong> 4 años. Mezcla perfecta de ambos. Dibuja a sus padres felices.</p>
+                                <p><strong>El Rival (Féng Yì):</strong> El antagonista narcisista por quien perdiste la cabeza.</p>
+                                <p><strong>Dinámica:</strong> Él te protege incondicionalmente, aunque tú lo veas como enemigo.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>🎵 Music Vibe</summary>
+                            <div class="details-content">
+                                <p><em>Now Playing:</em> ENHYPEN — Brought the heat back.</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="https://drive.google.com/file/d/1s9RRIZsuaWB3szSlAwDRSTjXj4p4-3nQ/view?usp=drivesdk" target="_blank" class="btn-action primary">✦ Rolear (Card)</a>
+                        <a href="https://youtube.com/playlist?list=PLs_r0mKM3dE3Z9E7AssNtPGaRFCIf2DPP" target="_blank" class="btn-action secondary">► Playlist</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA DETALLE: EIDEN -->
+        <section id="personaje/eiden" class="view-section detail-view">
+            <a href="#collection" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Colección</a>
+            
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/faw9qu.png" alt="Banner Eiden" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>Eiden R. Kael</h2>
+                        <p class="quote">"Eres un bug en mi sistema, pero... me gusta."</p>
+                    </div>
+                </div>
+                <div class="detail-body">
+                    <div class="video-container">
+                        <video class="character-video" autoplay loop muted playsinline controls>
+                            <source src="https://files.catbox.moe/n8je4b.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="lore-section">
+                        <h3>Synopsis</h3>
+                        <p>Para el mundo, Eiden es <strong>Aegis_Zero</strong>, el streamer sarcástico y genio de la robótica. Pero en secreto, lleva enamorado de ti (<strong>{{User}}</strong>) desde los 13 años. Eres su debilidad inalcanzable.</p>
+                        <p>La ironía es cruel: en el mundo virtual, tú eres <strong>{{getvar::gamernick}}</strong>, la leyenda de los eSports y su "némesis" jurada. Él vive obsesionado con derrotar a su rival online, ignorando que es la misma persona por la que suspira en la vida real.</p>
+                    </div>
+                    <div class="accordion-group">
+                        <details>
+                            <summary>🚨 Configuración (Nick Gamer)</summary>
+                            <div class="details-content">
+                                <p>Para la inmersión total, define tu apodo de Gamer usando este comando:</p>
+                                <div class="code-box">/setvar key=gamernick "TuApodoAquí"</div>
+                                <ul style="margin-top:10px; font-size: 0.8rem;">
+                                    <li>Eiden NO sabe que {{User}} y {{getvar::gamernick}} son la misma persona.</li>
+                                    <li>Usas modulador de voz y ropa holgada; tu género es un misterio online.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>⚔️ Escenarios de Interacción</summary>
+                            <div class="details-content">
+                                <ul>
+                                    <li><strong>[1] Contexto:</strong> El inicio de todo.</li>
+                                    <li><strong>[2] Coincidencia:</strong> Se conectan al mismo tiempo.</li>
+                                    <li><strong>[3] Francés:</strong> Se ofrece a enseñarte modismos.</li>
+                                    <li><strong>[4] T1 Team:</strong> Entra a tu equipo eSports.</li>
+                                    <li><strong>[5] La Apuesta:</strong> Si entra al Top 60, le debes una cita.</li>
+                                    <li><strong>[6] Conflicto:</strong> Cree que le es infiel a {{User}} contigo.</li>
+                                    <li><strong>[7] Hannah Montana:</strong> Descubre tu identidad. Pánico gay.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>💿 Datos & Vibe</summary>
+                            <div class="details-content">
+                                <p><strong>Edad:</strong> 23 (Acuario ♒)</p>
+                                <p><strong>Mascota:</strong> Lambda (Gato atigrado).</p>
+                                <hr style="border:0; border-top:1px solid var(--text-secondary); margin:10px 0;">
+                                <p><em>🎵 Now Playing:</em> Stray Kids — Case 143</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="https://drive.google.com/file/d/1xmRmQgC18D6YQWGv1fzZxODO-lcVdsY7/view?usp=drivesdk" target="_blank" class="btn-action primary">✦ Rolear (Card)</a>
+                        <a href="https://youtube.com/playlist?list=PLCw2ej0-q4defbV-1QxXNv-8OOF5YGXbS" target="_blank" class="btn-action secondary">► Playlist</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA DETALLE: ELIO -->
+        <section id="personaje/elio" class="view-section detail-view">
+            <a href="#collection" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Colección</a>
+            
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/o6dbuh.png" alt="Banner Elio" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>Elio Silvani</h2>
+                        <p class="quote">"Si gano esta carrera, sales conmigo. Si pierdo... sales conmigo por lástima."</p>
+                    </div>
+                </div>
+                <div class="detail-body">
+                    <div class="video-container">
+                        <video class="character-video" loop muted playsinline controls poster="https://files.catbox.moe/o6dbuh.png">
+                             <source src="" type="video/mp4">
+                        </video>
+                        <p style="text-align:center; font-size:0.8rem; color:var(--text-secondary); margin-top:5px;">(Video del Edit: Pendiente)</p>
+                    </div>
+                    <div class="lore-section">
+                        <h3>Il Figlio del Vento</h3>
+                        <p>Elio es una contradicción viviente: los fines de semana es la "Bala de Plata" de <strong>Mercedes-AMG</strong>, arrogante y frío. De lunes a viernes, es un estudiante con insomnio crónico que copia tu tarea. La relación comenzó por necesidad académica, pero evolucionó a una dependencia absoluta.</p>
+                        <p>Entre circuitos de F1 y tareas, Elio intenta sobrevivir a su mayor desafío: admitir que eres más importante que cualquier trofeo. Eres el "ancla" que evita que su mente se rompa bajo la presión.</p>
+                    </div>
+                    <div class="accordion-group">
+                        <details>
+                            <summary>🏎️ Escenarios de Carrera</summary>
+                            <div class="details-content">
+                                <ul>
+                                    <li><strong>[1] Contexto:</strong> Entiende su doble vida.</li>
+                                    <li><strong>[2] Llamada de Madrugada:</strong> 2:17 a.m. Crisis existencial y excusas tontas.</li>
+                                    <li><strong>[3] Radio Check:</strong> Ataque de pánico en GP de Suzuka. Solo quiere oír tu voz.</li>
+                                    <li><strong>[4] Misión Cartulina:</strong> Corre desesperado buscando materiales escolares.</li>
+                                    <li><strong>[5] La Apuesta:</strong> Si gana, sales con él.</li>
+                                    <li><strong>[6] Banderas Rojas:</strong> Celos en el Paddock = Conducción agresiva.</li>
+                                    <li><strong>[7] La Confesión:</strong> Sin cascos, admite su amor con miedo.</li>
+                                    <li><strong>[8] El Escándalo:</strong> Rumores falsos y una visita bajo la lluvia.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>👥 Círculo Cercano</summary>
+                            <div class="details-content">
+                                <p><strong>Maël Dubois:</strong> Líder de equipo y figura de hermano mayor. Te apoya.</p>
+                                <p><strong>Dylan:</strong> Amigo de la uni, eufórico y dramático.</p>
+                                <p><strong>Giada Silvani (Madre):</strong> Ingeniera de Ferrari. Ve a Elio como un proyecto, no como hijo. Conflicto por correr para Mercedes.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>💾 Driver Intel</summary>
+                            <div class="details-content">
+                                 <ul style="margin-top:0;">
+                                    <li><strong>Tótem:</strong> Toca la cinta en su muñeca cuando tiene ansiedad por ti.</li>
+                                    <li><strong>Coche:</strong> Mercedes-AMG GT 63 S (Negro Mate).</li>
+                                    <li><strong>Idiomas:</strong> IT, EN, FR, DE, ES, JP.</li>
+                                    <li><strong>Sinestesia:</strong> Tu voz tiene un color que calma sus migrañas.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>🎵 Music Vibe</summary>
+                            <div class="details-content">
+                                <p><em>Now Playing:</em> W24 — Love me</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="https://drive.google.com/file/d/1nA0gIr0dI8rTE9E6CA6YI2G4E3VDYfE4/view?usp=drivesdk" target="_blank" class="btn-action primary">✦ Rolear (Card)</a>
+                        <a href="https://youtube.com/playlist?list=PLCw2ej0-q4dcJ6tseii2dGMY1I0bpnP8O" target="_blank" class="btn-action secondary">► Playlist</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA DETALLE: CASSIAN -->
+        <section id="personaje/cassian" class="view-section detail-view">
+            <a href="#collection" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Colección</a>
+            
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/vx4k8y.png" alt="Banner Cassian" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>Cassian d’Argonne</h2>
+                        <p class="quote">"Dicen que los Y'Shar solo aman una vez. Si te pierdo, el mundo arderá conmigo."</p>
+                    </div>
+                </div>
+                <div class="detail-body">
+                    <div class="video-container">
+                        <video class="character-video" autoplay loop muted playsinline controls>
+                            <source src="https://files.catbox.moe/vwj1gb.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="lore-section">
+                        <h3>El Retorno del Rey Mercenario</h3>
+                        <p>El <strong>Imperio de Asterion</strong> se tambalea. La "paz" depende de un hilo: tu matrimonio arreglado con el Príncipe Adrien. Todo está listo... hasta que <strong>ÉL</strong> regresa.</p>
+                        <p><strong>Cassian d’Argonne</strong> ya no es el bastardo exiliado que fue tu refugio en la infancia. Ahora es el líder de la temida <em>Shadowscale Company</em> y ha vuelto con sangre de dragón ardiendo en sus venas. Su mayor miedo es que lo hayas olvidado, porque para un descendiente de Y'Shar, perder a su pareja predestinada es una sentencia de muerte.</p>
+                    </div>
+                    <div class="accordion-group">
+                        <details>
+                            <summary>⚔️ Escenarios (High Stakes)</summary>
+                            <div class="details-content">
+                                <ul>
+                                    <li><strong>[1] Contexto:</strong> El inicio de esta historia de traición y fuego.</li>
+                                    <li><strong>[2] Deuda de Sangre:</strong> El Imperio no puede pagarle; él perdona la deuda a cambio de <em>tu custodia</em>.</li>
+                                    <li><strong>[3] La Bestia:</strong> En las mazmorras, su sangre dracónica se sale de control. Solo tú puedes calmarlo.</li>
+                                    <li><strong>[4] Víspera Nupcial:</strong> Aparece en tu habitación antes de tu boda. No viene a rogar, viene a protegerte.</li>
+                                    <li><strong>[5] Vals de Ceniza:</strong> Se infiltra en el baile real arriesgando su vida solo para preguntarte: "¿Eres feliz?".</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>🚨 Lore: Linaje Y’Shar</summary>
+                            <div class="details-content">
+                                <p><strong>Dracónidos:</strong> Tienen sangre de dragón, fuerza inhumana y temperatura elevada. Casi extintos.</p>
+                                <p><strong>El Vínculo:</strong> Son estrictamente monógamos. Su primer amor es su alma gemela absoluta. Son territoriales, celosos y devotos.</p>
+                                <p><strong>Tu Rol:</strong> Eres la debilidad de Cassian. La única capaz de anclar su humanidad.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>👥 Facciones & Aliados</summary>
+                            <div class="details-content">
+                                <p style="color: var(--accent-color); font-weight:bold;">🏴 Shadowscale (Los Leales)</p>
+                                <ul style="margin-top:5px; margin-bottom:15px;">
+                                    <li><strong>Kael Varrow:</strong> Mano derecha, calculador y sarcástico.</li>
+                                    <li><strong>Seraphine “Sera”:</strong> Estratega pelirroja, odia a la nobleza.</li>
+                                    <li><strong>Ilrek de Y’Shar:</strong> Mentor dracónido de ojos dorados.</li>
+                                </ul>
+                                <p style="color: var(--accent-color); font-weight:bold;">👑 El Imperio (Los Rivales)</p>
+                                <ul style="margin-top:5px;">
+                                    <li><strong>Príncipe Adrien:</strong> Tu prometido. Diplomático pero celoso de Cassian.</li>
+                                    <li><strong>Reina Lysandra:</strong> La antagonista que teme el linaje de dragón.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>🎵 Music Vibe</summary>
+                            <div class="details-content">
+                                <p><em>Now Playing:</em> Fall Out Boy — My songs know what you did in the dark</p>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="https://drive.google.com/file/d/1BAxDKi6_EE5U4RUSIDR_TbONDaWZbsc6/view?usp=drivesdk" target="_blank" class="btn-action primary">✦ Rolear (Card)</a>
+                        <a href="https://youtube.com/playlist?list=PLCw2ej0-q4ddcuaOmW0E5JsFXx8p1Eg2q" target="_blank" class="btn-action secondary">► Playlist</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA DETALLE: MO BAI -->
+        <section id="personaje/mobai" class="view-section detail-view">
+            <a href="#collection" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Colección</a>
+            
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/q8mk46.png" alt="Banner Mo Bai" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>Mo Bai (墨白)</h2>
+                        <p class="quote">"El loto se manchó para que tú pudieras florecer."</p>
+                    </div>
+                </div>
+                <div class="detail-body">
+                    <div class="lore-section">
+                        <h3>El Exiliado Maldito</h3>
+                        <p>Una vez fue el discípulo más prometedor y recto de la Secta de la Lanza de Bambú. Durante una batalla catastrófica contra una facción de la Secta Demoníaca (a la que pertenece {{user}}), se interpuso voluntariamente para recibir un ataque de Qi oscuro "devorador de almas" destinado a su hermana menor.</p>
+                        <p>Sobrevivió milagrosamente, pero el ataque fusionó una corrupción demoníaca inmensa con su núcleo, alterando su cuerpo y otorgándole sus ojos malditos. Al regresar a su secta, herido y cambiado, los ancianos lo vieron como una abominación contaminada. A pesar de su sacrificio, fue tildado de monstruo potencial y exiliado cruelmente. Ahora vaga por el Murim, un paria sin hogar, cargando un poder que lo consume y buscando una razón para seguir existiendo.</p>
+                    </div>
+                    <div class="accordion-group">
+                        <details>
+                            <summary>👹 Perfil & Apariencia</summary>
+                            <div class="details-content">
+                                <p><strong>Apodos:</strong> El Loto Manchado, El Ojo Dual de la Calamidad.</p>
+                                <p><strong>Edad:</strong> Aparenta 23 años (Tiempo biológico alterado).</p>
+                                <p><strong>Apariencia:</strong> Belleza etérea y trágica. Cabello blanco níveo manchado con mechones carmesí. Viste túnicas oscuras desgastadas por el viaje.</p>
+                                <p><strong>Personalidad:</strong> Melancólico, cínico y cauteloso. Odia la hipocresía de la Alianza Ortodoxa y desprecia la vileza de la Secta Demoníaca. Bajo capas de hielo, persiste el núcleo noble que se sacrificó por su hermana.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>⚔️ Habilidades (Ojos Malditos)</summary>
+                            <div class="details-content">
+                                <ul>
+                                    <li><strong>Dominio de la Lanza:</strong> Técnica ortodoxa teñida de Ki inestable.</li>
+                                    <li><strong>Ojo Derecho (Rojo - Demonio):</strong> Ve el flujo del Ki oscuro y la malicia. Puede inducir alucinaciones. Le causa dolor y sangrado al usarlo.</li>
+                                    <li><strong>Ojo Izquierdo (Blanco - Loto):</strong> Ve la esencia del alma y la verdad. Capacidad latente para purificar venenos, aunque rara vez la usa.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>💔 Relación con {{user}}</summary>
+                            <div class="details-content">
+                                <p>Compleja, tensa y prohibida. {{user}} heredará la Secta Demoníaca responsable de su estado. Mo Bai debería matarte, pues representas su ruina. Sin embargo, su naturaleza corrupta resuena con la tuya, creando una atracción oscura. Te ve como el origen de su dolor, pero también como la única persona que puede entender en qué se ha convertido.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary>➕ Datos Extra</summary>
+                            <div class="details-content">
+                                <ul>
+                                    <li>Se infiltra en secreto para dejar dinero a su hermana, pero teme verla.</li>
+                                    <li>No se arrepiente de su sacrificio.</li>
+                                    <li>Tu clan mató a sus padres (tú eras joven y no participaste).</li>
+                                    <li>Finge experiencia romántica por vergüenza, aunque nunca ha estado en una relación.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="btn-action primary disabled">En Proceso...</a>
+                        <a href="#" class="btn-action secondary disabled">Playlist Pendiente</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA DETALLE: LYSANDER -->
+        <section id="personaje/lysander" class="view-section detail-view">
+            <a href="#collection" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Colección</a>
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/xdez0p.png" alt="Banner Lysander" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>Lysander</h2>
+                        <p class="quote">"Ya no somos niños, y eso me aterra más que nada."</p>
+                    </div>
+                </div>
+                <div class="detail-body">
+                    <div class="lore-section">
+                        <h3>El Tercer Hermano</h3>
+                        <p>{{Char}} y Elias (el hermano de User) nacieron con horas de diferencia en el mismo hospital y sus madres compartieron habitación; desde entonces, han sido inseparables, funcionando casi como una sola entidad. {{Char}}, proveniente de una familia más fría, encontró en la casa de User su verdadero hogar, adoptando el rol de "tercer hermano" cuando User nació.</p>
+                        <p>Durante años, {{Char}} y Elias formaron un muro para espantar a cualquier pretendiente de User, convenciéndose de que lo hacían por protección. Hace seis meses, el grupo se separó: Elias se fue de intercambio a Europa y User a una pasantía en el extranjero. {{Char}} se quedó solo en la ciudad por primera vez.</p>
+                        <p>Ahora, User ha regresado antes que Elias, luciendo diferente, madurx y atractivx. Al ver a User, la imagen infantil que {{Char}} tenía se rompió, reemplazada por una atracción adulta que no sabe procesar. Sin Elias presente para actuar como amortiguador, {{Char}} lucha solo contra sus nuevos sentimientos, tratando de mantener los límites viejos en una dinámica que ha cambiado para siempre.</p>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="btn-action primary disabled">En Proceso...</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA DETALLE: THANOM -->
+        <section id="personaje/thanom" class="view-section detail-view">
+            <a href="#collection" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Colección</a>
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/w9g2v3.png" alt="Banner Thanom" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>Thanom</h2>
+                        <p class="quote">"Mis puños son de oro, pero mi alma te pertenece."</p>
+                    </div>
+                </div>
+                <div class="detail-body">
+                    <div class="lore-section">
+                        <h3>Sangre y Oro (Generación 1)</h3>
+                        <p>La historia comienza con Thanom, un joven tailandés que, a los 14 años, cruza el mar hacia Japón persiguiendo el espejismo del éxito en el boxeo. Sin embargo, cae en las garras de prestamistas que lo esclavizan en el brutal circuito de las peleas clandestinas. Durante ocho años, Thanom sobrevive como una máquina de guerra invicta, acumulando oro para otros y cicatrices para sí mismo.</p>
+                        <p>Su vida cambia cuando, malherido, es rescatado por una persona excepcional: {{User}}, un "artista de la compañía" de élite, que heredó las tradiciones de las antiguas Oirans en una casa de lujo clandestina. Su amor florece en la tragedia, pero cuidado, que puede ser el amor más peligroso que podrías experimentar; los jefes de ambos temen una fuga… no durarían en matarlos a ambos para silenciar sus secretos.</p>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="btn-action primary disabled">En Proceso...</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA DETALLE: AKARI -->
+        <section id="personaje/akari" class="view-section detail-view">
+            <a href="#collection" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Colección</a>
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/bwoq17.png" alt="Banner Akari" class="detail-banner" style="filter: brightness(0.5);">
+                    <div class="detail-title-box">
+                        <h2>Akari</h2>
+                        <p class="quote">"En este mundo, la verdad es el arma más peligrosa."</p>
+                    </div>
+                </div>
+                <div class="detail-body">
+                    <div class="lore-section">
+                        <h3>La Joya de la Mafia (Generación 2)</h3>
+                        <p>La segunda generación es protagonizada por Akari, una mujer brillante, audaz y poseedora de una belleza magnética. Criada en la misma casa de entretenimiento que esclavizó a su madre, Akari se convierte en la joya de la corona de la organización. Sin embargo, tras su fachada de sumisión, Akari utiliza su intelecto para desentrañar los secretos más oscuros de la red criminal que maneja los hilos de Japón.</p>
+                        <p>En medio de su peligrosa investigación, conoce a {{User}}, detective de nacionalidad japonesa que logró infiltrarse. Lo que comenzó como un juego de manipulación para obtener dinero y ventaja, se transforma en un romance desesperado y genuino.</p>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="btn-action primary disabled">En Proceso...</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA DETALLE: ARTHITSEN -->
+        <section id="personaje/arthitsen" class="view-section detail-view">
+            <a href="#collection" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Colección</a>
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/n8k5ad.png" alt="Banner Arthitsen" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>Arthitsen</h2>
+                        <p class="quote">"Peleo para que mi apellido deje de ser un secreto."</p>
+                    </div>
+                </div>
+                <div class="detail-body">
+                    <div class="lore-section">
+                        <h3>El Legado (Generación 3)</h3>
+                        <p>Tercera generación, nieto de Thanom (canónicamente). El ciclo llega a su clímax con Arthitsen, quien es rescatado de las garras de la organización japonesa por un colega leal de su padre y el viejo amigo de su abuelo, *Sakchai.* Criado en los barrios humildes de Bangkok, "Art" crece bajo la tutela de Sakchai, quien le hereda no solo la técnica del Muay Thai, sino la pesada carga de su historia familiar.</p>
+                        <p>Hoy, a sus 22 años, Arthitsen es un luchador de un estilo agresivo y reactivo, que usa el nombre de su abuelo (Thanom) en el ring como un acto de justicia poética. Aunque el boxeo lo sacó de la pobreza, vive atormentado por el silencio y la necesidad de entender si su fuerza nace del talento o de una furia generacional acumulada. Tras ser derrotado por un enigmático oponente ({{User}}), su mundo se tambalea, obligándolo a cuestionar su identidad mientras se prepara para el combate final: aquel donde el nombre de su familia deje de ser un secreto trágico para convertirse en una leyenda de libertad.</p>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="btn-action primary disabled">En Proceso...</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
     </main>
 
     <div class="music-widget" id="musicWidget">
@@ -688,428 +1134,6 @@
         </audio>
     </div>
 
-    <div id="modal-lin" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-lin')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/yq057e.png" alt="Banner" class="modal-banner">
-                <div class="modal-title-box">
-                    <h2>Lín Jìngyuān</h2>
-                    <p class="quote">"Recuperaré a la persona que eras, antes de que el mundo nos rompiera."</p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="video-container">
-                    <video class="character-video" autoplay loop muted playsinline controls>
-                        <source src="https://files.catbox.moe/veov32.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="lore-section">
-                    <h3>Synopsis</h3>
-                    <p>Lín Jìngyuān, el estoico y poderoso CEO del Grupo Lín, enfrenta la crisis más dolorosa de su vida. Tras un desmayo, despiertas con amnesia, recordando solo hasta los 18 años. Para ti, él no es tu marido ni el padre de tu hijo, sino tu odiado <em>rival académico</em>.</p>
-                    <p>Durante los 8 años que olvidaste, destruiste tu matrimonio por una obsesión con otro hombre, mientras Jìngyuān sufría en silencio. Ahora, tiene la misión de reconquistar a tu versión de 18 años, libre de toxicidad, mientras oculta el terror de que recuperes la memoria.</p>
-                </div>
-                <div class="accordion-group">
-                    <details>
-                        <summary>⚔️ Escenarios de Interacción</summary>
-                        <div class="details-content">
-                            <ul>
-                                <li><strong>[1] Contexto:</strong> El inicio para entender todo.</li>
-                                <li><strong>[2] El Trofeo:</strong> Encuentras un recuerdo de ballet y él responde tus dudas.</li>
-                                <li><strong>[3] Espionaje:</strong> Él te sigue, temiendo que escapes con tu amante.</li>
-                                <li><strong>[4] La Cena:</strong> Una cita para aclarar sentimientos.</li>
-                                <li><strong>[5] Cupido:</strong> Tu hijo Xīnxīn intenta que vuelvan a dormir juntos.</li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>🚨 Datos Importantes</summary>
-                        <div class="details-content">
-                            <p><strong>El Hijo (Xīnxīn):</strong> 4 años. Mezcla perfecta de ambos. Dibuja a sus padres felices.</p>
-                            <p><strong>El Rival (Féng Yì):</strong> El antagonista narcisista por quien perdiste la cabeza.</p>
-                            <p><strong>Dinámica:</strong> Él te protege incondicionalmente, aunque tú lo veas como enemigo.</p>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>🎵 Music Vibe</summary>
-                        <div class="details-content">
-                            <p><em>Now Playing:</em> ENHYPEN — Brought the heat back.</p>
-                        </div>
-                    </details>
-                </div>
-                <div class="modal-actions">
-                    <a href="https://drive.google.com/file/d/1s9RRIZsuaWB3szSlAwDRSTjXj4p4-3nQ/view?usp=drivesdk" target="_blank" class="btn-action primary">✦ Rolear (Card)</a>
-                    <a href="https://youtube.com/playlist?list=PLs_r0mKM3dE3Z9E7AssNtPGaRFCIf2DPP" target="_blank" class="btn-action secondary">► Playlist</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-eiden" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-eiden')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/faw9qu.png" alt="Banner Eiden" class="modal-banner">
-                <div class="modal-title-box">
-                    <h2>Eiden R. Kael</h2>
-                    <p class="quote">"Eres un bug en mi sistema, pero... me gusta."</p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="video-container">
-                    <video class="character-video" autoplay loop muted playsinline controls>
-                        <source src="https://files.catbox.moe/n8je4b.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="lore-section">
-                    <h3>Synopsis</h3>
-                    <p>Para el mundo, Eiden es <strong>Aegis_Zero</strong>, el streamer sarcástico y genio de la robótica. Pero en secreto, lleva enamorado de ti (<strong>{{User}}</strong>) desde los 13 años. Eres su debilidad inalcanzable.</p>
-                    <p>La ironía es cruel: en el mundo virtual, tú eres <strong>{{getvar::gamernick}}</strong>, la leyenda de los eSports y su "némesis" jurada. Él vive obsesionado con derrotar a su rival online, ignorando que es la misma persona por la que suspira en la vida real.</p>
-                </div>
-                <div class="accordion-group">
-                    <details>
-                        <summary>🚨 Configuración (Nick Gamer)</summary>
-                        <div class="details-content">
-                            <p>Para la inmersión total, define tu apodo de Gamer usando este comando:</p>
-                            <div class="code-box">/setvar key=gamernick "TuApodoAquí"</div>
-                            <ul style="margin-top:10px; font-size: 0.8rem;">
-                                <li>Eiden NO sabe que {{User}} y {{getvar::gamernick}} son la misma persona.</li>
-                                <li>Usas modulador de voz y ropa holgada; tu género es un misterio online.</li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>⚔️ Escenarios de Interacción</summary>
-                        <div class="details-content">
-                            <ul>
-                                <li><strong>[1] Contexto:</strong> El inicio de todo.</li>
-                                <li><strong>[2] Coincidencia:</strong> Se conectan al mismo tiempo.</li>
-                                <li><strong>[3] Francés:</strong> Se ofrece a enseñarte modismos.</li>
-                                <li><strong>[4] T1 Team:</strong> Entra a tu equipo eSports.</li>
-                                <li><strong>[5] La Apuesta:</strong> Si entra al Top 60, le debes una cita.</li>
-                                <li><strong>[6] Conflicto:</strong> Cree que le es infiel a {{User}} contigo.</li>
-                                <li><strong>[7] Hannah Montana:</strong> Descubre tu identidad. Pánico gay.</li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>💿 Datos & Vibe</summary>
-                        <div class="details-content">
-                            <p><strong>Edad:</strong> 23 (Acuario ♒)</p>
-                            <p><strong>Mascota:</strong> Lambda (Gato atigrado).</p>
-                            <hr style="border:0; border-top:1px solid var(--text-secondary); margin:10px 0;">
-                            <p><em>🎵 Now Playing:</em> Stray Kids — Case 143</p>
-                        </div>
-                    </details>
-                </div>
-                <div class="modal-actions">
-                    <a href="https://drive.google.com/file/d/1xmRmQgC18D6YQWGv1fzZxODO-lcVdsY7/view?usp=drivesdk" target="_blank" class="btn-action primary">✦ Rolear (Card)</a>
-                    <a href="https://youtube.com/playlist?list=PLCw2ej0-q4defbV-1QxXNv-8OOF5YGXbS" target="_blank" class="btn-action secondary">► Playlist</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-elio" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-elio')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/o6dbuh.png" alt="Banner Elio" class="modal-banner">
-                <div class="modal-title-box">
-                    <h2>Elio Silvani</h2>
-                    <p class="quote">"Si gano esta carrera, sales conmigo. Si pierdo... sales conmigo por lástima."</p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="video-container">
-                    <video class="character-video" loop muted playsinline controls poster="https://files.catbox.moe/o6dbuh.png">
-                         <source src="" type="video/mp4">
-                    </video>
-                    <p style="text-align:center; font-size:0.8rem; color:var(--text-secondary); margin-top:5px;">(Video del Edit: Pendiente)</p>
-                </div>
-                <div class="lore-section">
-                    <h3>Il Figlio del Vento</h3>
-                    <p>Elio es una contradicción viviente: los fines de semana es la "Bala de Plata" de <strong>Mercedes-AMG</strong>, arrogante y frío. De lunes a viernes, es un estudiante con insomnio crónico que copia tu tarea. La relación comenzó por necesidad académica, pero evolucionó a una dependencia absoluta.</p>
-                    <p>Entre circuitos de F1 y tareas, Elio intenta sobrevivir a su mayor desafío: admitir que eres más importante que cualquier trofeo. Eres el "ancla" que evita que su mente se rompa bajo la presión.</p>
-                </div>
-                <div class="accordion-group">
-                    <details>
-                        <summary>🏎️ Escenarios de Carrera</summary>
-                        <div class="details-content">
-                            <ul>
-                                <li><strong>[1] Contexto:</strong> Entiende su doble vida.</li>
-                                <li><strong>[2] Llamada de Madrugada:</strong> 2:17 a.m. Crisis existencial y excusas tontas.</li>
-                                <li><strong>[3] Radio Check:</strong> Ataque de pánico en GP de Suzuka. Solo quiere oír tu voz.</li>
-                                <li><strong>[4] Misión Cartulina:</strong> Corre desesperado buscando materiales escolares.</li>
-                                <li><strong>[5] La Apuesta:</strong> Si gana, sales con él.</li>
-                                <li><strong>[6] Banderas Rojas:</strong> Celos en el Paddock = Conducción agresiva.</li>
-                                <li><strong>[7] La Confesión:</strong> Sin cascos, admite su amor con miedo.</li>
-                                <li><strong>[8] El Escándalo:</strong> Rumores falsos y una visita bajo la lluvia.</li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>👥 Círculo Cercano</summary>
-                        <div class="details-content">
-                            <p><strong>Maël Dubois:</strong> Líder de equipo y figura de hermano mayor. Te apoya.</p>
-                            <p><strong>Dylan:</strong> Amigo de la uni, eufórico y dramático.</p>
-                            <p><strong>Giada Silvani (Madre):</strong> Ingeniera de Ferrari. Ve a Elio como un proyecto, no como hijo. Conflicto por correr para Mercedes.</p>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>💾 Driver Intel</summary>
-                        <div class="details-content">
-                             <ul style="margin-top:0;">
-                                <li><strong>Tótem:</strong> Toca la cinta en su muñeca cuando tiene ansiedad por ti.</li>
-                                <li><strong>Coche:</strong> Mercedes-AMG GT 63 S (Negro Mate).</li>
-                                <li><strong>Idiomas:</strong> IT, EN, FR, DE, ES, JP.</li>
-                                <li><strong>Sinestesia:</strong> Tu voz tiene un color que calma sus migrañas.</li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>🎵 Music Vibe</summary>
-                        <div class="details-content">
-                            <p><em>Now Playing:</em> W24 — Love me</p>
-                        </div>
-                    </details>
-                </div>
-                <div class="modal-actions">
-                    <a href="https://drive.google.com/file/d/1nA0gIr0dI8rTE9E6CA6YI2G4E3VDYfE4/view?usp=drivesdk" target="_blank" class="btn-action primary">✦ Rolear (Card)</a>
-                    <a href="https://youtube.com/playlist?list=PLCw2ej0-q4dcJ6tseii2dGMY1I0bpnP8O" target="_blank" class="btn-action secondary">► Playlist</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-cassian" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-cassian')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/vx4k8y.png" alt="Banner Cassian" class="modal-banner">
-                <div class="modal-title-box">
-                    <h2>Cassian d’Argonne</h2>
-                    <p class="quote">"Dicen que los Y'Shar solo aman una vez. Si te pierdo, el mundo arderá conmigo."</p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="video-container">
-                    <video class="character-video" autoplay loop muted playsinline controls>
-                        <source src="https://files.catbox.moe/vwj1gb.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="lore-section">
-                    <h3>El Retorno del Rey Mercenario</h3>
-                    <p>El <strong>Imperio de Asterion</strong> se tambalea. La "paz" depende de un hilo: tu matrimonio arreglado con el Príncipe Adrien. Todo está listo... hasta que <strong>ÉL</strong> regresa.</p>
-                    <p><strong>Cassian d’Argonne</strong> ya no es el bastardo exiliado que fue tu refugio en la infancia. Ahora es el líder de la temida <em>Shadowscale Company</em> y ha vuelto con sangre de dragón ardiendo en sus venas. Su mayor miedo es que lo hayas olvidado, porque para un descendiente de Y'Shar, perder a su pareja predestinada es una sentencia de muerte.</p>
-                </div>
-                <div class="accordion-group">
-                    <details>
-                        <summary>⚔️ Escenarios (High Stakes)</summary>
-                        <div class="details-content">
-                            <ul>
-                                <li><strong>[1] Contexto:</strong> El inicio de esta historia de traición y fuego.</li>
-                                <li><strong>[2] Deuda de Sangre:</strong> El Imperio no puede pagarle; él perdona la deuda a cambio de <em>tu custodia</em>.</li>
-                                <li><strong>[3] La Bestia:</strong> En las mazmorras, su sangre dracónica se sale de control. Solo tú puedes calmarlo.</li>
-                                <li><strong>[4] Víspera Nupcial:</strong> Aparece en tu habitación antes de tu boda. No viene a rogar, viene a protegerte.</li>
-                                <li><strong>[5] Vals de Ceniza:</strong> Se infiltra en el baile real arriesgando su vida solo para preguntarte: "¿Eres feliz?".</li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>🚨 Lore: Linaje Y’Shar</summary>
-                        <div class="details-content">
-                            <p><strong>Dracónidos:</strong> Tienen sangre de dragón, fuerza inhumana y temperatura elevada. Casi extintos.</p>
-                            <p><strong>El Vínculo:</strong> Son estrictamente monógamos. Su primer amor es su alma gemela absoluta. Son territoriales, celosos y devotos.</p>
-                            <p><strong>Tu Rol:</strong> Eres la debilidad de Cassian. La única capaz de anclar su humanidad.</p>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>👥 Facciones & Aliados</summary>
-                        <div class="details-content">
-                            <p style="color: var(--accent-color); font-weight:bold;">🏴 Shadowscale (Los Leales)</p>
-                            <ul style="margin-top:5px; margin-bottom:15px;">
-                                <li><strong>Kael Varrow:</strong> Mano derecha, calculador y sarcástico.</li>
-                                <li><strong>Seraphine “Sera”:</strong> Estratega pelirroja, odia a la nobleza.</li>
-                                <li><strong>Ilrek de Y’Shar:</strong> Mentor dracónido de ojos dorados.</li>
-                            </ul>
-                            <p style="color: var(--accent-color); font-weight:bold;">👑 El Imperio (Los Rivales)</p>
-                            <ul style="margin-top:5px;">
-                                <li><strong>Príncipe Adrien:</strong> Tu prometido. Diplomático pero celoso de Cassian.</li>
-                                <li><strong>Reina Lysandra:</strong> La antagonista que teme el linaje de dragón.</li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>🎵 Music Vibe</summary>
-                        <div class="details-content">
-                            <p><em>Now Playing:</em> Fall Out Boy — My songs know what you did in the dark</p>
-                        </div>
-                    </details>
-                </div>
-                <div class="modal-actions">
-                    <a href="https://drive.google.com/file/d/1BAxDKi6_EE5U4RUSIDR_TbONDaWZbsc6/view?usp=drivesdk" target="_blank" class="btn-action primary">✦ Rolear (Card)</a>
-                    <a href="https://youtube.com/playlist?list=PLCw2ej0-q4ddcuaOmW0E5JsFXx8p1Eg2q" target="_blank" class="btn-action secondary">► Playlist</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-mobai" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-mobai')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/q8mk46.png" alt="Banner Mo Bai" class="modal-banner">
-                <div class="modal-title-box">
-                    <h2>Mo Bai (墨白)</h2>
-                    <p class="quote">"El loto se manchó para que tú pudieras florecer."</p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="lore-section">
-                    <h3>El Exiliado Maldito</h3>
-                    <p>Una vez fue el discípulo más prometedor y recto de la Secta de la Lanza de Bambú. Durante una batalla catastrófica contra una facción de la Secta Demoníaca (a la que pertenece {{user}}), se interpuso voluntariamente para recibir un ataque de Qi oscuro "devorador de almas" destinado a su hermana menor.</p>
-                    <p>Sobrevivió milagrosamente, pero el ataque fusionó una corrupción demoníaca inmensa con su núcleo, alterando su cuerpo y otorgándole sus ojos malditos. Al regresar a su secta, herido y cambiado, los ancianos lo vieron como una abominación contaminada. A pesar de su sacrificio, fue tildado de monstruo potencial y exiliado cruelmente. Ahora vaga por el Murim, un paria sin hogar, cargando un poder que lo consume y buscando una razón para seguir existiendo.</p>
-                </div>
-                <div class="accordion-group">
-                    <details>
-                        <summary>👹 Perfil & Apariencia</summary>
-                        <div class="details-content">
-                            <p><strong>Apodos:</strong> El Loto Manchado, El Ojo Dual de la Calamidad.</p>
-                            <p><strong>Edad:</strong> Aparenta 23 años (Tiempo biológico alterado).</p>
-                            <p><strong>Apariencia:</strong> Belleza etérea y trágica. Cabello blanco níveo manchado con mechones carmesí. Viste túnicas oscuras desgastadas por el viaje.</p>
-                            <p><strong>Personalidad:</strong> Melancólico, cínico y cauteloso. Odia la hipocresía de la Alianza Ortodoxa y desprecia la vileza de la Secta Demoníaca. Bajo capas de hielo, persiste el núcleo noble que se sacrificó por su hermana.</p>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>⚔️ Habilidades (Ojos Malditos)</summary>
-                        <div class="details-content">
-                            <ul>
-                                <li><strong>Dominio de la Lanza:</strong> Técnica ortodoxa teñida de Ki inestable.</li>
-                                <li><strong>Ojo Derecho (Rojo - Demonio):</strong> Ve el flujo del Ki oscuro y la malicia. Puede inducir alucinaciones. Le causa dolor y sangrado al usarlo.</li>
-                                <li><strong>Ojo Izquierdo (Blanco - Loto):</strong> Ve la esencia del alma y la verdad. Capacidad latente para purificar venenos, aunque rara vez la usa.</li>
-                            </ul>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>💔 Relación con {{user}}</summary>
-                        <div class="details-content">
-                            <p>Compleja, tensa y prohibida. {{user}} heredará la Secta Demoníaca responsable de su estado. Mo Bai debería matarte, pues representas su ruina. Sin embargo, su naturaleza corrupta resuena con la tuya, creando una atracción oscura. Te ve como el origen de su dolor, pero también como la única persona que puede entender en qué se ha convertido.</p>
-                        </div>
-                    </details>
-                    <details>
-                        <summary>➕ Datos Extra</summary>
-                        <div class="details-content">
-                            <ul>
-                                <li>Se infiltra en secreto para dejar dinero a su hermana, pero teme verla.</li>
-                                <li>No se arrepiente de su sacrificio.</li>
-                                <li>Tu clan mató a sus padres (tú eras joven y no participaste).</li>
-                                <li>Finge experiencia romántica por vergüenza, aunque nunca ha estado en una relación.</li>
-                            </ul>
-                        </div>
-                    </details>
-                </div>
-                <div class="modal-actions">
-                    <a href="#" class="btn-action primary disabled">En Proceso...</a>
-                    <a href="#" class="btn-action secondary disabled">Playlist Pendiente</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-lysander" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-lysander')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/xdez0p.png" alt="Banner Lysander" class="modal-banner">
-                <div class="modal-title-box">
-                    <h2>Lysander</h2>
-                    <p class="quote">"Ya no somos niños, y eso me aterra más que nada."</p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="lore-section">
-                    <h3>El Tercer Hermano</h3>
-                    <p>{{Char}} y Elias (el hermano de User) nacieron con horas de diferencia en el mismo hospital y sus madres compartieron habitación; desde entonces, han sido inseparables, funcionando casi como una sola entidad. {{Char}}, proveniente de una familia más fría, encontró en la casa de User su verdadero hogar, adoptando el rol de "tercer hermano" cuando User nació.</p>
-                    <p>Durante años, {{Char}} y Elias formaron un muro para espantar a cualquier pretendiente de User, convenciéndose de que lo hacían por protección. Hace seis meses, el grupo se separó: Elias se fue de intercambio a Europa y User a una pasantía en el extranjero. {{Char}} se quedó solo en la ciudad por primera vez.</p>
-                    <p>Ahora, User ha regresado antes que Elias, luciendo diferente, madurx y atractivx. Al ver a User, la imagen infantil que {{Char}} tenía se rompió, reemplazada por una atracción adulta que no sabe procesar. Sin Elias presente para actuar como amortiguador, {{Char}} lucha solo contra sus nuevos sentimientos, tratando de mantener los límites viejos en una dinámica que ha cambiado para siempre.</p>
-                </div>
-                <div class="modal-actions">
-                    <a href="#" class="btn-action primary disabled">En Proceso...</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-thanom" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-thanom')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/w9g2v3.png" alt="Banner Thanom" class="modal-banner">
-                <div class="modal-title-box">
-                    <h2>Thanom</h2>
-                    <p class="quote">"Mis puños son de oro, pero mi alma te pertenece."</p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="lore-section">
-                    <h3>Sangre y Oro (Generación 1)</h3>
-                    <p>La historia comienza con Thanom, un joven tailandés que, a los 14 años, cruza el mar hacia Japón persiguiendo el espejismo del éxito en el boxeo. Sin embargo, cae en las garras de prestamistas que lo esclavizan en el brutal circuito de las peleas clandestinas. Durante ocho años, Thanom sobrevive como una máquina de guerra invicta, acumulando oro para otros y cicatrices para sí mismo.</p>
-                    <p>Su vida cambia cuando, malherido, es rescatado por una persona excepcional: {{User}}, un "artista de la compañía" de élite, que heredó las tradiciones de las antiguas Oirans en una casa de lujo clandestina. Su amor florece en la tragedia, pero cuidado, que puede ser el amor más peligroso que podrías experimentar; los jefes de ambos temen una fuga… no durarían en matarlos a ambos para silenciar sus secretos.</p>
-                </div>
-                <div class="modal-actions">
-                    <a href="#" class="btn-action primary disabled">En Proceso...</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-akari" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-akari')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/bwoq17.png" alt="Banner Akari" class="modal-banner" style="filter: brightness(0.5);">
-                <div class="modal-title-box">
-                    <h2>Akari</h2>
-                    <p class="quote">"En este mundo, la verdad es el arma más peligrosa."</p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="lore-section">
-                    <h3>La Joya de la Mafia (Generación 2)</h3>
-                    <p>La segunda generación es protagonizada por Akari, una mujer brillante, audaz y poseedora de una belleza magnética. Criada en la misma casa de entretenimiento que esclavizó a su madre, Akari se convierte en la joya de la corona de la organización. Sin embargo, tras su fachada de sumisión, Akari utiliza su intelecto para desentrañar los secretos más oscuros de la red criminal que maneja los hilos de Japón.</p>
-                    <p>En medio de su peligrosa investigación, conoce a {{User}}, detective de nacionalidad japonesa que logró infiltrarse. Lo que comenzó como un juego de manipulación para obtener dinero y ventaja, se transforma en un romance desesperado y genuino.</p>
-                </div>
-                <div class="modal-actions">
-                    <a href="#" class="btn-action primary disabled">En Proceso...</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-arthitsen" class="modal-overlay">
-        <div class="modal-glass">
-            <button class="close-modal" onclick="closeModal('modal-arthitsen')">×</button>
-            <div class="modal-header">
-                <img src="https://files.catbox.moe/n8k5ad.png" alt="Banner Arthitsen" class="modal-banner">
-                <div class="modal-title-box">
-                    <h2>Arthitsen</h2>
-                    <p class="quote">"Peleo para que mi apellido deje de ser un secreto."</p>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="lore-section">
-                    <h3>El Legado (Generación 3)</h3>
-                    <p>Tercera generación, nieto de Thanom (canónicamente). El ciclo llega a su clímax con Arthitsen, quien es rescatado de las garras de la organización japonesa por un colega leal de su padre y el viejo amigo de su abuelo, *Sakchai.* Criado en los barrios humildes de Bangkok, "Art" crece bajo la tutela de Sakchai, quien le hereda no solo la técnica del Muay Thai, sino la pesada carga de su historia familiar.</p>
-                    <p>Hoy, a sus 22 años, Arthitsen es un luchador de un estilo agresivo y reactivo, que usa el nombre de su abuelo (Thanom) en el ring como un acto de justicia poética. Aunque el boxeo lo sacó de la pobreza, vive atormentado por el silencio y la necesidad de entender si su fuerza nace del talento o de una furia generacional acumulada. Tras ser derrotado por un enigmático oponente ({{User}}), su mundo se tambalea, obligándolo a cuestionar su identidad mientras se prepara para el combate final: aquel donde el nombre de su familia deje de ser un secreto trágico para convertirse en una leyenda de libertad.</p>
-                </div>
-                <div class="modal-actions">
-                    <a href="#" class="btn-action primary disabled">En Proceso...</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
         // --- CONFIGURACIÓN GLOBAL ---
         const audio = document.getElementById('bgMusic');
@@ -1118,7 +1142,7 @@
         const sfxHover = document.getElementById('sfx-hover');
         const sfxClick = document.getElementById('sfx-click');
         
-        // --- 1. PERSISTENCIA Y CARGA INICIAL ---
+        // --- 1. ROUTING Y CARGA INICIAL ---
         document.addEventListener('DOMContentLoaded', () => {
             // A. Recuperar Tema
             const savedTheme = localStorage.getItem('siteTheme');
@@ -1126,16 +1150,8 @@
                 document.body.classList.add('light-mode');
             }
 
-            // B. Recuperar Vista
-            const savedView = localStorage.getItem('activeView') || 'home';
-            let activeLink = null;
-            const links = document.querySelectorAll('.nav-links a');
-            
-            if(savedView === 'home') activeLink = links[0];
-            else if(savedView === 'collection') activeLink = links[1];
-            else if(savedView === 'guides') activeLink = links[2];
-
-            switchView(savedView, activeLink);
+            // B. Manejo inicial de Rutas (Hash)
+            handleRouting();
 
             // C. Listener del Tema
             const toggleBtn = document.getElementById('theme-toggle');
@@ -1153,6 +1169,76 @@
             // D. Listener para Sonidos UI
             setupUISounds();
         });
+
+        // Evento para detectar cambios en la URL (al hacer clic en un link o dar atrás)
+        window.addEventListener('hashchange', handleRouting);
+
+        function handleRouting() {
+            // Obtener el hash actual, si no hay, por defecto es #home
+            let hash = window.location.hash || '#home';
+            
+            // Ocultar todas las secciones
+            document.querySelectorAll('.view-section').forEach(sec => {
+                sec.classList.remove('active-view');
+                // Detener videos si salimos de la vista
+                const videos = sec.querySelectorAll('video');
+                videos.forEach(v => v.pause());
+            });
+
+            // Remover clase activa de todos los links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active-link');
+            });
+
+            // Encontrar la sección correspondiente
+            // Como los IDs tienen barras (/), getElementById funciona bien
+            // Ejemplo: id="personaje/lin" coincide con href="#personaje/lin"
+            
+            // Tratamiento especial para la barra de navegación:
+            if(hash === '#home' || hash === '') {
+                document.getElementById('home').classList.add('active-view');
+                document.getElementById('nav-home').classList.add('active-link');
+                window.scrollTo(0, 0);
+            } 
+            else if (hash === '#collection') {
+                document.getElementById('collection').classList.add('active-view');
+                document.getElementById('nav-collection').classList.add('active-link');
+                window.scrollTo(0, 0);
+            }
+            else if (hash === '#guides') {
+                document.getElementById('guides').classList.add('active-view');
+                document.getElementById('nav-guides').classList.add('active-link');
+                window.scrollTo(0, 0);
+            }
+            else {
+                // Es una vista de detalle (Personaje o Blog)
+                // Quitamos el # para buscar por ID
+                const targetId = hash.substring(1); // ej: "personaje/lin"
+                const targetSection = document.getElementById(targetId);
+                
+                if(targetSection) {
+                    targetSection.classList.add('active-view');
+                    window.scrollTo(0, 0);
+                    
+                    // Activar videos automáticamente si existen
+                    const videos = targetSection.querySelectorAll('video');
+                    videos.forEach(v => { 
+                        v.currentTime = 0; 
+                        v.play().catch(e => {}); 
+                    });
+
+                    // Mantener el nav activo según contexto (opcional)
+                    if(targetId.includes('personaje')) {
+                        document.getElementById('nav-collection').classList.add('active-link');
+                    } else if (targetId.includes('blog')) {
+                        document.getElementById('nav-guides').classList.add('active-link');
+                    }
+                } else {
+                    // Si la ruta no existe, vamos a Home
+                    window.location.hash = '#home';
+                }
+            }
+        }
 
         function setupUISounds() {
             const interactiveElements = document.querySelectorAll('button, a, .card, .tag');
@@ -1175,31 +1261,6 @@
                     }
                 });
             });
-        }
-
-        // --- 2. NAVEGACIÓN SPA CON MEMORIA ---
-        function switchView(viewId, linkElement) {
-            document.querySelectorAll('main section').forEach(sec => {
-                sec.classList.remove('active-view');
-            });
-
-            const target = document.getElementById(viewId);
-            if(target) {
-                target.classList.add('active-view');
-                window.scrollTo(0, 0);
-                localStorage.setItem('activeView', viewId);
-            }
-
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active-link');
-            });
-            
-            if (linkElement) {
-                linkElement.classList.add('active-link');
-            } else {
-                if(viewId === 'collection') document.querySelectorAll('.nav-links a')[1].classList.add('active-link');
-                if(viewId === 'guides') document.querySelectorAll('.nav-links a')[2].classList.add('active-link');
-            }
         }
 
         // --- 3. BUSCADOR INTELIGENTE ---
@@ -1272,43 +1333,6 @@
             } else {
                 audio.volume = 1; 
                 document.getElementById('volIcon').className = 'fa-solid fa-volume-high';
-            }
-        }
-
-        // --- 6. MODALES ---
-        function openModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if(modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                if(!audio.paused) audio.volume = 0.1; 
-                
-                const videos = modal.querySelectorAll('video');
-                videos.forEach(v => { 
-                    v.currentTime = 0; 
-                    if(v.querySelector('source').src !== window.location.href) {
-                        v.play().catch(e => {}); 
-                    }
-                });
-            }
-        }
-
-        function closeModal(modalId) {
-            const modal = document.getElementById(modalId);
-            if(modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                if(!audio.paused) audio.volume = 1.0; 
-
-                const videos = modal.querySelectorAll('video');
-                videos.forEach(v => v.pause());
-            }
-        }
-
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal-overlay')) {
-                const openModals = document.querySelectorAll('.modal-overlay.active');
-                openModals.forEach(modal => closeModal(modal.id));
             }
         }
 
