@@ -451,19 +451,19 @@
                     <img src="https://files.catbox.moe/95jydg.jpg" alt="Banner Backup" class="detail-banner">
                     <div class="detail-title-box">
                         <h2>RESGUARDANDO MEMORIAS</h2>
-                        <p class="quote">11 de Eneri del 2026 • Tutorial SillyTavern</p>
+                        <p class="quote">11 de Enero del 2026 • Tutorial SillyTavern</p>
                     </div>
                 </div>
                 
                 <div class="detail-body">
                     <div class="blog-content">
-                        <p><strong>: : ¡Atención Viajeros!</strong> No hay nada más doloroso que perder cientos de chats, personajes y configuraciones por un error de actualización o un cambio de dispositivo. Hoy les traigo la guía definitiva para <strong>exportar copias de seguridad</strong> de SillyTavern en Android (Termux).</p>
+                        <p><strong>: : ¡Atención Viajeros!</strong> No hay nada más doloroso que perder cientos de chats, personajes y configuraciones por un error de actualización o un cambio de dispositivo. Hoy les traigo la guía definitiva para <strong>exportar e importar</strong> copias de seguridad de SillyTavern en Android (Termux).</p>
                         
-                        <p><em>Este tutorial es específico para usuarios de Android usando Termux, pero los principios de exportación pueden aplicar a otros sistemas.</em></p>
+                        <p><em>Este tutorial es específico para usuarios de Android usando Termux.</em></p>
 
                         <div style="text-align: center; margin: 20px 0; opacity: 0.5;">✦•·························•✦•·························•✦</div>
 
-                        <h3>[ ✦ ] PASO 1: CREAR EL RESPALDO INTERNO</h3>
+                        <h3>[ ✦ ] PASO 1: DESCARGAR EL RESPALDO</h3>
                         <p>Primero debemos decirle a SillyTavern que empaquete todo nuestro caos en un archivo ordenado. Para esto, sigue la ruta sagrada:</p>
                         
                         <ul>
@@ -477,27 +477,58 @@
                             <p style="font-size:0.8rem; color:var(--text-secondary); margin-top:5px;"><em>El botón salvavidas.</em></p>
                         </div>
 
-                        <p><strong>⚠️ ¡OJO AQUÍ!</strong> No cierres Termux ni la pestaña inmediatamente. Aferrate recio y espera hasta que veas la notificación de descarga completada en tu barra de estado. Si cierras antes, el archivo podría corromperse. Una vez confirmado el archivo en tus descargas, cierra Termux.</p>
+                        <p><strong>⚠️ ¡AFERRATE RECIO!</strong> No cierres Termux ni la pestaña inmediatamente. Espera hasta que veas la notificación de descarga completada en tu barra de estado. Si cierras antes, el archivo podría corromperse. Una vez confirmado el archivo en tus descargas, cierra Termux.</p>
 
-                        <h3>[ ✦ ] PASO 2: EXPORTAR/COMPRIMIR (TERMUX)</h3>
-                        <p>Ahora vamos a la magia negra (la terminal). Si necesitas mover esa copia a otro dispositivo o asegurarla en una nube, usaremos Termux para empaquetar la carpeta <code>data</code> completa en un archivo portátil.</p>
+                        <h3>[ ✦ ] PASO 2: LA INYECCIÓN DE MEMORIA</h3>
                         
-                        <p>Abre Termux y ejecuta los siguientes comandos uno por uno:</p>
+                        <p style="background: rgba(255, 215, 0, 0.1); padding: 15px; border-left: 3px solid var(--wip-color); border-radius: 5px;">
+                            <strong>* IMPORTANTE:</strong> Para que los siguientes comandos funcionen, <strong>ya debes tener SillyTavern instalado</strong> en tu Termux. Si no tienes la instalación base, nada de esto servirá.
+                        </p>
+
+                        <p>Si la restauración automática falla o simplemente quieres asegurarte de que tus datos se pasen correctamente, usa estos comandos en Termux. Explicaré qué hace cada cosa para que no sientas que estás hackeando la NASA a ciegas.</p>
+
+                        <h4>A. Dar Permisos y Mover el Archivo</h4>
+                        <p>Primero, necesitamos traer el archivo desde tu carpeta de Descargas hacia el "hogar" de Termux.</p>
+
+                        <div class="code-box">
+                            termux-setup-storage
+                        </div>
+                        <p style="font-size: 0.9rem; margin-top: -15px;">↳ Le pide permiso a tu Android para que Termux pueda ver tus archivos (como la carpeta Descargas).</p>
+
+                        <div class="code-box">
+                            cp /sdcard/Download/*default-user* .
+                        </div>
+                        <p style="font-size: 0.9rem; margin-top: -15px;">
+                            ↳ <strong>cp:</strong> Significa "Copy" (Copiar).<br>
+                            ↳ <strong>/sdcard/Download/...:</strong> Es la ruta donde vive tu descarga.<br>
+                            ↳ <strong>*default-user*:</strong> Los asteriscos le dicen "busca cualquier archivo que tenga este nombre en medio", así no tienes que escribir la fecha exacta del archivo.<br>
+                            ↳ <strong>. (Punto):</strong> Significa "Aquí". Copia el archivo a la carpeta donde estás parado ahora mismo.
+                        </p>
+
+                        <h4>B. El Comando Importante (Descomprimir)</h4>
+                        <p>Ahora que tenemos el archivo, vamos a inyectarlo en SillyTavern. Primero entra a la carpeta:</p>
 
                         <div class="code-box">
                             cd SillyTavern
                         </div>
-                        <p style="text-align:center; font-size:0.9rem;"><em>(Entramos a la carpeta raíz de la aplicación)</em></p>
+
+                        <p>Y luego ejecuta el hechizo final:</p>
 
                         <div class="code-box">
-                            tar -czvf data_backup.tar.gz data
+                            unzip -o *default-user* -d data/default-user
                         </div>
-                        <p style="text-align:center; font-size:0.9rem;"><em>(Comprimimos toda la carpeta 'data' en un archivo .tar.gz)</em></p>
-
-                        <p><strong>¿Qué hace esto?</strong> Este comando crea un archivo llamado <code>data_backup.tar.gz</code> que contiene todos tus personajes, chats y ajustes. Este archivo es el que puedes guardar en Drive, pasar a tu PC o enviar a tu nuevo celular para restaurar todo tu universo.</p>
+                        
+                        <p style="font-size: 0.9rem; margin-top: -15px;">
+                            <strong>ANATOMÍA DEL COMANDO:</strong><br>
+                            • <strong>unzip:</strong> La acción de abrir el paquete comprimido.<br>
+                            • <strong>-o (Overwrite):</strong> Significa "Sobrescribir". Le dice a Termux: <em>"No me preguntes, tú dale"</em>. Reemplazará los archivos viejos con los de tu copia de seguridad sin pedir confirmación por cada archivo.<br>
+                            • <strong>*default-user*:</strong> El nombre de tu archivo de respaldo.<br>
+                            • <strong>-d (Destination):</strong> Le indica dónde debe desempaquetar las cosas.<br>
+                            • <strong>data/default-user:</strong> Es la carpeta exacta dentro de SillyTavern donde viven tus chats y personajes.
+                        </p>
 
                         <div class="blog-footer">
-                            : : Recuerda: Un respaldo a tiempo salva vidas (y romances ficticios). 💾✨
+                            : : Recuerda: Un respaldo a tiempo salva vidas (y romances ficticios). Si todo salió bien, al abrir SillyTavern verás todo tal cual lo dejaste. 💾✨
                             <br><br>
                             ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
                         </div>
