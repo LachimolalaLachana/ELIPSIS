@@ -38,18 +38,20 @@
         <!-- VISTA: HOME -->
         <section id="home" class="view-section active-view">
             
+            <!-- NOTICIA DESTACADA (REEMPLAZA SPOTLIGHT ANTERIOR) -->
             <div class="spotlight-hero">
-                <img src="https://files.catbox.moe/vx4k8y.png" class="spotlight-bg" alt="Featured">
+                <!-- Usamos una imagen elegante para el anuncio -->
+                <img src="https://files.catbox.moe/sfjt1k.webp" class="spotlight-bg" alt="Maintenance">
                 <div class="spotlight-content">
-                    <span class="tag-highlight">⭐ Destacado Semanal</span>
-                    <h1 style="font-size: 2.5rem; margin: 10px 0;">Cassian d’Argonne</h1>
-                    <p>La actualización más ambiciosa hasta la fecha. Voces integradas, lore expandido y 5 escenarios nuevos.</p>
-                    <div style="margin-top: 20px; display: flex; gap: 15px; flex-wrap: wrap;">
-                        <a href="#personaje/cassian" class="btn-iconic">
-                            <i class="fa-solid fa-play"></i> Ver Tráiler
+                    <span class="tag-highlight" style="background: var(--wip-color); color: #000;">⚠️ AVISO IMPORTANTE</span>
+                    <h1 style="font-size: 2.5rem; margin: 15px 0;">MANTENIMIENTO & EXPANSIÓN</h1>
+                    <p>El sitio y sus habitantes están evolucionando. Actualizaciones críticas para <strong>Cassian</strong> y <strong>Elio</strong>, nuevos universos y cambios estéticos en curso.</p>
+                    <div style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap;">
+                        <a href="#blog/update-news" class="btn-iconic">
+                            <i class="fa-solid fa-circle-info"></i> Leer Comunicado
                         </a>
                         <a href="#collection" class="btn-iconic" style="background:transparent;">
-                            <i class="fa-solid fa-layer-group"></i> Ir a Colección
+                            <i class="fa-solid fa-layer-group"></i> Ver Colección
                         </a>
                     </div>
                 </div>
@@ -62,24 +64,26 @@
             
             <div class="updates-grid">
                 <!-- Links directos a los blogs -->
+                
+                <!-- NUEVO CARD EN HOME PARA LA NOTICIA -->
+                <a href="#blog/update-news" class="glass-panel update-card" style="text-decoration: none; color: inherit; border-left-color: var(--wip-color);">
+                    <span class="update-date date-gold"><i class="fa-solid fa-bullhorn"></i> AHORA</span>
+                    <h4>Estado del Sistema</h4>
+                    <p style="font-size: 0.9rem;">Información sobre la baja temporal de archivos y la expansión del lore de Cassian.</p>
+                    <span style="font-size: 0.8rem; text-decoration: underline; color: var(--accent-color);">Leer más &rarr;</span>
+                </a>
+
+                <a href="#blog/backup-sillytavern" class="glass-panel update-card" style="text-decoration: none; color: inherit;">
+                    <span class="update-date date-gold"><i class="fa-solid fa-file-zipper"></i> 11 ABR</span>
+                    <h4>Resguardo ST</h4>
+                    <p style="font-size: 0.9rem;">Guía para exportar copias de seguridad de SillyTavern en Termux.</p>
+                    <span style="font-size: 0.8rem; text-decoration: underline; color: var(--accent-color);">Leer más &rarr;</span>
+                </a>
+
                 <a href="#blog/loras" class="glass-panel update-card" style="text-decoration: none; color: inherit;">
                     <span class="update-date date-gold"><i class="fa-regular fa-calendar"></i> 04 ABR</span>
                     <h4>About My Loras</h4>
                     <p style="font-size: 0.9rem;">Tutorial sobre PixAI: cómo usar mis estilos y conseguir puntos.</p>
-                    <span style="font-size: 0.8rem; text-decoration: underline; color: var(--accent-color);">Leer más &rarr;</span>
-                </a>
-
-                <a href="#blog/opensource" class="glass-panel update-card" style="text-decoration: none; color: inherit;">
-                    <span class="update-date date-wine"><i class="fa-regular fa-calendar"></i> 02 FEB</span>
-                    <h4>Código Abierto</h4>
-                    <p style="font-size: 0.9rem;">Aclaración sobre la polémica reciente, Janitor y el scraping.</p>
-                    <span style="font-size: 0.8rem; text-decoration: underline; color: var(--accent-color);">Leer más &rarr;</span>
-                </a>
-
-                <a href="#blog/errores" class="glass-panel update-card" style="text-decoration: none; color: inherit;">
-                    <span class="update-date date-gold"><i class="fa-regular fa-calendar"></i> 17 ENE</span>
-                    <h4>Errores Comunes</h4>
-                    <p style="font-size: 0.9rem;">Soluciones a respuestas cortadas y loops en el rol.</p>
                     <span style="font-size: 0.8rem; text-decoration: underline; color: var(--accent-color);">Leer más &rarr;</span>
                 </a>
             </div>
@@ -344,6 +348,25 @@
 
             <div class="grid">
                 
+                <!-- CARD DE LA NOTICIA EN LA SECCIÓN DE GUÍAS -->
+                <div class="glass-panel card" data-tags="news update cassian elio info">
+                    <div class="card-image-container" style="height: 180px;">
+                        <img src="https://files.catbox.moe/sfjt1k.webp" loading="lazy" alt="Update News" class="card-img" style="object-fit: cover;">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                            <span class="tag tag-news" style="margin:0;">Noticia</span>
+                            <span class="date-wine" style="font-size:0.7rem;">20 ENE 2026</span>
+                        </div>
+                        <h3>ACTUALIZACIÓN</h3>
+                        <p class="short-desc">Estado de los archivos de Cassian y Elio, y el anuncio de un nuevo universo en expansión.</p>
+                        <a href="#blog/update-news" class="btn-iconic" style="width:100%">
+                            <i class="fa-solid fa-bullhorn"></i> Leer Comunicado
+                        </a>
+                    </div>
+                </div>
+
                 <!-- NUEVO TUTORIAL ST BACKUP -->
                 <div class="glass-panel card" data-tags="tutorial sillytavern termux android">
                     <div class="card-image-container" style="height: 180px;">
@@ -353,7 +376,7 @@
                     <div class="card-content">
                         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                             <span class="tag tag-tutorial" style="margin:0;">Tutorial</span>
-                            <span class="date-gold" style="font-size:0.7rem;">11 ENE 2026</span>
+                            <span class="date-gold" style="font-size:0.7rem;">11 ABR 2025</span>
                         </div>
                         <h3>RESGUARDO ST</h3>
                         <p class="short-desc">Cómo crear y exportar copias de seguridad de SillyTavern en Android (Termux) sin morir en el intento.</p>
@@ -451,7 +474,7 @@
                     <img src="https://files.catbox.moe/95jydg.jpg" alt="Banner Backup" class="detail-banner">
                     <div class="detail-title-box">
                         <h2>RESGUARDANDO MEMORIAS</h2>
-                        <p class="quote">11 de Enero del 2026 • Tutorial SillyTavern</p>
+                        <p class="quote">11 de Abril del 2025 • Tutorial SillyTavern</p>
                     </div>
                 </div>
                 
@@ -537,6 +560,62 @@
                 
                 <div class="modal-actions">
                     <button class="btn-action primary" onclick="location.href='#guides'">Volver al Archivo</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISTA DETALLE: NOTICIA DE ACTUALIZACIÓN (NUEVA) -->
+        <section id="blog/update-news" class="view-section detail-view">
+            <a href="#home" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver al Inicio</a>
+            
+            <div class="detail-container">
+                <div class="detail-header">
+                    <img src="https://files.catbox.moe/sfjt1k.webp" alt="Banner Update" class="detail-banner">
+                    <div class="detail-title-box">
+                        <h2>ESTADO DEL SISTEMA</h2>
+                        <p class="quote">20 de Enero del 2025 •Anuncio Oficial • Actualización de Universo</p>
+                    </div>
+                </div>
+                
+                <div class="detail-body">
+                    <div class="blog-content">
+                        <p><strong>: : ¡Saludos, viajeros!</strong> Como habrán notado (o notarán pronto), el sitio web está sujeto a cambios constantes. Estamos en un proceso de <strong>mejora estética general</strong> para ofrecerles una experiencia visual más inmersiva y elegante.</p>
+                        
+                        <div style="text-align: center; margin: 30px 0; opacity: 0.6;">✦ • ────── ⚔️ ────── • ✦</div>
+
+                        <h3>[ ✦ ] ESTADO DE BOTS: CASSIAN Y ELIO</h3>
+                        <p>Les informo que los archivos de <strong>Cassian d’Argonne</strong> y <strong>Elio Silvani</strong> están recibiendo actualizaciones importantes en su estructura y narrativa.</p>
+                        
+                        <ul style="margin-top: 15px;">
+                            <li><strong>🎵 Playlists:</strong> Los enlaces a sus playlists siguen <strong>perfectamente funcionales</strong> y disponibles para ambientar sus sesiones.</li>
+                            <li><strong>📂 Archivos (Drive):</strong> Los enlaces a las carpetas de Drive siguen activos, <strong>PERO</strong> los archivos de las tarjetas (.png/.json) han sido dados de baja temporalmente mientras se implementan las actualizaciones.</li>
+                        </ul>
+
+                        <p>Agradezco su paciencia mientras pulimos a estos personajes para que regresen con mejor calidad.</p>
+
+                        <h3>[ ✦ ] EXPANSIÓN: NUEVO UNIVERSO</h3>
+                        <p>Aquí viene la noticia grande. <strong>Cassian</strong> no solo está siendo actualizado; está siendo preparado para ser anexado a un <strong>Nuevo Universo</strong> narrativo.</p>
+                        
+                        <p>Este nuevo mundo albergará una saga interconectada, y actualmente hay <strong>otros 4 bots en proceso de construcción</strong> que formarán parte de esta misma línea temporal y temática. La actualización de Cassian es necesaria para alinear su lore con esta nueva y ambiciosa expansión.</p>
+
+                        <div class="code-box" style="margin-top: 30px; border-color: var(--wip-color);">
+                            PRÓXIMAMENTE: INFORMACIÓN DE LAS SAGAS
+                        </div>
+                        
+                        <p style="text-align: center; font-size: 0.9rem; margin-top: 10px; color: var(--text-secondary);">
+                            Los detalles específicos sobre la trama, las facciones y los nuevos personajes serán revelados cuando estén listos para el despliegue.
+                        </p>
+
+                        <div class="blog-footer">
+                            : : Manténganse atentos. Lo que viene es grande. Gracias por seguir aquí. ✨
+                            <br><br>
+                            ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn-action primary" onclick="location.href='#home'">Entendido</button>
                 </div>
             </div>
         </section>
