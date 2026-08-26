@@ -21,7 +21,7 @@
             --glass-bg: rgba(30, 5, 10, 0.65);
             --glass-border: rgba(255, 255, 255, 0.08);
             --glass-shine: rgba(255, 255, 255, 0.05);
-            --accent-color: #b81d3b; /* Ajuste sutil para mayor brillo estético */
+            --accent-color: #b81d3b;
             --accent-glow: rgba(184, 29, 59, 0.6); 
             --shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.8);
             --wip-color: #D4AF37; 
@@ -164,13 +164,13 @@
         .sagas-wrapper, .wip-grid { 
             margin-bottom: 50px; display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; 
             scrollbar-width: thin; scrollbar-color: var(--accent-color) transparent; 
-            scroll-snap-type: x mandatory; /* Scroll elegante */
+            scroll-snap-type: x mandatory;
         }
         .sagas-wrapper::-webkit-scrollbar, .wip-grid::-webkit-scrollbar { height: 6px; }
         .sagas-wrapper::-webkit-scrollbar-track, .wip-grid::-webkit-scrollbar-track { background: transparent; }
         .sagas-wrapper::-webkit-scrollbar-thumb, .wip-grid::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
         
-        .saga-card, .wip-card { scroll-snap-align: start; } /* Snap estético */
+        .saga-card, .wip-card { scroll-snap-align: start; } 
 
         .saga-card { min-width: 280px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--curva-panel); padding: 20px; display: flex; flex-direction: column; text-decoration: none; color: var(--text-primary); transition: 0.4s; position: relative; overflow: hidden; backdrop-filter: blur(15px); }
         .saga-card:hover { border-color: var(--accent-color); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
@@ -241,7 +241,6 @@
         .detail-container { background: var(--glass-bg); border-radius: var(--curva-panel); border: 1px solid var(--glass-border); box-shadow: var(--shadow); overflow: hidden; color: var(--text-primary); backdrop-filter: blur(30px); width: 100%; }
         .detail-header { position: relative; text-align: center; margin-bottom: 40px; }
         
-        /* RESTAURADO A ORIGINAL: Banner sin recortes raros */
         .detail-banner { width: 100%; height: 350px; object-fit: cover; mask-image: linear-gradient(to bottom, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%); }
         
         .detail-title-box { margin-top: -100px; padding: 0 25px; position: relative; z-index: 2; text-shadow: 0 4px 15px rgba(0,0,0,0.8); width: 100%; }
@@ -285,13 +284,13 @@
         .side-char:hover .side-char-link-icon { opacity: 1; right: 20px; }
 
         .modal-actions { display: flex; gap: 20px; margin-top: 50px; justify-content: center; flex-wrap: wrap; }
-        .btn-action { padding: 16px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; flex: 1 1 auto; max-width: 300px; letter-spacing: 2px; font-family: 'Cinzel', serif; cursor: pointer; border: none; }
+        .btn-action { padding: 16px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; flex: 1 1 auto; max-width: 300px; letter-spacing: 2px; font-family: 'Cinzel', serif; cursor: pointer; border: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
         .btn-action.primary { background: var(--text-primary); color: var(--bg-color); box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
         .btn-action.secondary { border: 2px solid var(--text-primary); color: var(--text-primary); background: transparent; }
         .btn-action:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
         .btn-action.primary:hover { background: var(--accent-color); color: #fff; }
         .btn-action.secondary:hover { background: var(--tag-bg); border-color: var(--accent-color); color: var(--accent-color); }
-        .btn-action.disabled { background: var(--tag-bg); color: var(--text-secondary); border: 1px solid var(--glass-border); cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-action.disabled { background: var(--tag-bg); color: var(--text-secondary); border: 1px solid var(--glass-border); cursor: not-allowed; transform: none; box-shadow: none; pointer-events: none; }
 
         .music-widget { position: fixed; bottom: 30px; right: 30px; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: 12px 20px; border-radius: 60px; display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow); z-index: 900; transition: all 0.3s ease; }
         .music-widget:hover { transform: scale(1.05); border-color: var(--accent-color); }
@@ -463,8 +462,12 @@
                         { title: "👥 Facciones & Aliados", content: "<p style='color: var(--accent-color); font-weight:bold;'>🏴 Shadowscale (Los Leales)</p><ul style='margin-top:5px; margin-bottom:15px;'><li><strong>Sebastian Varrow:</strong> Mano derecha, calculador y sarcástico.</li><li><strong>Seraphine “Sera”:</strong> Estratega pelirroja, odia a la nobleza.</li><li><strong>Ilrek de Y’Shar:</strong> Mentor dracónido de ojos dorados.</li></ul><p style='color: var(--accent-color); font-weight:bold;'>👑 El Imperio (Los Rivales)</p><ul style='margin-top:5px;'><li><strong>Príncipe Adrien:</strong> Tu prometido. Diplomático pero celoso de Cassian.</li><li><strong>Reina Lysandra:</strong> La antagonista que teme el linaje de dragón.</li></ul>" },
                         { title: "🎵 Music Vibe", content: "<p><em>Now Playing:</em> Fall Out Boy — My songs know what you did in the dark</p>" }
                     ],
-                    linkCard: "https://drive.google.com/file/d/1BAxDKi6_EE5U4RUSIDR_TbONDaWZbsc6/view",
-                    linkPlaylist: "https://youtube.com/playlist?list=PLCw2ej0-q4ddcuaOmW0E5JsFXx8p1Eg2q"
+                    platforms: [
+                        { name: "SillyTavern", url: "https://drive.google.com/file/d/1BAxDKi6_EE5U4RUSIDR_TbONDaWZbsc6/view", icon: "fa-solid fa-download" }
+                    ],
+                    playlists: [
+                        { name: "YouTube", url: "https://youtube.com/playlist?list=PLCw2ej0-q4ddcuaOmW0E5JsFXx8p1Eg2q", icon: "fa-brands fa-youtube" }
+                    ]
                 },
                 {
                     id: "ilrek", name: "Ilrek de Y'Shar", 
@@ -522,8 +525,12 @@
                         { title: "🚨 Datos Importantes", content: "<p><strong>El Hijo (Xīnxīn):</strong> 4 años. Mezcla perfecta de ambos. Dibuja a sus padres felices.</p><p><strong>El Rival (Féng Yì):</strong> El antagonista narcisista por quien perdiste la cabeza.</p><p><strong>Dinámica:</strong> Él te protege incondicionalmente, aunque tú lo veas como enemigo.</p>" },
                         { title: "🎵 Music Vibe", content: "<p><em>Now Playing:</em> ENHYPEN — Brought the heat back.</p>" }
                     ],
-                    linkCard: "https://drive.google.com/file/d/1s9RRIZsuaWB3szSlAwDRSTjXj4p4-3nQ/view",
-                    linkPlaylist: "https://youtube.com/playlist?list=PLs_r0mKM3dE3Z9E7AssNtPGaRFCIf2DPP"
+                    platforms: [
+                        { name: "SillyTavern", url: "https://drive.google.com/file/d/1s9RRIZsuaWB3szSlAwDRSTjXj4p4-3nQ/view", icon: "fa-solid fa-download" }
+                    ],
+                    playlists: [
+                        { name: "YouTube", url: "https://youtube.com/playlist?list=PLs_r0mKM3dE3Z9E7AssNtPGaRFCIf2DPP", icon: "fa-brands fa-youtube" }
+                    ]
                 },
                 {
                     id: "elio", name: "Elio Silvani", tags: ["Racer", "Celebrity", "Moderno"], status: "",
@@ -543,8 +550,16 @@
                         { title: "💾 Driver Intel", content: "<ul style='margin-top:0;'><li><strong>Tótem:</strong> Toca la cinta en su muñeca cuando tiene ansiedad por ti.</li><li><strong>Coche:</strong> Mercedes-AMG GT 63 S (Negro Mate).</li><li><strong>Idiomas:</strong> IT, EN, FR, DE, ES, JP.</li><li><strong>Sinestesia:</strong> Tu voz tiene un color que calma sus migrañas.</li></ul>" },
                         { title: "🎵 Music Vibe", content: "<p><em>Now Playing:</em> W24 — Love me</p>" }
                     ],
-                    linkCard: "https://drive.google.com/file/d/1nA0gIr0dI8rTE9E6CA6YI2G4E3VDYfE4/view",
-                    linkPlaylist: "https://youtube.com/playlist?list=PLCw2ej0-q4dcJ6tseii2dGMY1I0bpnP8O"
+                    platforms: [
+                        { name: "Janitor AI", url: "https://janitorai.com/es/characters/b3dc3b40-14b2-4333-a304-d515db067dc5_character-elio-silvani", icon: "fa-solid fa-robot" },
+                        { name: "Caveduck", url: "https://caveduck.io/character-info/0238a1e6-114d-4174-be64-53a350b53ae9", icon: "fa-solid fa-feather" },
+                        { name: "SillyTavern", url: "https://drive.google.com/file/d/1nA0gIr0dI8rTE9E6CA6YI2G4E3VDYfE4/view", icon: "fa-solid fa-download" },
+                        { name: "Chub", url: "#", icon: "fa-solid fa-box-archive" }
+                    ],
+                    playlists: [
+                        { name: "Spotify", url: "https://open.spotify.com/playlist/3AdpRqTuuVZrTeZEkZPtKm?si=F_17_OjBRF2_dGPa1qrFfQ&utm_source=copy-link&pi=BnNv5DyNSTq6u", icon: "fa-brands fa-spotify" },
+                        { name: "YouTube Music", url: "https://music.youtube.com/playlist?list=PLCw2ej0-q4dcJ6tseii2dGMY1I0bpnP8O", icon: "fa-brands fa-youtube" }
+                    ]
                 },
                 {
                     id: "eiden", name: "Eiden R. Kael", tags: ["Gamer", "Identity", "Moderno"], status: "",
@@ -559,8 +574,12 @@
                         { title: "⚔️ Escenarios de Interacción", content: "<ul><li><strong>[1] Contexto:</strong> El inicio de todo.</li><li><strong>[2] Coincidencia:</strong> Se conectan al mismo tiempo.</li><li><strong>[3] Francés:</strong> Se ofrece a enseñarte modismos.</li><li><strong>[4] T1 Team:</strong> Entra a tu equipo eSports.</li><li><strong>[5] La Apuesta:</strong> Si entra al Top 60, le debes una cita.</li><li><strong>[6] Conflicto:</strong> Cree que le es infiel a {{User}} contigo.</li><li><strong>[7] Hannah Montana:</strong> Descubre tu identidad. Pánico gay.</li></ul>" },
                         { title: "💿 Datos & Vibe", content: "<p><strong>Edad:</strong> 23 (Acuario ♒)</p><p><strong>Mascota:</strong> Lambda (Gato atigrado).</p><hr style='border:0; border-top:1px solid var(--text-secondary); margin:10px 0;'><p><em>🎵 Now Playing:</em> Stray Kids — Case 143</p>" }
                     ],
-                    linkCard: "https://drive.google.com/file/d/1xmRmQgC18D6YQWGv1fzZxODO-lcVdsY7/view",
-                    linkPlaylist: "https://youtube.com/playlist?list=PLCw2ej0-q4defbV-1QxXNv-8OOF5YGXbS"
+                    platforms: [
+                        { name: "SillyTavern", url: "https://drive.google.com/file/d/1xmRmQgC18D6YQWGv1fzZxODO-lcVdsY7/view", icon: "fa-solid fa-download" }
+                    ],
+                    playlists: [
+                        { name: "YouTube", url: "https://youtube.com/playlist?list=PLCw2ej0-q4defbV-1QxXNv-8OOF5YGXbS", icon: "fa-brands fa-youtube" }
+                    ]
                 },
                 {
                     id: "piers", name: "Piers", tags: ["Gamer", "Shy", "Moderno", "WIP"], status: "En Proceso",
@@ -964,16 +983,19 @@
                                 <p class="diary-subtitle">ᶻ 𝗓 𐰁 𝓦elcome to my 𝓒andystore 𐙚</p>
                                 <p style="opacity:0.6; margin-top:10px;">︶︶︶୨♡୧︶︶︶</p>
                                 
-                                <div style="margin-top:20px;">
+                                <div style="margin-top:20px; width: 100%;">
                                     <img src="https://files.catbox.moe/x1162e.png" class="avatar-circle" alt="Avatar de Elipsis">
                                     <p style="text-align:center; font-style:italic; font-family:'Playfair Display', serif; margin-bottom: 20px;">
                                         Espero que encuentres aquí una historia<br>
                                         capaz de hacerte reír, sufrir, enamorarte<br>
                                         o simplemente pasar un buen rato.
                                     </p>
-                                    <div class="grid-socials" style="margin-top:20px; justify-content:center; display:flex;">
-                                        <a href="https://ngl.link/angiee143" target="_blank" class="btn-iconic" style="width:auto; padding:10px 20px;" aria-label="NGL"><i class="fa-solid fa-envelope-open-text"></i> NGL</a>
-                                        <a href="mailto:mangeline609@gmail.com" class="btn-iconic" style="width:auto; padding:10px 20px;" aria-label="Email"><i class="fa-solid fa-paper-plane"></i> Email</a>
+                                    <div class="grid-socials" style="margin-top:25px; justify-content:center; display:flex; flex-wrap:wrap; gap:10px;">
+                                        <a href="https://janitorai.com/es/profiles/ce25a900-9faf-4af2-8dd3-d44e27cfe579_profile-of-ever-and-after" target="_blank" class="btn-iconic" style="width:auto; padding:10px 18px; font-size:0.8rem;" aria-label="Janitor AI"><i class="fa-solid fa-robot"></i> Janitor</a>
+                                        <a href="https://caveduck.io/user/EverAndAfter" target="_blank" class="btn-iconic" style="width:auto; padding:10px 18px; font-size:0.8rem;" aria-label="Caveduck"><i class="fa-solid fa-feather"></i> Caveduck</a>
+                                        <a href="https://chub.ai/users/EverAndAfter" target="_blank" class="btn-iconic" style="width:auto; padding:10px 18px; font-size:0.8rem;" aria-label="Chub"><i class="fa-solid fa-box-archive"></i> Chub</a>
+                                        <a href="https://ngl.link/angiee143" target="_blank" class="btn-iconic" style="width:auto; padding:10px 18px; font-size:0.8rem;" aria-label="NGL"><i class="fa-solid fa-envelope-open-text"></i> NGL</a>
+                                        <a href="mailto:mangeline609@gmail.com" class="btn-iconic" style="width:auto; padding:10px 18px; font-size:0.8rem;" aria-label="Email"><i class="fa-solid fa-paper-plane"></i> Email</a>
                                     </div>
                                 </div>
                             </div>
@@ -1024,7 +1046,7 @@
                                 <p>Aunque, de vez en cuando, aparece algún bot cuya única misión es hacerte la vida imposible.</p>
                                 <p>No fue diseñado para enamorarse y no está pensando en conquistarte... pero si aun así consigues enamorarlo:</p>
                                 <div style="text-align:center; font-family:'Cinzel', serif; font-size:1.3rem; color:var(--accent-color); margin:20px 0; text-shadow:0 0 10px var(--accent-glow);">
-                                    ✦ ¡felicidadessss! ✦
+                                    ✦ ¡felicidades! ✦
                                 </div>
                                 <p>Probablemente acabas de desbloquear una ruta que ni él mismo esperaba.</p>
                             </div>
@@ -1065,7 +1087,6 @@
             homeSec.innerHTML = html;
         }
 
-        // Función interactiva para el cambio de páginas en el diario
         window.turnPage = function(index) {
             document.querySelectorAll('.diary-page').forEach(p => p.classList.remove('active-page'));
             document.querySelectorAll('.diary-tab').forEach(t => t.classList.remove('active-tab'));
@@ -1166,17 +1187,14 @@
                 btnAll.classList.remove('active-tag');
                 const index = filtersArray.indexOf(tag);
                 
-                // Si el tag ya estaba activo, lo quita
                 if (index > -1) {
                     filtersArray.splice(index, 1);
                     btn.classList.remove('active-tag');
                 } else {
-                    // Si no, lo agrega
                     filtersArray.push(tag);
                     btn.classList.add('active-tag');
                 }
                 
-                // Si al quitar el tag no queda ninguno, vuelve a "Todos"
                 if (filtersArray.length === 0) {
                     btnAll.classList.add('active-tag');
                 }
@@ -1265,15 +1283,49 @@
                     html += `</div></div>`;
                 }
 
-                html += `<div class="modal-actions">`;
+                // NUEVA SECCIÓN DE ENLACES PARA BOTS (Múltiples plataformas y playlists)
+                html += `<div class="modal-actions" style="flex-direction: column; align-items: center; gap: 30px;">`;
+                
                 if(data.status === 'En Proceso') {
                     html += `<a class="btn-action primary disabled">Laboratorio...</a>`;
                 } else {
-                    if(data.linkCard) html += `<a href="${data.linkCard}" target="_blank" class="btn-action primary">✦ Rolear (Card)</a>`;
-                    if(data.linkPlaylist) html += `<a href="${data.linkPlaylist}" target="_blank" class="btn-action secondary">► Playlist</a>`;
+                    // Renderizar Plataformas
+                    let platformsArray = data.platforms || [];
+                    
+                    if(platformsArray.length > 0) {
+                        html += `<div style="width: 100%; text-align: center;">
+                                    <div style="font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--wip-color); letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">✦ Plataformas de Rol ✦</div>
+                                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">`;
+                        platformsArray.forEach(p => {
+                            let isDisabled = p.url === '#' || p.url === '';
+                            let actionClass = isDisabled ? 'disabled' : '';
+                            let linkAttr = isDisabled ? '' : `href="${p.url}" target="_blank"`;
+                            let label = isDisabled ? `${p.name} (Pronto)` : p.name;
+                            
+                            html += `<a ${linkAttr} class="btn-action primary ${actionClass}" style="padding: 12px 25px; font-size: 0.8rem;"><i class="${p.icon}"></i> ${label}</a>`;
+                        });
+                        html += `   </div>
+                                  </div>`;
+                    }
+
+                    // Renderizar Playlists
+                    let playlistsArray = data.playlists || [];
+                    
+                    if(playlistsArray.length > 0) {
+                        html += `<div style="width: 100%; text-align: center;">
+                                    <div style="font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--text-secondary); letter-spacing: 2px; margin-bottom: 15px; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;"><i class="fa-solid fa-music"></i> Ambientación</div>
+                                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">`;
+                        playlistsArray.forEach(p => {
+                            html += `<a href="${p.url}" target="_blank" class="btn-action secondary" style="padding: 10px 20px; font-size: 0.8rem;"><i class="${p.icon}"></i> ${p.name}</a>`;
+                        });
+                        html += `   </div>
+                                  </div>`;
+                    }
                 }
-                html += `</div>`;
+                html += `</div>`; // Cierra modal-actions
+
             } else {
+                // Render para Blogs
                 html += `<div class="blog-content">${data.content}</div>`;
             }
 
@@ -1371,7 +1423,6 @@
 
             document.body.addEventListener('click', e => {
                 const sfxClick = document.getElementById('sfx-click');
-                // Añadido .diary-tab para que suene al cambiar de página del libro
                 if(e.target.closest('a, button, .card, .saga-card, .wip-card, .side-char, .diary-tab') && sfxClick) { 
                     sfxClick.volume = 0.4; 
                     sfxClick.currentTime = 0; 
