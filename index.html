@@ -466,10 +466,7 @@
             
             .card { backdrop-filter: none; background: var(--glass-bg); }
             
-            .music-widget { bottom: 15px; right: 15px; padding: 8px; width: 65px; overflow: hidden; justify-content: center; transform: scale(0.9); transform-origin: bottom right; }
-            .music-widget:active, .music-widget:hover { width: auto; padding: 12px 20px; }
-            .music-widget .music-controls { display: none; }
-            .music-widget:active .music-controls, .music-widget:hover .music-controls { display: flex; }
+            .music-widget { bottom: 15px; right: 15px; transform: scale(0.9); transform-origin: bottom right; }
         }
         @media (max-width: 1100px) {
             .candy-shop-decor { display: none; }
@@ -508,12 +505,286 @@
         .blog-index ul { list-style: none; padding: 0; margin: 10px 0 0 0; }
         .blog-index li { margin-bottom: 10px; font-size: 1rem; }
         .blog-footer { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--glass-border); text-align: center; font-style: italic; color: var(--text-secondary); opacity: 0.9; font-size: 1.1rem; }
+
+        body {
+            background-image:
+                radial-gradient(ellipse at 50% 0, rgba(184,29,59,0.12), transparent 42%),
+                radial-gradient(ellipse at 100% 80%, rgba(212,175,55,0.06), transparent 34%),
+                var(--bg-image);
+            background-attachment: fixed;
+        }
+        body.light-mode {
+            background-image:
+                radial-gradient(ellipse at 12% 0, rgba(215,140,156,0.18), transparent 38%),
+                radial-gradient(ellipse at 100% 78%, rgba(184,145,58,0.11), transparent 35%),
+                var(--bg-image);
+        }
+        .section-container, .view-section { max-width: 1120px; }
+        header { background: var(--glass-bg); }
+        .nav-links a {
+            padding: 10px 14px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            letter-spacing: 1.4px;
+        }
+        .nav-links a::after { display: none; }
+        .nav-links li a.active-link { border-color: var(--glass-border); background: var(--tag-bg); }
+        .nav-links a:hover { background: var(--accent-glow); }
+        .section-header.has-shop-tools::before,
+        .section-header.has-shop-tools::after { top: 28px; }
+        .section-kicker {
+            margin: 0 0 8px;
+            color: var(--wip-color);
+            font: 700 0.72rem/1.4 'Cinzel', serif;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+        .section-intro {
+            max-width: 640px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .collection-tools {
+            position: relative;
+            display: grid;
+            gap: 16px;
+            width: min(100%, 880px);
+            margin: 28px auto 26px;
+            padding: clamp(18px, 3vw, 28px);
+            border: 1px solid rgba(212,175,55,0.28);
+            border-radius: 26px;
+            background:
+                radial-gradient(ellipse at 50% -30%, rgba(215,140,156,0.14), transparent 64%),
+                linear-gradient(145deg, var(--glass-bg), rgba(114,47,55,0.08));
+            box-shadow: inset 0 1px var(--glass-shine), 0 18px 45px rgba(0,0,0,0.18);
+            text-align: left;
+        }
+        .collection-tools::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 18px;
+            right: 18px;
+            height: 5px;
+            border-radius: 0 0 8px 8px;
+            background: repeating-linear-gradient(90deg, var(--accent-color) 0 12px, var(--candy-cream) 12px 24px);
+            opacity: 0.9;
+        }
+        .search-wrapper { max-width: none; margin: 0; }
+        .search-wrapper::after { content: none; }
+        .search-wrapper input {
+            min-height: 56px;
+            padding: 15px 56px 15px 54px;
+            border-color: var(--glass-border);
+            background: var(--input-bg);
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .search-wrapper input:focus { transform: none; }
+        .search-wrapper input::placeholder { color: var(--text-secondary); opacity: 0.8; }
+        .search-icon { left: 21px; }
+        .search-clear {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            display: grid;
+            width: 36px;
+            height: 36px;
+            place-items: center;
+            transform: translateY(-50%);
+            border: 1px solid transparent;
+            border-radius: 50%;
+            color: var(--text-secondary);
+            background: transparent;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+        .search-clear:hover { color: #fff; background: var(--accent-color); border-color: var(--accent-color); }
+        .filter-drawer {
+            overflow: visible;
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            background: var(--accordion-bg);
+        }
+        .filter-drawer[open] { border-color: rgba(212,175,55,0.42); }
+        .filter-drawer summary {
+            min-height: 52px;
+            padding: 12px 18px;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.04em;
+            list-style: none;
+        }
+        .filter-drawer summary::-webkit-details-marker { display: none; }
+        .filter-drawer summary > span:first-child { display: flex; align-items: center; gap: 10px; }
+        .filter-drawer summary > span:first-child i { color: var(--wip-color); }
+        .filter-drawer summary::after { content: '＋'; font-family: 'Lato', sans-serif; font-size: 1rem; }
+        .filter-drawer[open] summary::after { content: '－'; transform: none; }
+        .filter-selection-count {
+            margin-left: auto;
+            padding: 4px 10px;
+            border: 1px solid var(--glass-border);
+            border-radius: 999px;
+            color: var(--text-secondary);
+            font-size: 0.72rem;
+            white-space: nowrap;
+        }
+        .filter-hint {
+            margin: 0;
+            padding: 0 18px 12px;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+        .filter-chip-list { gap: 9px; margin: 0; padding: 0 18px 18px; }
+        .filter-chip-list .tag {
+            min-height: 36px;
+            padding: 8px 13px;
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            text-transform: none;
+            font-family: 'Lato', sans-serif;
+        }
+        .filter-chip-list .filter-all { color: var(--candy-cream); border-color: var(--accent-color); }
+        .filter-feedback {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 0 2px;
+        }
+        .result-count { margin: 0; color: var(--text-secondary); font-size: 0.86rem; }
+        .result-count strong { color: var(--text-primary); }
+        .clear-filters {
+            padding: 7px 10px;
+            border: 0;
+            color: var(--wip-color);
+            background: transparent;
+            font: 700 0.78rem 'Lato', sans-serif;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .clear-filters:hover { color: var(--text-primary); }
+        .card[hidden], .empty-state[hidden] { display: none !important; }
+        .card {
+            padding: 12px;
+            background:
+                linear-gradient(145deg, var(--glass-bg), rgba(114,47,55,0.07)),
+                var(--glass-bg);
+            box-shadow: 0 14px 36px rgba(0,0,0,0.2), inset 0 1px var(--glass-shine);
+        }
+        .card:hover { transform: translateY(-7px); }
+        .card-main-link {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            min-width: 0;
+            color: inherit;
+            text-decoration: none;
+            border-radius: var(--curva-interior);
+        }
+        .card-main-link:focus-visible { outline: 3px solid var(--wip-color); outline-offset: 4px; }
+        .card .tags-container { padding: 0 4px 5px; }
+        .card .tag { min-height: 30px; padding: 6px 10px; font: 700 0.65rem 'Lato', sans-serif; letter-spacing: 0.05em; text-transform: none; }
+        .card .tag:hover { transform: translateY(-1px); }
+        .card .tag:focus-visible { position: relative; z-index: 3; outline-offset: 3px; }
+        .card-content { padding: 0 8px 8px; }
+        .card-content h3 { line-height: 1.35; }
+        .card .btn-iconic { pointer-events: none; }
+        .card-date { align-self: center; margin-left: auto; color: var(--text-secondary); font-size: 0.72rem; white-space: nowrap; }
+        .archive-tools .filter-chip-list { padding: 0; justify-content: center; }
+        .archive-tools .filter-chip-list .tag { min-height: 40px; padding-inline: 18px; }
+        .empty-state {
+            max-width: 560px;
+            margin: 26px auto 0;
+            padding: 36px 24px;
+            border: 1px dashed rgba(212,175,55,0.42);
+            border-radius: var(--curva-panel);
+            background: var(--glass-bg);
+            text-align: center;
+        }
+        .empty-state-icon { color: var(--wip-color); font-size: 1.8rem; }
+        .empty-state h3 { margin: 12px 0 8px; font: 700 1.2rem 'Cinzel', serif; }
+        .empty-state p { margin: 0 0 20px; color: var(--text-secondary); line-height: 1.6; }
+        .empty-state .btn-iconic { max-width: 230px; margin: auto; }
+        .skip-link {
+            position: fixed;
+            z-index: 3000;
+            top: 12px;
+            left: 12px;
+            padding: 12px 18px;
+            transform: translateY(-160%);
+            border: 2px solid var(--wip-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            background: var(--bg-color);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .skip-link:focus { transform: translateY(0); }
+        .music-expand {
+            display: none;
+            width: 42px;
+            height: 42px;
+            place-items: center;
+            border: 1px solid rgba(212,175,55,0.55);
+            border-radius: 50%;
+            color: var(--candy-cream);
+            background: var(--accent-color);
+            box-shadow: 0 0 18px var(--accent-glow);
+            cursor: pointer;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
+        :focus-visible { outline: 3px solid var(--wip-color); outline-offset: 4px; }
+        .nav-links a:focus-visible, .btn-theme:focus-visible, .tag:focus-visible,
+        .search-clear:focus-visible, .clear-filters:focus-visible, summary:focus-visible,
+        .btn-music:focus-visible { outline: 3px solid var(--wip-color); outline-offset: 4px; }
+        @media (max-width: 768px) {
+            .collection-tools { border-radius: 20px; }
+            .filter-drawer summary { padding-inline: 14px; }
+            .filter-hint { padding-inline: 14px; }
+            .filter-chip-list { padding-inline: 14px; }
+            .card:hover { transform: none; }
+        }
+        @media (max-width: 480px) {
+            .collection-tools { padding: 22px 14px 16px; }
+            .search-wrapper input { min-height: 52px; padding-right: 50px; }
+            .filter-feedback { align-items: flex-start; }
+            .archive-tools .filter-chip-list { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .music-widget:not(.is-expanded) { width: 58px; min-width: 58px; height: 58px; padding: 5px; gap: 0; overflow: hidden; justify-content: center; }
+            .music-widget:not(.is-expanded) .vinyl-record,
+            .music-widget:not(.is-expanded) .music-controls { display: none; }
+            .music-widget .music-expand { display: grid; flex-shrink: 0; }
+            .music-widget.is-expanded { width: auto; min-width: 190px; height: auto; padding: 9px 12px; gap: 10px; overflow: visible; justify-content: flex-start; }
+            .music-widget.is-expanded .vinyl-record { display: block; }
+            .music-widget.is-expanded .music-controls { display: flex; }
+            .music-widget.is-expanded .track-info { width: 82px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .card:hover { transform: none; }
+        }
     </style>
 </head>
 <body>
 
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
     <div class="bg-layer"></div>
-    <img src="https://files.catbox.moe/5t329j.png" class="corner-deco top-right" alt="Decoración de esquina dorada">
+    <img src="https://files.catbox.moe/5t329j.png" class="corner-deco top-right" alt="" aria-hidden="true">
     <div id="toast-container" class="toast-container"></div>
     
     <audio id="sfx-hover" src="https://cdn.pixabay.com/audio/2022/03/24/audio_c8c8a73467.mp3" preload="auto"></audio>
@@ -526,7 +797,7 @@
                 <i class="fa-solid fa-moon"></i> / <i class="fa-solid fa-sun"></i>
             </button>
         </div>
-        <nav>
+        <nav aria-label="Navegación principal">
             <ul class="nav-links">
                 <li><a href="#home" id="nav-home" class="active-link"><i class="fa-solid fa-house"></i> Inicio</a></li>
                 <li><a href="#collection" id="nav-collection"><i class="fa-solid fa-masks-theater"></i> Colección</a></li>
@@ -534,7 +805,7 @@
             </ul>
         </nav>
     </header>
-    <div class="candy-marquee" aria-label="Confitería de historias y mundos">
+    <div class="candy-marquee" aria-hidden="true">
         <div class="candy-marquee-track" aria-hidden="true">
             <span>Confitería de historias · dulces mundos · personajes hechos a mano ·</span>
             <span>Confitería de historias · dulces mundos · personajes hechos a mano ·</span>
@@ -547,47 +818,73 @@
         <span class="candy-sticker sprinkle"></span>
     </div>
 
-    <main id="main-content">
-        <section id="home" class="view-section active-view"></section>
+    <main id="main-content" tabindex="-1">
+        <section id="home" class="view-section active-view" aria-label="Inicio"></section>
         
-        <section id="collection" class="view-section">
-            <div class="section-header">
-                <h2>Mis Creaciones</h2>
-                
-                <div class="search-wrapper">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="text" id="botSearch" placeholder="Buscar por nombre, rasgo o pecado..." onkeyup="filterContent('bots')">
-                </div>
-                
-                <div class="tags-container" style="justify-content: center; margin-bottom: 20px;" id="bot-filters">
-                    <button onclick="toggleFilter('bots', 'all', this)" class="tag active-tag filter-all">Todos</button>
-                    <button onclick="toggleFilter('bots', 'Moderno', this)" class="tag">Moderno</button>
-                    <button onclick="toggleFilter('bots', 'Fantasía', this)" class="tag">Fantasía</button>
-                    <button onclick="toggleFilter('bots', 'DarkRomance', this)" class="tag">Dark Romance</button>
-                    <button onclick="toggleFilter('bots', 'Mafia', this)" class="tag">Mafia</button>
-                    <button onclick="toggleFilter('bots', 'WIP', this)" class="tag status-wip">En Proceso</button>
+        <section id="collection" class="view-section" aria-labelledby="collection-title">
+            <div class="section-header has-shop-tools">
+                <p class="section-kicker">La vitrina de personajes</p>
+                <h2 id="collection-title">Mis Creaciones</h2>
+                <p class="section-intro">Explora historias hechas a mano. Busca por personaje, universo, rasgo o cualquier detalle de su trama.</p>
+
+                <div class="collection-tools">
+                    <label class="sr-only" for="botSearch">Buscar personajes</label>
+                    <div class="search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+                        <input type="search" id="botSearch" placeholder="Buscar personajes, tramas, sagas..." autocomplete="off" aria-controls="bots-grid" aria-describedby="bot-results">
+                        <button type="button" class="search-clear" onclick="clearFilters('bots')" aria-label="Limpiar búsqueda y filtros de personajes"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                    </div>
+                    <details class="filter-drawer" id="bot-filter-drawer">
+                        <summary><span><i class="fa-solid fa-sliders" aria-hidden="true"></i> Filtrar por etiquetas</span><span class="filter-selection-count" id="bot-filter-count">Todas</span></summary>
+                        <p class="filter-hint">Puedes combinar varias etiquetas para afinar la búsqueda.</p>
+                        <div class="tags-container filter-chip-list" id="bot-filters" role="group" aria-label="Etiquetas de personajes"></div>
+                    </details>
+                    <div class="filter-feedback">
+                        <p id="bot-results" class="result-count" role="status" aria-live="polite" aria-atomic="true"></p>
+                        <button type="button" class="clear-filters" onclick="clearFilters('bots')">Restablecer todo</button>
+                    </div>
                 </div>
                 <div class="linea-divisoria"></div>
             </div>
 
             <div id="sagas-container"></div>
             <div class="grid" id="bots-grid"></div>
+            <div class="empty-state" id="bots-empty" hidden>
+                <span class="empty-state-icon" aria-hidden="true">✦</span>
+                <h3>No encontramos esa golosina</h3>
+                <p>Prueba con otras palabras o quita alguna etiqueta.</p>
+                <button type="button" class="btn-iconic" onclick="clearFilters('bots')">Limpiar búsqueda</button>
+            </div>
         </section>
 
-        <section id="guides" class="view-section">
-            <div class="section-header">
-                <h2>El Archivo</h2>
+        <section id="guides" class="view-section" aria-labelledby="guides-title">
+            <div class="section-header has-shop-tools">
+                <p class="section-kicker">Notas desde el obrador</p>
+                <h2 id="guides-title">El Archivo</h2>
                 <p class="subtitle" style="text-align: center; color:var(--text-secondary); font-style:italic;">Pensamientos • Aprendizaje • Novedades</p>
-                
-                <div class="tags-container" style="justify-content: center; margin-bottom: 20px; margin-top: 15px;" id="blog-filters">
-                    <button onclick="toggleFilter('blogs', 'all', this)" class="tag active-tag filter-all">Todo</button>
-                    <button onclick="toggleFilter('blogs', 'Información', this)" class="tag tag-info">Información</button>
-                    <button onclick="toggleFilter('blogs', 'Tutorial', this)" class="tag tag-tutorial">Tutorial</button>
-                    <button onclick="toggleFilter('blogs', 'Noticia', this)" class="tag tag-news">Noticia</button>
+
+                <div class="collection-tools archive-tools">
+                    <label class="sr-only" for="blogSearch">Buscar en el archivo</label>
+                    <div class="search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+                        <input type="search" id="blogSearch" placeholder="Buscar artículos por título o contenido..." autocomplete="off" aria-controls="blogs-grid" aria-describedby="blog-results">
+                        <button type="button" class="search-clear" onclick="clearFilters('blogs')" aria-label="Limpiar búsqueda y filtros del archivo"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="tags-container filter-chip-list" id="blog-filters" role="group" aria-label="Categorías de artículos"></div>
+                    <div class="filter-feedback">
+                        <p id="blog-results" class="result-count" role="status" aria-live="polite" aria-atomic="true"></p>
+                        <button type="button" class="clear-filters" onclick="clearFilters('blogs')">Restablecer todo</button>
+                    </div>
                 </div>
                 <div class="linea-divisoria"></div>
             </div>
             <div class="grid" id="blogs-grid"></div>
+            <div class="empty-state" id="blogs-empty" hidden>
+                <span class="empty-state-icon" aria-hidden="true">✦</span>
+                <h3>Este estante está vacío por ahora</h3>
+                <p>Prueba otra búsqueda o restablece los filtros.</p>
+                <button type="button" class="btn-iconic" onclick="clearFilters('blogs')">Limpiar búsqueda</button>
+            </div>
         </section>
 
         <section id="dynamic-detail" class="view-section">
@@ -598,15 +895,16 @@
         </section>
     </main>
 
-    <div class="music-widget">
+    <div class="music-widget" id="music-widget">
         <div class="vinyl-record" id="vinyl"><div class="vinyl-center"></div></div>
         <div class="music-controls">
             <div class="track-info"><span class="scrolling-text">Now Playing: Chill Lo-Fi</span></div>
             <div class="control-btns">
-                <button onclick="toggleMusic()" class="btn-music" aria-label="Reproducir o pausar música de fondo"><i class="fa-solid fa-play" id="playIcon"></i></button>
-                <button onclick="changeVolume()" class="btn-music" aria-label="Ajustar volumen de música"><i class="fa-solid fa-volume-high" id="volIcon"></i></button>
+                <button type="button" onclick="toggleMusic()" class="btn-music" aria-label="Reproducir o pausar música de fondo"><i class="fa-solid fa-play" id="playIcon" aria-hidden="true"></i></button>
+                <button type="button" onclick="changeVolume()" class="btn-music" aria-label="Ajustar volumen de música"><i class="fa-solid fa-volume-high" id="volIcon" aria-hidden="true"></i></button>
             </div>
         </div>
+        <button type="button" class="music-expand" id="music-expand" onclick="toggleMusicWidget()" aria-label="Mostrar controles de música" aria-expanded="false"><i class="fa-solid fa-music" aria-hidden="true"></i></button>
         <audio id="bgMusic" loop><source src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mp3"></audio>
     </div>
 
@@ -1165,69 +1463,148 @@
                               </div>`
                 },
                 {
-                    id: "errores", title: "ERRORES COMUNES", type: "Tutorial", date: "17 ENE 2026",
+                    id: "errores", title: "ERRORES COMUNES", type: "Tutorial", date: "17 ENE 2025",
                     img: "https://files.catbox.moe/x1162e.png", desc: "Soluciones a respuestas cortadas, loops y filtros.",
-                    content: `<p><strong>: : ¡Hola a todos!</strong> Tips rápidos para mejorar tu rol y solucionar errores comunes:</p>
+                    content: `<p><strong>: : ¡Hola a todos!</strong> Realmente no creí que alguien me mandaría un mensaje por el link de Secrets, así que no lo había preparado. Perdón si eres la persona que lo hizo 😭. A manera de disculpa, respondo a tu pregunta con un mini tutorial y espero que la información te sirva.</p>
+                              <p>No tengo mucho más que decir, pero espero que estos tips lleguen a las personas indicadas. Los descubrí por cuenta propia y de manera empírica, así que es posible que no funcionen siempre o que, si se trata de un bug, dejen de servir cuando cambie el sistema. Solo pido que no se asuma la información como propia; no espero créditos completos, pero tampoco quisiera que alguien quede mal si deja de funcionar.</p>
+                              <p>Este post está dividido en imágenes y secciones. Eres libre de leerlo o no; si decides hacerlo, agradezco que te tomes el tiempo. De antemano, disculpa su extensión: busco dejar todo lo más claro posible para evitar confusiones. También me han dicho que puedo sobreexplicar y marear con tantas palabras, pero espero que aquí las dudas queden resueltas.</p>
+                              <p>Si queda alguna duda, eres bienvenidx a comentarla; responderé en la medida que mis escasos conocimientos me permitan.</p>
+                              <p><strong>➛ Índice 🦋 ೃ</strong></p>
+                              <ol>
+                                  <li>Respuesta inconclusa</li>
+                                  <li>Repetición</li>
+                                  <li>Apropiación de usuario</li>
+                                  <li>Filtro</li>
+                              </ol>
+                              <div class="blog-footer">╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊</div>
                               <h3>[ ✦ ] RESPUESTA INCONCLUSA</h3>
-                              <p>Si la respuesta se corta a la mitad dejando inconcluso el rol. <strong>Solución:</strong> Desactiva la función de “Streaming” en las opciones de generación de la API.</p>
+                              <p>Es probable que alguna vez, al comenzar a generar respuestas, te haya pasado que la respuesta se corta a la mitad y deja inconcluso el rol.</p>
+                              <p>La solución puede ser desactivar la función de <strong>«Streaming»</strong>, disponible en el apartado donde se colocan las JB y que tiene un ícono parecido a unos controles de configuración. Adjunto una imagen de cómo luce esta opción en la función de comentarios.</p>
                               <h3>[ ✦ ] REPETICIÓN</h3>
-                              <p>Empieza a repetir información o textos viejos. <strong>Solución:</strong> Cambia de modelo base (Ej. de Claude 3 a Gemini) por al menos una respuesta o recorta manualmente el texto repetido.</p>
-                              <h3>[ ✦ ] APROPIACIÓN</h3>
-                              <p>El bot habla por ti o hace tus acciones. <strong>Solución:</strong> Si son errores mínimos, recórtalos. Si es constante, necesitas cambiar el "Jailbreak" (Instrucciones del sistema) por uno más estricto.</p>
-                              <div class="blog-footer">╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊</div>`
+                              <p>Igual que con el error anterior, puede ocurrir que, después de varios mensajes con un mismo bot, empiece a repetir información que dijiste tú o que ya dijo el propio bot. No como recordatorio de algo que iban a hacer en el rol, sino como una copia textual.</p>
+                              <p>Una posible solución es cambiar de modelo base durante al menos una respuesta. ¿Tenías activo GPT latest? Prueba GPT-4o. ¿Usabas Sonnet 3.5? Cambia a Sonnet Latest. ¿Command-R? Prueba Command R+. ¿Gemini 1.5 Pro? Cambia a la versión Latest. ¿Mistral? Prueba Mistral Medium Latest.</p>
+                              <p>No es necesario cambiar específicamente a esos; son solo ejemplos. A veces resulta más útil cambiar directamente de JB, aunque no todos tienen varias JB disponibles, por lo que cambiar de modelo puede ser una alternativa más viable.</p>
+                              <p>Si la repetición continúa, edita el mensaje y recorta la parte repetida.</p>
+                              <h3>[ ✦ ] APROPIACIÓN DE USUARIO</h3>
+                              <p>Este es un error bastante común. Una buena JB puede ayudar a evitarlo, pero sé que hay modelos que no cuentan con buenas JB o cuyas opciones son escasas.</p>
+                              <p>Resolverlo es relativamente sencillo si tienes una JB que narre las acciones de ambos. El siguiente consejo no funciona si <strong>todo</strong> el mensaje está narrado desde el punto de vista del usuario.</p>
+                              <p>Si son errores mínimos, edita el mensaje y recorta esa parte. Si el error es grande, no hay mucho que puedas hacer como usuario sin conocimientos de JB: dependiendo del modelo, puede ignorar las indicaciones de no asumir el rol del usuario. También podrías modificar demasiado la JB y hacer que el bot deje de responder bien.</p>
+                              <h3>[ ✦ ] FILTRO</h3>
+                              <p>No aplica en todos los casos, pero es una sugerencia tanto para usuarios como para creadores.</p>
+                              <p>A veces puede saltar el filtro aunque no hayas hecho nada inapropiado y la CARD tampoco contenga nada de esa índole. Hay modelos en los que instrucciones sobre cómo debe rolear la IA —por ejemplo, «haz uso de los personajes NPC» o «si el usuario te hace notas OOC, hazle caso»— pueden activar un filtro. Prueba editar la CARD y borrar la parte que contenga esas instrucciones. El resultado depende del modelo: no aplica en todos los casos y algunos tienen filtros más bajos que no requieren hacerlo.</p>
+                              <div class="blog-footer">
+                                  ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
+                              </div>`
                 },
                 {
-                    id: "loras", title: "ABOUT MY LORAS", type: "Tutorial", date: "04 ABR 2026",
+                    id: "loras", title: "ABOUT MY LORAS", type: "Tutorial", date: "04 ABR 2025",
                     img: "https://files.catbox.moe/5t329j.png", desc: "Mini tutorial y divulgación sobre mis LorA's en PixAI. Cómo usarlos y farmear puntos.",
                     content: `<p style="text-align:center; opacity:0.8;">୧ * ──────────────────── • ｡ﾟﾟ</p>
-                              <p><strong>: : ¡𝗛𝗼𝗹𝗮 𝗮 𝘁𝗼𝗱𝗼𝘀!</strong> Últimamente he estado compartiendo información sobre mis 𝗟𝗼𝗿𝗔'𝘀: dónde encontrarlos, cómo usarlos, etc.</p>
-                              <p>No me extenderé demasiado. Es un mini tutorial y divulgación solo sobre mis LorA's.</p>
+                              <p><strong>: : ¡𝗛𝗼𝗹𝗮 𝗮 𝘁𝗼𝗱𝗼𝘀!</strong> Últimamente he estado compartiendo información sobre mis 𝗟𝗼𝗿𝗔'𝘀: dónde encontrarlos, cómo usarlos, etcétera. Algunas personas incluso me han enviado mensajes directos para preguntar al respecto, cosa que agradezco. Sin embargo, sé que, al igual que yo, hay muchas personas a las que les da pena preguntar o que tienen poco —o ningún— conocimiento sobre 𝗣𝗶𝘅𝗔𝗜.</p>
+                              <p style="text-align:center; font-family:'Playfair Display',serif; font-size:1.2rem;">︵ Esta guía es precisamente<br><strong>para ustedes.</strong> ◌Ⳋ𝅄 ⸜(｡˃ ᵕ ˂ )⸝♡</p>
+                              <p>No me extenderé demasiado para evitar una sobrecarga visual. Es un mini tutorial y, al mismo tiempo, una pequeña divulgación informativa solo sobre mis LorA's; probablemente después haga un tutorial más técnico acerca de PixAI (?ᐢᗜᐢ)</p>
+                              <p><strong>𓂃🖊 NOTA:</strong> Mi método de aprendizaje ha sido empírico e interactivo. No esperen demasiados tecnicismos ni explicaciones científicas; simplemente fui una persona curiosa probando funciones y descubriendo cosas sobre la marcha. Si tienen alguna duda, pueden dejarla en los comentarios o escribirme por NGL si se sienten más cómodos con ese medio. ᓚ₍ ^. .^₎</p>
+                              <p><strong>➛ Índice 🦋 ೃ</strong></p>
+                              <ol>
+                                  <li>Introducción</li>
+                                  <li>Mis LorA's</li>
+                                  <li>Puntos</li>
+                                  <li>Conclusión y tips</li>
+                              </ol>
+                              <div class="blog-footer">╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊</div>
                               <h3>[ ✦ ] INTRODUCCIÓN</h3>
-                              <p><strong>𐙚 ¿Ｑｕｅ ｅｓ ＰｉｘＡＩ？ ౨ৎ˚₊‧</strong><br>Es un sitio web para generación de imágenes mediante prompts.</p>
-                              <p><strong>𐙚 ¿Ｑｕｅ ｅｓ ｕｎ ＬｏｒＡ？ ౨ৎ˚₊‧</strong><br>Básicamente imita ciertos estilos en específico y los replica.</p>
+                              <p>Recientemente, PixAI se ha vuelto bastante popular en la comunidad y han surgido muchos tutoriales básicos al respecto. Antes de hablar sobre mis LorA's, es importante tener claro qué es PixAI.</p>
+                              <p><strong>𐙚 ¿Ｑｕｅ ｅｓ ＰｉｘＡＩ？ ౨ৎ˚₊‧</strong><br>Es un <strong>sitio web</strong> —y también una app— diseñado para generar imágenes mediante prompts. Su sistema de indicaciones es muy similar al de <strong>Niji</strong> o <strong>Midjourney</strong>, así que, si ya los has usado, te será fácil adaptarte.</p>
+                              <p><strong>𐙚 ¿Ｑｕｅ ｅｓ ｕｎ ＬｏｒＡ？ ౨ৎ˚₊‧</strong><br>«Son una técnica de inteligencia artificial que permite adaptar modelos grandes a tareas específicas. […] Utilizan algoritmos de deep learning para aprender las características y estilos de las imágenes de muestra». En resumidas cuentas, imita ciertos estilos en específico y los replica. (⁠≧⁠▽⁠≦⁠)</p>
+                              <p><strong>𐙚 ¿ŊUŊCA HAS USAƉO ALGO ASÍ? ౨ৎ˚₊‧</strong><br>¡No pasa nada! PixAI es muy amigable con los principiantes. Solo tienes que escribir el prompt como prefieras y la plataforma se encargará de crear imágenes de excelente calidad. (❁ᴗ͈ˬᴗ͈)</p>
                               <h3>[ ✦ ] MIS LORA'S</h3>
-                              <p>Puedes encontrarlos en: <a href="https://pixai.art/@angiee143/artworks" target="_blank" style="color:var(--accent-color);">pixai.art/@angiee143/artworks</a></p>
-                              <p>Si eres novato, solo entra a mi perfil, busca una imagen que te llame la atención y selecciona “𝗨𝘀𝗮𝗿 𝗰𝗼𝗺𝗼 𝗿𝗲𝗳𝗲𝗿𝗲𝗻𝗰𝗶𝗮.”</p>
+                              <p>Puedes encontrar todos mis LorA's en el siguiente enlace: <a href="https://pixai.art/@angiee143/artworks" target="_blank" rel="noopener noreferrer" style="color:var(--accent-color);">pixai.art/@angiee143/artworks</a></p>
+                              <p>Si el enlace no abre directamente, puedes ir a mi perfil, buscar la sección de «Enlaces» y desde ahí acceder tanto a mi PixAI como a mi NGL. Si todavía tienes problemas, entra a PixAI, busca «angiee143» y cambia los resultados a «Usuarios». ૮꒰ ˶• ༝ •˶꒱ა ♡</p>
+                              <p><strong>𐙚 ¿Ｅｒｅｓ ｅｘｐｌｏｒａｄｏｒ？ ౨ৎ˚₊‧</strong><br>Puedes experimentar libremente agregando mis LorA's a tus bases de confianza y probar combinaciones hasta encontrar la que más te guste. ᐢᗜᐢ</p>
+                              <p><strong>𐙚 ¿Ｅｒｅｓ Ｎｏｖａｔｏ？ ౨ৎ˚₊‧</strong><br>¿Eres principiante y cuidas tus puntos? No hay problema. Entra a mi perfil, busca una imagen que te llame la atención y que encaje con lo que quieres generar, y selecciona la opción «𝗨𝘀𝗮𝗿 𝗰𝗼𝗺𝗼 𝗿𝗲𝗳𝗲𝗿𝗲𝗻𝗰𝗶𝗮». ૮ ˶ᵔ ᵕ ᵔ˶ ა</p>
+                              <p><strong>𓂃🖊 NOTA:</strong> No tengo mis prompts públicos porque muchas veces son muy al azar. Pero no quiero que piensen que el prompt es lo que hace que la imagen luzca bien: mis configuraciones están hechas para funcionar con casi cualquier indicación. Eso sí, recomiendo evitar el formato «W++», por ejemplo: Tipo de Arte (texto+texto). ≽ܫ≼</p>
                               <h3>[ ✦ ] PUNTOS</h3>
-                              <p>Formas de farmear puntos en PixAI:</p>
+                              <p>¡Oh no! ¡Se me acabaron los puntos! (ꐦ ◣‸◢) Tranquilo, amiwuito, hay varias formas de farmear puntos en PixAI.</p>
+                              <p><strong>⌗ ᑌSᗩᑎᗪO ᒪᗩ ᗩᑭᑭ ౨ৎ˚₊‧</strong></p>
                               <ul>
                                   <li>𝟭𝟬,𝟬𝟬𝟬 puntos diarios por reclamación normal.</li>
                                   <li>𝟬𝟱,𝟬𝟬𝟬 puntos por ver un anuncio.</li>
-                                  <li>Subiendo imágenes y ganando "me gusta".</li>
+                                  <li>𝟬𝟭,𝟬𝟬𝟬 puntos por compartir el enlace de una obra (máximo 3 veces al día).</li>
                               </ul>
+                              <p><strong>⌗ ᑭᑌᗷᒪIᑕᗩᑎᗪO TᑌS IᗰᗩGᕮᑎᕮS ౨ৎ˚₊‧</strong></p>
+                              <ul>
+                                  <li>Puedes subir hasta 10 imágenes al día y ganar 𝟭,𝟬𝟬𝟬 puntos por cada una.</li>
+                                  <li>Cada «me gusta» que recibas te da 10 puntos, hasta un máximo de 𝟭𝟬𝟬 puntos diarios.</li>
+                              </ul>
+                              <h3>[ ✦ ] CONCLUSIÓN Y TIPS</h3>
+                              <p>Primero que nada, <strong>gracias por llegar hasta aquí</strong>. Me tomó bastante tiempo hacer una investigación y no saben lo difícil que fue para mí no dar demasiadas vueltas al hablar. ૮ ˶︶^︶˶ ა</p>
+                              <p>Quiero aclarar que sí es posible usar los estilos de NovelAI en PixAI: puedes usar artistas colocando «Artist By: kittew», «Artist By: wengwengchim» o similares en tu prompt. Mis LorA's mayormente imitan estilos creados por la IA misma y no tanto el estilo de un artista fijo, pero, en teoría, es posible colocar etiquetas de este tipo.</p>
+                              <p><strong>𐙚 ¿Ａｕｎ ｔｉｅｎｅｓ ｄｕｄａｓ？ ౨ৎ˚₊‧</strong><br>No te preocupes, puedes escribirme por DM y haré lo posible por ayudarte. Además, todas las configuraciones que he publicado ya están probadas, así que puedes usarlas sin miedo a desperdiciar tus puntos.</p>
+                              <p>Oh no, mi creatividad se ha agotado y ya no tengo idea de qué más decir T-T, pero espero que esta información te haya servido. Este koala se despide con la frase más icónica de los memes:</p>
                               <div class="blog-footer">
-                                  “𝑳𝒐𝒔 𝒒𝒖𝒊𝒆𝒓𝒐 𝒎𝒖𝒄𝒉𝒐, 𝒚 𝒍𝒐𝒔 𝒒𝒖𝒊𝒆𝒓𝒐 𝒗𝒆𝒓 𝒕𝒓𝒊𝒖𝒏𝒇𝒂𝒓”<br><br>
+                                  «𝑳𝒐𝒔 𝒒𝒖𝒊𝒆𝒓𝒐 𝒎𝒖𝒄𝒉𝒐, 𝒚 𝒍𝒐𝒔 𝒒𝒖𝒊𝒆𝒓𝒐 𝒗𝒆𝒓 𝒕𝒓𝒊𝒖𝒏𝒇𝒂𝒓» 🐨<br><br>
                                   ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
                               </div>`
                 },
                 {
-                    id: "canon", title: "ABOUT CANONS", type: "Información", date: "13 ENE 2026",
+                    id: "canon", title: "ABOUT CANONS", type: "Información", date: "13 ENE 2025",
                     img: "https://files.catbox.moe/sfjt1k.webp", desc: "¿Qué significa realmente 'Canon'? Un análisis sobre terminología, fanon y headcanons.",
-                    content: `<p><strong>: : ¡Hola a todos!</strong> Recientemente me han salido varios posts refiriendo a diferencias de opiniones respecto a que significa esta palabra.</p>
+                    content: `<p><strong>: : ¡Hola a todos!</strong> Recientemente me han salido varios posts sobre diferencias de opinión respecto a qué significa esta palabra, cómo se usa y las interpretaciones personales de cada individuo. No considero que esta diferencia de pensamientos sea reciente ni que haya que referirse a ella como una «polémica»; simplemente me parece un tema interesante para el encuentro de distintas ideas, porque los posts recientes muestran que no todos lo interpretan igual.</p>
+                              <p>Probablemente también hayas leído frases como «Canon de (inserte nombre)» o similares. Por eso hago este post no solo para dar mi opinión, sino también para explicar el significado «original» del término y aclarar las dudas de quienes recién lo conocen y encuentran extraña esta nueva interpretación.</p>
+                              <p>Este post está dividido en imágenes y eres libre de leerlo o no. Si decides hacerlo, agradezco que te tomes el tiempo; de antemano, disculpa su extensión. Busco dejar todo lo más claro posible para evitar confusiones, aunque me han dicho que puedo sobreexplicar y marear con tantas palabras. Si queda alguna duda, eres bienvenidx a comentarla; responderé en la medida que mis escasos conocimientos me permitan.</p>
+                              <p><strong>➛ Índice 🦋 ೃ</strong></p>
+                              <ol>
+                                  <li>Etimología</li>
+                                  <li>Terminología</li>
+                                  <li>En la comunidad</li>
+                                  <li>Conclusiones y opiniones</li>
+                              </ol>
+                              <div class="blog-footer">╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊</div>
+                              <h3>[ ✦ ] ETIMOLOGÍA</h3>
+                              <p>La palabra <em>canon</em> proviene del griego κανών (kanōn), que, según el contexto, puede significar norma, vara de medir o regla. Los griegos la empleaban principalmente en contextos arquitectónicos y de carpintería —recordemos que Grecia fue famosa por ello—. Posteriormente, evolucionó hacia contextos de belleza y dio origen a la idea de un «canon de belleza», que buscaba definir las proporciones que debía tener el cuerpo humano. Si consumes redes sociales, probablemente te haya aparecido algún TikTok, Reel o Short de alguien cambiando el rostro de un artista para comprobar cuánto cumple esas reglas.</p>
+                              <p>Más tarde, Roma también la empleó en contextos eclesiásticos, refiriéndose a leyes o normas de la Iglesia —como los cánones de los mártires, los cánones conciliares o los textos bíblicos autorizados por una religión—. Después también tomó un significado legal y se convirtió en un término jurídico.</p>
                               <h3>[ ✦ ] TERMINOLOGÍA</h3>
+                              <p>La palabra ha adquirido diversas interpretaciones en contextos artísticos, musicales, literarios y culturales. En esta comunidad de chatbots y roleplay con inteligencias artificiales se usa el significado popular del mundo del entretenimiento. A continuación, reviso cada término:</p>
                               <ul>
-                                  <li><strong>Cᴀɴᴏɴ:</strong> Lo reconocido oficialmente como parte de la historia.</li>
-                                  <li><strong>Fᴀɴᴏɴ:</strong> No oficial, pero con amplia aceptación por la comunidad.</li>
-                                  <li><strong>Hᴇᴀᴅᴄᴀɴᴏɴ:</strong> Todo hecho que sólo es ‘canon’ dentro de tu propia mente.</li>
+                                  <li><strong>Cᴀɴᴏɴ:</strong> Inicialmente, significa todo aquello que forma parte de la historia original. Comúnmente se refiere a lo reconocido oficialmente como parte de una obra de ficción —en este caso, los bots—: tramas, personajes y detalles confirmados por los creadores originales, ya sea mediante la propia obra o declaraciones oficiales. Ejemplo: «Canónicamente, en Harry Potter se confirma que el nombre completo de Dumbledore es Albus Percival Wulfric Brian Dumbledore».</li>
+                                  <li><strong>Fᴀɴᴏɴ:</strong> A diferencia del canon, no ha sido aceptado ni confirmado oficialmente por el autor, pero recibe amplia aceptación de la comunidad de fans; incluye teorías populares del fandom. Ejemplo: «La creencia popular de que Loki y Thor tienen una relación más cercana y afectuosa de lo que muestran las películas».</li>
+                                  <li><strong>Hᴇᴀᴅᴄᴀɴᴏɴ:</strong> Refiere a un hecho que solo es «canon» dentro de tu propia mente; incluye ideas, interpretaciones o teorías personales. Ejemplo: «Yo creo que, si Piccolo hubiese encontrado el amor, sería un buen esposo».</li>
                               </ul>
                               <h3>[ ✦ ] EN LA COMUNIDAD</h3>
-                              <p>En el rol de chatbots, se centra principalmente en la pareja oficial del bot. En algunos casos simplemente es un gesto de buena voluntad.</p>
+                              <p>En general, estos términos conservan los significados que tienen en el mundo cinematográfico, aunque en esta comunidad el uso suele centrarse principalmente en la pareja oficial del bot. La decisión puede variar ligeramente según lo que el creador decida o considere conveniente.</p>
+                              <p>El autor puede decidir cuánto peso o importancia le da a la pareja oficial del personaje. En algunos casos, simplemente es un gesto de buena voluntad hacia amistades cercanas o personas que le demostraron constantemente su cariño por ese bot.</p>
+                              <p>Ese canon puede limitarse a poner en la descripción pública de una plataforma algo como «Novio/Esposo/(apodo) de», seguido del nombre o apodo de la OC que alguien usó en su rol; también puede incluir comisiones de ambos personajes, edits, memes o regalos personales como un mensaje alternativo personalizado.</p>
+                              <p>En otros casos, la selección puede tener más peso en la historia del bot: puede aparecer en detalles sutiles, como gustos particulares, o en elementos más elaborados. Si el bot se expande a un universo, por ejemplo, puede mencionarse superficialmente el nombre de la OC de la persona como pareja canónica del personaje, o integrarse de manera más notoria en la historia.</p>
                               <h3>[ ✦ ] CONCLUSIONES Y OPINIONES</h3>
-                              <p>El canon es un gesto de cariño. ¿No usas bots si tienen canon? ¿Usas bots incluso tienen canon? Ambas opciones son completamente válidas y respetables.</p>
-                              <p>Cada persona crea su propia historia canon con sus personajes. Todo universo es canon para quién rolea.</p>
+                              <p>El canon es un gesto de cariño. Cada creador decide qué reglas establece para otorgarlo o si prefiere abstenerse de esa práctica.</p>
+                              <p>¿No usas bots si tienen canon? ¿Usas bots aunque tengan canon? Ambas opciones son completamente válidas y respetables, siempre y cuando te abstengas de hacer algo que afecte a alguien más. Todos somos personas que nos hemos formado a lo largo de los años con nuestra propia moral, valores, creencias e ideales.</p>
+                              <p>Todo pensamiento puede expresarse libremente, pero hay límites cuando la forma de ser o pensar afecta a un tercero. No me refiero a que debas contenerte todo el tiempo o vivir con ansiedad por creer que puedes herir a alguien; me refiero a no insultar directa ni indirectamente a nadie por su forma de pensar, ya sea con comentarios agresivos o pasivo-agresivos.</p>
+                              <p>¿Alguien no piensa como tú? Está perfecto; no tiene por qué hacerlo. Eso no te da derecho a pelearte con un creador exigiendo canons ni a pedir que los retire solo porque no te gustan. Sé que muchas personas han tenido experiencias desagradables con la comunidad selfshipper, específicamente con quienes no comparten, y si no te sientes cómodx usando un bot que tiene canon, está perfectamente bien. Solo evita caer en conductas tóxicas por ello. Si eres el caso contrario, también abstente de criticar otras formas de verlo.</p>
+                              <p>Por último, respecto a los canons que yo tengo, soy feliz con ellos. Muchas veces, en tramas slow burn donde al mensaje 40 apenas se dan un beso en la mejilla, alguien más ya se casó y tuvo hijos con el bot, y está completamente bien. Me hace feliz saber que a alguien más le gustan los mismos bots y por eso subo recomendaciones y edits, animando a que usen esos botcitos. Con una persona un bot puede ser lindo y tímido; con otra, grosero y antipático. Cada universo es canon para quien lo rolea. No te preocupes demasiado si te gusta algún bot con canon. Como dije, si eso te afecta, también es totalmente válido y respetable.</p>
                               <div class="blog-footer">
-                                  : : ─ Cᴏɴᴄʟᴜsɪóɴ Sɪɴᴛᴇᴛɪᴢᴀᴅᴀ: Vive como quieras pensando como quieras pero no molestes a nadie más.<br><br>
+                                  ✦•······················•✦•······················•✦<br><br>
+                                  : : ─ Cᴏɴᴄʟᴜsɪóɴ Sɪɴᴛᴇᴛɪᴢᴀᴅᴀ: Vive como quieras pensando como quieras, pero no molestes a nadie más buscando dañarlo o perjudicarlo solo por no pensar como tú. Gracias por leer; te regalo un abrazo. ✨<br><br>
                                   ╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊
                               </div>`
                 },
                 {
-                    id: "opensource", title: "CÓDIGO ABIERTO", type: "Información", date: "02 FEB 2026",
+                    id: "opensource", title: "CÓDIGO ABIERTO", type: "Información", date: "02 FEB 2025",
                     img: "https://files.catbox.moe/sfjt1k.webp", desc: "¿Qué es realmente el Open Source? Aclaraciones sobre la polémica reciente.",
-                    content: `<p><strong>: : ¡Hola a todos!</strong> Dada la reciente situación, estuve viendo que hay muchas confusiones respecto a que es un programa de código abierto, así que explicaré muy brevemente todo.</p>
-                              <div style="text-align: center; margin: 20px 0; opacity: 0.5;">✦•·························•✦•·························•✦</div>
+                    content: `<p><strong>: : ¡Hola a todos!</strong> Dada la reciente situación, estuve viendo que hay muchas confusiones respecto a qué es un programa de código abierto, así que explicaré muy brevemente todo.</p>
+                              <p>Este post estará dividido en secciones; eres libre de leerlo o no. Si decides hacerlo, agradezco que te tomes el tiempo. De antemano, pido disculpas por extenderme: busco dejar lo máximo posible en claro para evitar confusiones. También me han dicho que puedo sobreexplicar y marear con tantas palabras, pero espero que en este post toda duda quede disipada.</p>
+                              <div style="text-align: center; margin: 24px 0; opacity: 0.65;">✦•·························•✦•·························•✦</div>
                               <h3>[ ✦ ] CÓDIGO ABIERTO</h3>
-                              <p>Dentro del mundo de Informática, programación y derivados, un programa de código abierto refiere a aquél disponible públicamente para acceso general a cualquier persona. En palabras sencillas, cualquier persona puede ver, modificar y mejorar su “código fuente”. Básicamente puedes agregar o quitar cualquier cosa según sea tu voluntad.</p>
-                              <p><strong>No.</strong> No todos los bots ahí son subidos por un “tercero” que plagió la obra original. Según estuve observando, obtiene información de Janitor y Chub/Venus ‘copiandola’ y ‘trasladándola’ a su servidor.</p>
+                              <p>Dentro del mundo de la informática, la programación y sus derivados, un programa de código abierto se refiere a uno disponible públicamente para acceso general. En palabras sencillas, cualquier persona puede ver, modificar y mejorar su «código fuente». Básicamente, puedes agregar o quitar cualquier cosa según tu voluntad.</p>
+                              <p><strong>No.</strong> No todos los bots que aparecen ahí son subidos por un «tercero» que plagió la obra original. Según estuve observando —aunque no lo he confirmado totalmente—, obtiene información de Janitor y Chub/Venus, «copiándola» y «trasladándola» a su servidor. En ocasiones, te crea «a la fuerza» un perfil si ya tienes uno en alguno de esos servidores.</p>
+                              <div style="text-align: center; margin: 24px 0; opacity: 0.65;">✦•·························•✦•·························•✦</div>
+                              <h3>[ ✦ ] ACLARACIONES</h3>
+                              <p>Sin embargo, hay dos cosas que se deben mencionar respecto a eso:</p>
+                              <p>Los plagios que suceden dentro de esta aplicación no necesariamente se originan directamente allí. En muchos casos, son recopilados de Janitor y Chub, ya sea por otro usuario o por la propia cuenta de los creadores.</p>
+                              <p>Según estuve leyendo, ninguna de estas dos páginas tiene algún convenio con otro servidor para prestar sus datos. Tanto Janitor como Venus declaran que cierta parte de la propiedad intelectual de los bots que publiques será asumida por ellos, a menos que se incumplan sus políticas de uso; en ese caso, la penalización e indemnización serían responsabilidad del usuario y no del servidor.</p>
+                              <p>Con esto me refiero a que, en teoría, ya sea un plagio dentro de la aplicación mencionada en la polémica o dentro de Venus/Janitor, ambos serían casos no autorizados por esos servidores. Si se quiere presentar una queja formal con posibilidad de escalarla a lo legal, es válido hacerlo si se cuenta con pruebas.</p>
+                              <div style="text-align: center; margin: 24px 0; opacity: 0.65;">✦•·························•✦•·························•✦</div>
+                              <p>Si queda alguna duda, también eres bienvenidx a comentarla y la resolveré en la medida que mis escasos conocimientos me permitan. No indagaré más al respecto porque mis conocimientos legales y de programación son básicos.</p>
+                              <p>Este post fue elaborado apresuradamente después de leer brevemente las políticas de privacidad, uso y comunidad de Janitor y Venus. Pido disculpas si algo de lo mencionado aquí es errado; es probable que existan errores de narrativa o interpretación. Invito a quienes tengan interés a leer más en los apartados correspondientes de cada servidor e informarse con mayor profundidad sobre lo que les sea útil.</p>
                               <div class="blog-footer">╰─❛ ❏ ⋆≿⁞ꜜℬyᥱ babe!¡ ੈ♡‧₊</div>`
                 }
             ]
@@ -1240,6 +1617,11 @@
             renderSagas();
             renderGrid('bots', DATABASE.bots, '#bots-grid');
             renderGrid('blogs', DATABASE.blogs, '#blogs-grid');
+            renderFilterControls('bots');
+            renderFilterControls('blogs');
+            setupFilterInteractions();
+            filterContent('bots');
+            filterContent('blogs');
             handleRouting();
             setupInteractions();
         }
@@ -1443,10 +1825,10 @@
                 const coverImage = SAGA_IMAGES[saga] || sagaBots[0].img; 
 
                 html += `
-                <a href="#collection" class="saga-card" onclick="document.getElementById('botSearch').value='${saga}'; filterContent('bots');" aria-label="Filtrar colección por la saga ${saga}">
+                <a href="#collection" class="saga-card" data-saga="${escapeAttribute(saga)}" aria-label="Filtrar colección por la saga ${saga}">
                     <img src="${coverImage}" class="saga-card-img" alt="Portada de la saga ${saga}">
                     <h3>${saga}</h3>
-                    <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">${sagaBots.length} Archivos disponibles.</p>
+                    <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">${sagaBots.length} ${sagaBots.length === 1 ? 'archivo disponible' : 'archivos disponibles'}.</p>
                     <div style="position:absolute; bottom:20px; right:20px; font-weight:bold; color:var(--wip-color); font-size:0.9rem;">Ver <i class="fa-solid fa-arrow-right"></i></div>
                 </a>`;
             });
@@ -1460,92 +1842,205 @@
             let html = '';
             
             dataArray.forEach(item => {
-                let tagsHtml = '';
-                if(item.tags) {
-                    item.tags.forEach(t => {
-                        let c = t === 'WIP' || t === 'En Proceso' ? 'status-wip' : '';
-                        tagsHtml += `<span class="tag ${c}">#${t}</span>`;
-                    });
-                } else if(item.type) {
-                    let c = item.type === 'Tutorial' ? 'tag-tutorial' : (item.type==='Noticia'?'tag-news':'tag-info');
-                    tagsHtml = `<span class="tag ${c}" style="margin:0;">${item.type}</span> <span style="font-size:0.7rem; color:var(--text-secondary); font-weight:bold;">${item.date}</span>`;
-                }
-
                 const isBot = type === 'bots';
                 const icon = isBot ? 'fa-eye' : 'fa-book-open';
                 const btnText = isBot ? 'Ver Archivo' : 'Leer Post';
                 const linkPrefix = isBot ? 'personaje' : 'blog';
-                
-                const tagsForData = item.tags ? item.tags.join(',') : item.type;
-                const searchStr = `${item.name||item.title} ${item.shortDesc||item.desc} ${item.saga||''} ${tagsForData}`.toLowerCase();
+                const filterTokens = getFilterTokens(item, type);
+                const searchStr = buildSearchText(item, type);
+                const cardTags = isBot ? (item.tags || []) : [item.type];
+                const tagsHtml = cardTags.map(tag => {
+                    const tagClass = tag === 'WIP' ? 'status-wip' : (tag === 'Tutorial' ? 'tag-tutorial' : (tag === 'Noticia' ? 'tag-news' : (tag === 'Información' ? 'tag-info' : '')));
+                    return `<button type="button" class="tag ${tagClass}" data-card-filter="${escapeAttribute(tag)}" aria-label="Filtrar por ${escapeAttribute(getFilterLabel(tag))}" aria-pressed="false">${escapeHtml(getFilterLabel(tag))}</button>`;
+                }).join('');
                 const sagaBadge = (isBot && item.saga) ? `<div class="saga-badge">${item.saga}</div>` : '';
                 const altText = item.name ? `Retrato de ${item.name}` : `Imagen representativa de ${item.title}`;
+                const title = item.name || item.title;
+                const description = item.shortDesc || item.desc;
 
                 html += `
-                    <div class="glass-panel card" data-search="${searchStr}" data-tags="${tagsForData}" onclick="window.location.hash='#${linkPrefix}/${item.id}'">
+                    <article class="glass-panel card" data-search="${escapeAttribute(searchStr)}" data-filter-tokens="${escapeAttribute(filterTokens.join('|'))}">
                         ${sagaBadge}
-                        <div class="card-image-container" style="${!isBot?'height:180px;':''}">
-                            <img src="${item.img || 'https://placehold.co/400x300/2b050a/D4AF37?text=No+Image'}" loading="lazy" class="card-img" alt="${altText}">
-                            <div class="card-overlay"></div>
-                        </div>
-                        <div class="card-content" style="display:flex; flex-direction:column; flex-grow:1;">
-                            ${!isBot ? `<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">${tagsHtml}</div>` : ''}
-                            <h3>${item.name || item.title}</h3>
-                            ${isBot ? `<div class="tags-container">${tagsHtml}</div>` : ''}
-                            <p class="short-desc">${item.shortDesc || item.desc}</p>
-                            <div style="margin-top:auto;">
-                                <button class="btn-iconic" style="width:100%; pointer-events:none;"><i class="fa-solid ${icon}"></i> ${btnText}</button>
+                        <a href="#${linkPrefix}/${item.id}" class="card-main-link" aria-label="${isBot ? 'Ver ficha de' : 'Leer artículo'}: ${escapeAttribute(title)}">
+                            <div class="card-image-container" style="${!isBot?'height:180px;':''}">
+                                <img src="${item.img || 'https://placehold.co/400x300/2b050a/D4AF37?text=No+Image'}" loading="lazy" class="card-img" alt="${escapeAttribute(altText)}">
+                                <div class="card-overlay"></div>
                             </div>
+                            <div class="card-content">
+                                <h3>${escapeHtml(title)}</h3>
+                                <p class="short-desc">${escapeHtml(description)}</p>
+                                <span class="btn-iconic"><i class="fa-solid ${icon}" aria-hidden="true"></i> ${btnText}</span>
+                            </div>
+                        </a>
+                        <div class="tags-container" aria-label="${isBot ? 'Etiquetas del personaje' : 'Categoría del artículo'}">
+                            ${tagsHtml}
+                            ${!isBot ? `<time class="card-date">${escapeHtml(item.date)}</time>` : ''}
                         </div>
-                    </div>
+                    </article>
                 `;
             });
             container.innerHTML = html;
         }
 
-        function toggleFilter(type, tag, btn) {
-            const filtersArray = activeFilters[type];
-            const container = btn.closest('.tags-container');
-            const btnAll = container.querySelector('.filter-all');
+        function escapeHtml(value) {
+            return String(value == null ? '' : value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
 
-            if (tag === 'all') {
+        function escapeAttribute(value) {
+            return escapeHtml(value);
+        }
+
+        function normalizeSearchText(value) {
+            return String(value == null ? '' : value)
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLocaleLowerCase('es')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function getFilterTokens(item, type) {
+            if (type === 'blogs') return item.type ? [item.type] : [];
+            const tokens = [...(item.tags || [])];
+            if (item.status === 'En Proceso' && !tokens.includes('WIP')) tokens.push('WIP');
+            if (item.saga) tokens.push(`saga:${item.saga}`);
+            return tokens;
+        }
+
+        function buildSearchText(item, type) {
+            const content = type === 'blogs' ? item.content : item.loreText;
+            const plainContent = String(content || '').replace(/<[^>]*>/g, ' ');
+            const values = type === 'blogs'
+                ? [item.title, item.type, item.date, item.desc, plainContent]
+                : [item.name, item.saga, item.shortDesc, item.quote, item.loreTitle, item.status, ...(item.tags || []), plainContent];
+            return normalizeSearchText(values.filter(Boolean).join(' '));
+        }
+
+        function getFilterLabel(value) {
+            if (value === 'all') return 'Todos';
+            if (value === 'WIP') return 'En proceso';
+            if (value.indexOf('saga:') === 0) return `Saga: ${value.substring(5)}`;
+            return value.replace(/([a-z])([A-Z])/g, '$1 $2');
+        }
+
+        function renderFilterControls(type) {
+            const container = document.getElementById(type === 'bots' ? 'bot-filters' : 'blog-filters');
+            const items = type === 'bots' ? DATABASE.bots : DATABASE.blogs;
+            const availableFilters = [...new Set(items.flatMap(item => getFilterTokens(item, type)))];
+            availableFilters.sort((a, b) => getFilterLabel(a).localeCompare(getFilterLabel(b), 'es'));
+            const allLabel = type === 'bots' ? 'Todos los personajes' : 'Todos los artículos';
+            let html = `<button type="button" class="tag filter-all" data-filter-value="all" aria-pressed="true">${allLabel}</button>`;
+            availableFilters.forEach(value => {
+                const tagClass = value === 'WIP' ? 'status-wip' : (value === 'Tutorial' ? 'tag-tutorial' : (value === 'Noticia' ? 'tag-news' : (value === 'Información' ? 'tag-info' : '')));
+                html += `<button type="button" class="tag ${tagClass}" data-filter-value="${escapeAttribute(value)}" aria-pressed="false">${escapeHtml(getFilterLabel(value))}</button>`;
+            });
+            container.innerHTML = html;
+            syncFilterControls(type);
+        }
+
+        function setupFilterInteractions() {
+            ['bots', 'blogs'].forEach(type => {
+                const container = document.getElementById(type === 'bots' ? 'bot-filters' : 'blog-filters');
+                const input = document.getElementById(type === 'bots' ? 'botSearch' : 'blogSearch');
+                container.addEventListener('click', event => {
+                    const button = event.target.closest('button[data-filter-value]');
+                    if (button) toggleFilter(type, button.dataset.filterValue);
+                });
+                input.addEventListener('input', () => filterContent(type));
+            });
+
+            document.querySelectorAll('#bots-grid, #blogs-grid').forEach(grid => {
+                grid.addEventListener('click', event => {
+                    const button = event.target.closest('button[data-card-filter]');
+                    if (!button) return;
+                    const type = grid.id === 'bots-grid' ? 'bots' : 'blogs';
+                    toggleFilter(type, button.dataset.cardFilter);
+                });
+            });
+
+            document.getElementById('sagas-container').addEventListener('click', event => {
+                const sagaCard = event.target.closest('a[data-saga]');
+                if (!sagaCard) return;
+                document.getElementById('botSearch').value = '';
+                activeFilters.bots = [`saga:${sagaCard.dataset.saga}`];
+                syncFilterControls('bots');
+                filterContent('bots');
+            });
+        }
+
+        function syncFilterControls(type) {
+            const container = document.getElementById(type === 'bots' ? 'bot-filters' : 'blog-filters');
+            const selected = activeFilters[type];
+            container.querySelectorAll('button[data-filter-value]').forEach(button => {
+                const value = button.dataset.filterValue;
+                const isActive = value === 'all' ? selected.length === 0 : selected.includes(value);
+                button.classList.toggle('active-tag', isActive);
+                button.setAttribute('aria-pressed', String(isActive));
+            });
+            const grid = document.getElementById(type === 'bots' ? 'bots-grid' : 'blogs-grid');
+            grid.querySelectorAll('button[data-card-filter]').forEach(button => {
+                const isActive = selected.includes(button.dataset.cardFilter);
+                button.classList.toggle('active-tag', isActive);
+                button.setAttribute('aria-pressed', String(isActive));
+            });
+            const count = document.getElementById(type === 'bots' ? 'bot-filter-count' : 'blog-filter-count');
+            if (count) count.textContent = selected.length ? `${selected.length} activa${selected.length === 1 ? '' : 's'}` : 'Todas';
+        }
+
+        function toggleFilter(type, value) {
+            if (value === 'all') {
                 activeFilters[type] = [];
-                container.querySelectorAll('.tag').forEach(b => b.classList.remove('active-tag'));
-                btnAll.classList.add('active-tag');
             } else {
-                btnAll.classList.remove('active-tag');
-                const index = filtersArray.indexOf(tag);
-                
-                if (index > -1) {
-                    filtersArray.splice(index, 1);
-                    btn.classList.remove('active-tag');
-                } else {
-                    filtersArray.push(tag);
-                    btn.classList.add('active-tag');
-                }
-                
-                if (filtersArray.length === 0) {
-                    btnAll.classList.add('active-tag');
-                }
+                const selected = activeFilters[type];
+                const index = selected.indexOf(value);
+                if (index >= 0) selected.splice(index, 1);
+                else selected.push(value);
             }
+            syncFilterControls(type);
             filterContent(type);
+        }
+
+        function clearFilters(type) {
+            activeFilters[type] = [];
+            const input = document.getElementById(type === 'bots' ? 'botSearch' : 'blogSearch');
+            input.value = '';
+            syncFilterControls(type);
+            filterContent(type);
+            input.focus();
         }
 
         function filterContent(type) {
             const input = document.getElementById(type === 'bots' ? 'botSearch' : 'blogSearch');
-            const query = input ? input.value.toLowerCase() : '';
-            const cards = document.querySelectorAll(`#${type === 'bots' ? 'collection' : 'guides'} .card`);
-            const currentTags = activeFilters[type];
-            
-            cards.forEach(card => {
-                const searchData = card.getAttribute('data-search');
-                const tagsData = card.getAttribute('data-tags').split(','); 
-                
-                const matchesSearch = searchData.includes(query);
-                const matchesTags = currentTags.length === 0 || currentTags.every(t => tagsData.includes(t));
+            const queryTerms = normalizeSearchText(input.value).split(' ').filter(Boolean);
+            const cards = document.querySelectorAll(`#${type === 'bots' ? 'bots-grid' : 'blogs-grid'} .card`);
+            const selected = activeFilters[type];
+            let visible = 0;
 
-                card.style.display = (matchesSearch && matchesTags) ? 'flex' : 'none';
+            cards.forEach(card => {
+                const searchData = card.dataset.search || '';
+                const tokens = (card.dataset.filterTokens || '').split('|').filter(Boolean);
+                const matchesSearch = queryTerms.every(term => searchData.includes(term));
+                const matchesFilters = selected.every(value => tokens.includes(value));
+                const showCard = matchesSearch && matchesFilters;
+                card.hidden = !showCard;
+                if (showCard) visible++;
             });
+
+            const noun = type === 'bots' ? 'personaje' : 'artículo';
+            const total = type === 'bots' ? DATABASE.bots.length : DATABASE.blogs.length;
+            document.getElementById(type === 'bots' ? 'bot-results' : 'blog-results').textContent =
+                `${visible} ${noun}${visible === 1 ? '' : 's'} de ${total}`;
+            document.getElementById(type === 'bots' ? 'bots-empty' : 'blogs-empty').hidden = visible > 0;
+            if (type === 'bots') {
+                document.getElementById('sagas-container').hidden = queryTerms.length > 0 || selected.length > 0;
+                const drawer = document.getElementById('bot-filter-drawer');
+                if (selected.length > 0) drawer.open = true;
+            }
         }
 
         function renderDetail(id, type) {
@@ -1736,6 +2231,15 @@
             else { audio.volume = 1; document.getElementById('volIcon').className = 'fa-solid fa-volume-high'; }
         }
 
+        function toggleMusicWidget() {
+            const widget = document.getElementById('music-widget');
+            const button = document.getElementById('music-expand');
+            const expanded = widget.classList.toggle('is-expanded');
+            button.setAttribute('aria-expanded', String(expanded));
+            button.setAttribute('aria-label', expanded ? 'Ocultar controles de música' : 'Mostrar controles de música');
+            button.querySelector('i').className = expanded ? 'fa-solid fa-xmark' : 'fa-solid fa-music';
+        }
+
         function showToast(msg) {
             const c = document.getElementById('toast-container');
             const t = document.createElement('div'); t.className = 'toast';
@@ -1746,10 +2250,13 @@
         function setupInteractions() {
             const toggleBtn = document.getElementById('theme-toggle');
             if (localStorage.getItem('siteTheme') === 'light') document.body.classList.add('light-mode');
+            updateThemeControl(toggleBtn);
             
             toggleBtn.addEventListener('click', () => {
                 document.body.classList.toggle('light-mode');
-                localStorage.setItem('siteTheme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+                const theme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+                localStorage.setItem('siteTheme', theme);
+                updateThemeControl(toggleBtn);
             });
 
             document.body.addEventListener('click', e => {
@@ -1763,6 +2270,12 @@
                     }
                 }
             });
+        }
+
+        function updateThemeControl(button) {
+            const isLight = document.body.classList.contains('light-mode');
+            button.setAttribute('aria-pressed', String(isLight));
+            button.setAttribute('aria-label', isLight ? 'Cambiar al tema oscuro' : 'Cambiar al tema claro');
         }
 
         document.addEventListener('DOMContentLoaded', initApp);
